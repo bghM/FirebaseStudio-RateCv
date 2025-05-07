@@ -1,7 +1,7 @@
-import type {NextConfig} from 'next';
+
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -17,6 +17,17 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  webpack: (config, { isServer }) => {
+    // Ignore Genkit server files from client bundle
+    if (!isServer) {
+      config.resolve.alias['@/ai/dev$'] = false;
+      config.resolve.alias['@/ai/genkit$'] = false;
+      config.resolve.alias['@/ai/flows/resume-critique$'] = false;
+      config.resolve.alias['@/ai/flows/resume-rephrasing$'] = false;
+      config.resolve.alias['@/services/resume-analysis$'] = false; // Added this line
+    }
+    return config;
   },
 };
 

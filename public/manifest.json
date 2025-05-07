@@ -1,0 +1,22 @@
+
+{
+  "name": "ResumeAI Rate",
+  "short_name": "ResumeAI",
+  "description": "AI-powered resume analysis tool for the Saudi job market.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F0F4F8",
+  "theme_color": "#1A56DB",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
