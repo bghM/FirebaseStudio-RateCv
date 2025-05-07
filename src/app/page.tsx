@@ -12,7 +12,7 @@ import { ResumeAnalysisModal } from '@/components/resume-analysis-modal';
 import { useLanguage } from '@/hooks/use-language';
 import { CheckCircle, Zap, Languages, UploadCloud, BarChartBig, Edit3, Star, MessageSquare, HelpCircle, SparklesIcon } from 'lucide-react';
 
-export default function HomePage() {
+export default function HomePage({ searchParams }: { searchParams?: { [key: string]: string | string[] | undefined }}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { t, direction, language } = useLanguage();
   const [mounted, setMounted] = useState(false);
@@ -277,4 +277,3 @@ function FaqItem({ value, title, answer }: FaqItemProps) {
     </AccordionItem>
   );
 }
-

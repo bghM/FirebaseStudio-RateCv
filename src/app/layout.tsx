@@ -1,11 +1,10 @@
 
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono } from 'next/font/google'; // Assuming these are intended Google Fonts as per original setup
 import './globals.css';
 import { LanguageProvider } from '@/contexts/language-context';
 import { Toaster } from '@/components/ui/toaster';
 import { ClientLayout } from '@/components/client-layout';
-
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -30,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <LanguageProvider>
-      <ClientLayout>
+      <ClientLayout fontClassName={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
         <Toaster />
       </ClientLayout>
