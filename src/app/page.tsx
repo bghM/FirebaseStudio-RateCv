@@ -82,7 +82,7 @@ export default function HomePage({ searchParams: searchParamsProp }: { searchPar
             <div className="mt-12">
               <Image
                 src="https://picsum.photos/seed/resumehero/800/400"
-                alt="Resume Analysis Illustration"
+                alt={t('resumeAnalysisIllustrationAlt')}
                 width={800}
                 height={400}
                 className="rounded-lg shadow-xl mx-auto"
@@ -239,12 +239,12 @@ interface TestimonialCardProps {
 }
 
 function TestimonialCard({ name, quote, avatar, stars }: TestimonialCardProps) {
-  const { direction } = useLanguage();
+  const { direction, t } = useLanguage();
   return (
     <Card className="p-6 text-left shadow-lg bg-muted/30 border-border">
       <CardContent className="relative">
         <div className="flex items-center mb-4">
-          <Image src={avatar} alt={name} width={50} height={50} className="rounded-full mr-4" data-ai-hint="person avatar" loading="lazy"/>
+          <Image src={avatar} alt={t('personAvatarAlt') + ' ' + name} width={50} height={50} className="rounded-full mr-4" data-ai-hint="person avatar" loading="lazy"/>
           <div>
             <h4 className="font-semibold text-foreground">{name}</h4>
             <div className="flex text-yellow-400">
@@ -282,3 +282,4 @@ function FaqItem({ value, title, answer }: FaqItemProps) {
     </AccordionItem>
   );
 }
+

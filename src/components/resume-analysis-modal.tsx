@@ -184,8 +184,8 @@ export function ResumeAnalysisModal({ isOpen, onClose }: ResumeAnalysisModalProp
                  <Sparkles className="h-4 w-4 text-secondary" />
                 <AlertTitle className="font-semibold text-secondary">{t('rephrasedContent')}</AlertTitle>
                 <AlertDescription>
-                  <p><strong>Original:</strong> {rephrasedSection.original}</p>
-                  <p><strong>Rephrased:</strong> {rephrasedSection.rephrased}</p>
+                  <p><strong>{t('originalLabel')}</strong> {rephrasedSection.original}</p>
+                  <p><strong>{t('rephrasedLabel')}</strong> {rephrasedSection.rephrased}</p>
                 </AlertDescription>
               </Alert>
             )}
@@ -222,3 +222,4 @@ const ScoreCard: React.FC<ScoreCardProps> = ({ title, score }) => (
     <Progress value={score} className="h-2 [&>div]:bg-gradient-to-r [&>div]:from-primary [&>div]:to-accent" />
   </div>
 );
+

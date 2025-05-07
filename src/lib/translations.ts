@@ -59,6 +59,10 @@ export interface Translations {
     languageToggle: string;
     english: string;
     arabic: string;
+    resumeAnalysisIllustrationAlt: string;
+    personAvatarAlt: string;
+    originalLabel: string;
+    rephrasedLabel: string;
   };
   ar: {
     [key: string]: string;
@@ -117,6 +121,10 @@ export interface Translations {
     languageToggle: string;
     english: string;
     arabic: string;
+    resumeAnalysisIllustrationAlt: string;
+    personAvatarAlt: string;
+    originalLabel: string;
+    rephrasedLabel: string;
   };
 }
 
@@ -177,6 +185,10 @@ export const translations: Translations = {
     languageToggle: "Language",
     english: "English",
     arabic: "عربي",
+    resumeAnalysisIllustrationAlt: "Resume Analysis Illustration",
+    personAvatarAlt: "Person Avatar",
+    originalLabel: "Original:",
+    rephrasedLabel: "Rephrased:",
   },
   ar: {
     appName: "سيراه",
@@ -234,6 +246,11 @@ export const translations: Translations = {
     languageToggle: "اللغة",
     english: "English",
     arabic: "عربي",
+    resumeAnalysisIllustrationAlt: "رسم توضيحي لتحليل السيرة الذاتية",
+    personAvatarAlt: "الصورة الرمزية للشخص",
+    originalLabel: "الأصلي:",
+    rephrasedLabel: "معاد صياغته:",
   },
 };
+
 
