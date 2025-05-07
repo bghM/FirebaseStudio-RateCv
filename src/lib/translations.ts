@@ -122,7 +122,7 @@ export interface Translations {
 
 export const translations: Translations = {
   en: {
-    appName: "ResumeAI Rate",
+    appName: "Seirah",
     heroTitle: "Rate Your Resume with AI for the Saudi Market",
     heroSubtitle: "Get instant scores on Tailoring, Content, Format, Sections, & Style. Land your dream job faster!",
     analyzeMyResume: "Analyze My Resume",
@@ -155,7 +155,7 @@ export const translations: Translations = {
     finalCtaTitle: "Ready to Elevate Your Resume?",
     finalCtaSubtitle: "Stop guessing and start improving. Get your free AI resume analysis today and take the next step in your career.",
     getStartedNow: "Get Started Now",
-    footerRights: "© 2024 ResumeAI Rate. All rights reserved.",
+    footerRights: "© 2024 Seirah. All rights reserved.",
     uploadYourResume: "Analyze Your Resume",
     pasteResumeText: "Paste your resume text here...",
     analyzing: "Analyzing...",
@@ -179,7 +179,7 @@ export const translations: Translations = {
     arabic: "عربي",
   },
   ar: {
-    appName: "تقييم السيرة الذاتية بالذكاء الاصطناعي",
+    appName: "سيراه",
     heroTitle: "قيّم سيرتك الذاتية بالذكاء الاصطناعي للسوق السعودي",
     heroSubtitle: "احصل على تقييم فوري للتخصيص، المحتوى، التنسيق، الأقسام، والأسلوب. احصل على وظيفة أحلامك بشكل أسرع!",
     analyzeMyResume: "حلل سيرتي الذاتية",
@@ -212,7 +212,7 @@ export const translations: Translations = {
     finalCtaTitle: "هل أنت مستعد للارتقاء بسيرتك الذاتية؟",
     finalCtaSubtitle: "توقف عن التخمين وابدأ في التحسين. احصل على تحليل مجاني لسيرتك الذاتية بالذكاء الاصطناعي اليوم واتخذ الخطوة التالية في حياتك المهنية.",
     getStartedNow: "ابدأ الآن",
-    footerRights: "© 2024 تقييم السيرة الذاتية بالذكاء الاصطناعي. جميع الحقوق محفوظة.",
+    footerRights: "© 2024 سيراه. جميع الحقوق محفوظة.",
     uploadYourResume: "حلل سيرتك الذاتية",
     pasteResumeText: "الصق نص سيرتك الذاتية هنا...",
     analyzing: "جاري التحليل...",
@@ -236,3 +236,4 @@ export const translations: Translations = {
     arabic: "عربي",
   },
 };
+

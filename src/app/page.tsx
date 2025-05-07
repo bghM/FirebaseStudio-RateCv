@@ -10,7 +10,7 @@ import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { ResumeAnalysisModal } from '@/components/resume-analysis-modal';
 import { useLanguage } from '@/hooks/use-language';
-import { CheckCircle, Zap, Languages, UploadCloud, BarChartBig, Edit3, Star, MessageSquare, HelpCircle, Sparkles } from 'lucide-react';
+import { CheckCircle, Zap, Languages, UploadCloud, BarChartBig, Edit3, Star, MessageSquare, HelpCircle, SparklesIcon } from 'lucide-react';
 
 export default function HomePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -69,7 +69,7 @@ export default function HomePage() {
             </p>
             <Button 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-lg transition-transform transform hover:scale-105" 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-lg transition-transform transform hover:scale-105" 
               onClick={handleAnalyzeButtonClick}
             >
               <Zap className="mr-2 h-5 w-5" /> {t('analyzeMyResume')}
@@ -93,9 +93,9 @@ export default function HomePage() {
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">{t('howItWorks')}</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <HowItWorksStep icon={<UploadCloud className="h-12 w-12 text-accent mb-4" />} title={t('step1Title')} description={t('step1Description')} stepNumber="1" />
-              <HowItWorksStep icon={<BarChartBig className="h-12 w-12 text-accent mb-4" />} title={t('step2Title')} description={t('step2Description')} stepNumber="2" />
-              <HowItWorksStep icon={<Edit3 className="h-12 w-12 text-accent mb-4" />} title={t('step3Title')} description={t('step3Description')} stepNumber="3" />
+              <HowItWorksStep icon={<UploadCloud className="h-12 w-12 text-primary mb-4" />} title={t('step1Title')} description={t('step1Description')} stepNumber="1" />
+              <HowItWorksStep icon={<BarChartBig className="h-12 w-12 text-primary mb-4" />} title={t('step2Title')} description={t('step2Description')} stepNumber="2" />
+              <HowItWorksStep icon={<Edit3 className="h-12 w-12 text-primary mb-4" />} title={t('step3Title')} description={t('step3Description')} stepNumber="3" />
             </div>
           </div>
         </section>
@@ -106,7 +106,7 @@ export default function HomePage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">{t('benefits')}</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <BenefitCard icon={<CheckCircle className="h-10 w-10 text-primary" />} title={t('benefitATSTitle')} description={t('benefitATSDescription')} />
-              <BenefitCard icon={<Sparkles className="h-10 w-10 text-primary" />} title={t('benefitAITitle')} description={t('benefitAIDescription')} />
+              <BenefitCard icon={<SparklesIcon className="h-10 w-10 text-primary" />} title={t('benefitAITitle')} description={t('benefitAIDescription')} />
               <BenefitCard icon={<Languages className="h-10 w-10 text-primary" />} title={t('benefitLangTitle')} description={t('benefitLangDescription')} />
             </div>
           </div>
@@ -167,7 +167,7 @@ export default function HomePage() {
             <Button 
               size="lg" 
               variant="default" 
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-xl transition-transform transform hover:scale-105"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-xl transition-transform transform hover:scale-105"
               onClick={handleFinalCtaClick}
             >
                <Zap className="mr-2 h-5 w-5" /> {t('getStartedNow')}
