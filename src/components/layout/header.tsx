@@ -4,24 +4,53 @@
 import Link from 'next/link';
 import { useLanguage } from '@/hooks/use-language';
 
-// Inline SVG for Bow Tie - a simplified version
+// Inline SVG for Bow Tie - updated to resemble the provided image
 const BowTieIcon = () => (
   <svg
     width="32"
     height="32"
-    viewBox="0 0 24 24"
-    fill="currentColor"
+    viewBox="0 0 64 64" // Adjusted viewBox for more detail
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="h-8 w-8 text-primary"
+    className="h-8 w-8" // text-primary removed to allow SVG to define its own colors
   >
-    <path d="M12 12C12.5523 12 13 11.5523 13 11C13 10.4477 12.5523 10 12 10C11.4477 10 11 10.4477 11 11C11 11.5523 11.4477 12 12 12Z" />
-    <path d="M7 15C8.10457 15 9 14.1046 9 13H5C5 14.1046 5.89543 15 7 15Z" />
-    <path d="M17 15C18.1046 15 19 14.1046 19 13H15C15 14.1046 15.8954 15 17 15Z" />
-    <path d="M7 9C8.10457 9 9 9.89543 9 11H5C5 9.89543 5.89543 9 7 9Z" />
-    <path d="M17 9C18.1046 9 19 9.89543 19 11H15C15 9.89543 15.8954 9 17 9Z" />
-    <path fillRule="evenodd" clipRule="evenodd" d="M12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14ZM12 12C12.5523 12 13 11.5523 13 11C13 10.4477 12.5523 10 12 10C11.4477 10 11 10.4477 11 11C11 11.5523 11.4477 12 12 12Z" />
-    <path fillRule="evenodd" clipRule="evenodd" d="M5 11C5 9.34315 3.65685 8 2 8C0.343146 8 0 9.34315 0 11C0 12.6569 0.343146 14 2 14C3.65685 14 5 12.6569 5 11ZM7 11C7 9.89543 7.89543 9 9 9H5C5.00001 9.89543 5.89543 11 7 11Z" transform="matrix(-1 0 0 1 12 0)"/>
-    <path fillRule="evenodd" clipRule="evenodd" d="M19 11C19 9.34315 20.3431 8 22 8C23.6569 8 24 9.34315 24 11C24 12.6569 23.6569 14 22 14C20.3431 14 19 12.6569 19 11ZM17 11C17 9.89543 16.1046 9 15 9H19C18.9991 9.89543 18.1046 11 17 11Z" />
+    {/* Main bow tie shape - Yellow */}
+    <path
+      d="M32 24C19.8497 24 10 28.4772 10 32C10 35.5228 19.8497 40 32 40C44.1503 40 54 35.5228 54 32C54 28.4772 44.1503 24 32 24Z"
+      fill="#FFD700" // Yellow color
+    />
+    {/* Knot - Slightly darker yellow or same yellow */}
+    <rect x="28" y="26" width="8" height="12" fill="#FFC700" rx="1" />
+
+    {/* Left side details / accents (simplified white highlight) */}
+    <path d="M10 32C10 29.7909 11.7909 28 14 28C14.5523 28 15 28.4477 15 29C15 29.5523 14.5523 30 14 30C13.4477 30 13 30.4477 13 31C13 31.5523 13.4477 32 14 32C13 32 10 32 10 32Z" fill="#FFFFFF" opacity="0.7"/>
+
+
+    {/* Dots - Black */}
+    {/* Left Side Dots */}
+    <circle cx="18" cy="30" r="1.5" fill="black" />
+    <circle cx="22" cy="33" r="1.5" fill="black" />
+    <circle cx="16" cy="34" r="1.5" fill="black" />
+    <circle cx="25" cy="29" r="1.5" fill="black" />
+    <circle cx="20" cy="27" r="1.5" fill="black" />
+
+    {/* Right Side Dots */}
+    <circle cx="46" cy="30" r="1.5" fill="black" />
+    <circle cx="42" cy="33" r="1.5" fill="black" />
+    <circle cx="48" cy="34" r="1.5" fill="black" />
+    <circle cx="39" cy="29" r="1.5" fill="black" />
+    <circle cx="44" cy="27" r="1.5" fill="black" />
+
+    {/* Lines on knot sides - Black */}
+    {/* Left lines */}
+    <path d="M28 28L24 26" stroke="black" strokeWidth="1.5" />
+    <path d="M28 32L22 32" stroke="black" strokeWidth="1.5" />
+    <path d="M28 36L24 38" stroke="black" strokeWidth="1.5" />
+
+    {/* Right lines */}
+    <path d="M36 28L40 26" stroke="black" strokeWidth="1.5" />
+    <path d="M36 32L42 32" stroke="black" strokeWidth="1.5" />
+    <path d="M36 36L40 38" stroke="black" strokeWidth="1.5" />
   </svg>
 );
 
