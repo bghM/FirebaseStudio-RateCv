@@ -7,12 +7,12 @@ import { useLanguage } from '@/hooks/use-language';
 // Inline SVG for Bow Tie - updated to resemble the provided image
 const BowTieIcon = () => (
   <svg
-    width="32"
-    height="32"
-    viewBox="0 0 64 64" // Adjusted viewBox for more detail
+    width="48" // Changed from 32 to 48
+    height="48" // Changed from 32 to 48
+    viewBox="0 0 64 64" 
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    className="h-8 w-8" // text-primary removed to allow SVG to define its own colors
+    className="h-12 w-12" // Changed from h-8 w-8 to h-12 w-12
   >
     {/* Main bow tie shape - Yellow */}
     <path
