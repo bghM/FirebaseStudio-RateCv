@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,7 +12,12 @@ import { ResumeAnalysisModal } from '@/components/resume-analysis-modal';
 import { useLanguage } from '@/hooks/use-language';
 import { CheckCircle, Zap, Languages, UploadCloud, BarChartBig, Edit3, Star, MessageSquare, HelpCircle, SparklesIcon } from 'lucide-react';
 
-export default function HomePage({ searchParams }: { searchParams?: { [key: string]: string | string[] | undefined }}) {
+export default function HomePage({ searchParams: searchParamsProp }: { searchParams?: { [key: string]: string | string[] | undefined }}) {
+  // Use React.use to unwrap searchParams if they are a promise (for Suspense)
+  // For client components, searchParams are usually passed directly as an object.
+  // This check is more relevant if searchParams could be a promise in some scenarios.
+  const searchParams = typeof searchParamsProp?.then === 'function' ? use(searchParamsProp) : searchParamsProp;
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { t, direction, language } = useLanguage();
   const [mounted, setMounted] = useState(false);
@@ -66,7 +71,7 @@ export default function HomePage({ searchParams }: { searchParams?: { [key: stri
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               {t('heroSubtitle')}
-            </p>
+            </p>            
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-lg transition-transform transform hover:scale-105" 
@@ -82,7 +87,7 @@ export default function HomePage({ searchParams }: { searchParams?: { [key: stri
                 height={400}
                 className="rounded-lg shadow-xl mx-auto"
                 data-ai-hint="resume analysis interface"
-                priority
+                loading="lazy" 
               />
             </div>
           </div>
@@ -239,7 +244,7 @@ function TestimonialCard({ name, quote, avatar, stars }: TestimonialCardProps) {
     <Card className="p-6 text-left shadow-lg bg-muted/30 border-border">
       <CardContent className="relative">
         <div className="flex items-center mb-4">
-          <Image src={avatar} alt={name} width={50} height={50} className="rounded-full mr-4" data-ai-hint="person avatar"/>
+          <Image src={avatar} alt={name} width={50} height={50} className="rounded-full mr-4" data-ai-hint="person avatar" loading="lazy"/>
           <div>
             <h4 className="font-semibold text-foreground">{name}</h4>
             <div className="flex text-yellow-400">
