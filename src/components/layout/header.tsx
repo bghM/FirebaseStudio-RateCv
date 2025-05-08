@@ -54,7 +54,7 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
             <span className="text-gradient-brand">{t('appName')}</span>
           </Link>
           <Link href="/" className={`ml-8 text-muted-foreground hover:text-primary transition-colors ${direction === 'rtl' ? 'mr-8 ml-0' : 'ml-8'}`}>
-            {t('home')}
+            {t('tabBar1')}
           </Link>
         </div>
 
