@@ -86,7 +86,7 @@ export default function HomePage({ searchParams: searchParamsProp }: { searchPar
             <div className="mt-12 md:mt-0 flex justify-center"> {/* Flex and justify added for centering */}
               <Image
                 src="/image2.png"
-                alt={t('resumeAnalysisIllustrationAlt')} 
+                alt={t('resumeAnalysisIllustrationAlt')}
                 width={800}
                 height={400}
                 className="mx-auto bg-transparent"
@@ -174,8 +174,8 @@ export default function HomePage({ searchParams: searchParamsProp }: { searchPar
               {t('finalCtaSubtitle')}
             </p>
             <Button 
-              size="lg" 
-              variant="default" 
+              size="lg"
+              variant="default"
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-xl transition-transform transform hover:scale-105"
               onClick={handleFinalCtaClick}
             >

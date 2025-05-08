@@ -42,7 +42,7 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt={t('appName') + ' Logo'}
               width={48}
               height={48}
