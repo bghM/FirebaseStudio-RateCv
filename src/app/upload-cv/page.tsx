@@ -223,9 +223,9 @@ const UploadCVPage: React.FC = () => {
           <section className="my-12 md:my-16">
             <h2 className={`text-2xl md:text-3xl font-semibold mb-8 text-center text-foreground ${direction === 'rtl' ? 'md:text-right' : 'md:text-left'}`}>{t('howItWorksTitle')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              <InfoCardStep imageSrc="https://picsum.photos/seed/uploadstep/400/300" dataAiHint="upload resume" alt={t('uploadResumeStep')} title={t('uploadResumeStep')} description={t('uploadResumeDescription')} />
-              <InfoCardStep imageSrc="https://picsum.photos/seed/aiscan/400/300" dataAiHint="AI analysis" alt={t('aiScanStep')} title={t('aiScanStep')} description={t('aiScanDescription')} />
-              <InfoCardStep imageSrc="https://picsum.photos/seed/resultsstep/400/300" dataAiHint="view results" alt={t('seeResultsStep')} title={t('seeResultsStep')} description={t('seeResultsDescription')} />
+              <InfoCardStep imageSrc="/step1.png" dataAiHint="upload resume" alt={t('uploadResumeStep')} title={t('uploadResumeStep')} description={t('uploadResumeDescription')} />
+              <InfoCardStep imageSrc="/step2.png" dataAiHint="AI analysis" alt={t('aiScanStep')} title={t('aiScanStep')} description={t('aiScanDescription')} />
+              <InfoCardStep imageSrc="/step3.png" dataAiHint="view results" alt={t('seeResultsStep')} title={t('seeResultsStep')} description={t('seeResultsDescription')} />
             </div>
           </section>
 

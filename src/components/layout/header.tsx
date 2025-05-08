@@ -42,7 +42,7 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
         <div className="flex items-center">
           <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
             <Image
-              src="/logo.svg"
+              src="/logo.png"
               alt={t('appName') + ' Logo'}
               width={48}
               height={48}
@@ -69,7 +69,7 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
             {t('getStartedNow')}
           </Button>
           {/* Language toggle removed as per previous instruction */}
-          {/*
+          
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" aria-label={t('toggleLanguage')}>
@@ -85,7 +85,7 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          */}
+         
         </div>
       </div>
     </header>
