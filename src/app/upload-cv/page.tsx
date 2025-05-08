@@ -22,6 +22,9 @@ import { TailSpin } from 'react-loader-spinner';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button'; // Import Button for the main analyze button
 import { UploadCloud } from 'lucide-react'; // Import an icon
+// Import Card components from shadcn/ui explicitly to avoid using local dummy versions
+import { Card as ShadCard, CardContent as ShadCardContent, CardHeader as ShadCardHeader, CardTitle as ShadCardTitle } from '@/components/ui/card';
+
 
 const UploadCVPage: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -175,11 +178,11 @@ const UploadCVPage: React.FC = () => {
         <main className="container mx-auto p-4 md:p-8 flex-grow">
           <h1 className={`text-3xl md:text-4xl font-bold mb-8 text-center text-primary ${direction === 'rtl' ? 'md:text-right' : 'md:text-left'}`}>{t('uploadCVTitle')}</h1>
 
-          <Card className="max-w-2xl mx-auto shadow-xl bg-card border-border rounded-xl overflow-hidden">
-            <CardHeader className="bg-muted/30 p-6 border-b border-border">
-              <CardTitle className={`text-2xl font-semibold text-foreground ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>{t('uploadAreaTitle')}</CardTitle>
-            </CardHeader>
-            <CardContent className="p-6 md:p-8">
+          <ShadCard className="max-w-2xl mx-auto shadow-xl bg-card border-border rounded-xl overflow-hidden">
+            <ShadCardHeader className="bg-muted/30 p-6 border-b border-border">
+              <ShadCardTitle className={`text-2xl font-semibold text-foreground ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>{t('uploadAreaTitle')}</ShadCardTitle>
+            </ShadCardHeader>
+            <ShadCardContent className="p-6 md:p-8">
               <div
                 {...getRootProps()}
                 className={`border-2 border-dashed rounded-lg p-8 md:p-12 text-center cursor-pointer transition-colors
@@ -216,32 +219,32 @@ const UploadCVPage: React.FC = () => {
                   {t('startNowFreeRating')}
                 </Button>
               )}
-            </CardContent>
-          </Card>
+            </ShadCardContent>
+          </ShadCard>
 
-          {/* How It Works Section - Simplified */}
+          {/* How It Works Section */}
           <section className="my-12 md:my-16">
             <h2 className={`text-2xl md:text-3xl font-semibold mb-8 text-center text-foreground ${direction === 'rtl' ? 'md:text-right' : 'md:text-left'}`}>{t('howItWorksTitle')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              <InfoCardStep imageSrc="/step1.png" dataAiHint="upload resume" alt={t('uploadResumeStep')} title={t('uploadResumeStep')} description={t('uploadResumeDescription')} />
-              <InfoCardStep imageSrc="/step2.png" dataAiHint="AI analysis" alt={t('aiScanStep')} title={t('aiScanStep')} description={t('aiScanDescription')} />
-              <InfoCardStep imageSrc="/step3.png" dataAiHint="view results" alt={t('seeResultsStep')} title={t('seeResultsStep')} description={t('seeResultsDescription')} />
+              <InfoCardStep imageSrc="/step1.png" dataAiHint="upload resume" alt={t('uploadResumeStep')} title={t('uploadResumeStep')} description={t('uploadResumeDescription')} background={false} />
+              <InfoCardStep imageSrc="/step2.png" dataAiHint="AI analysis" alt={t('aiScanStep')} title={t('aiScanStep')} description={t('aiScanDescription')} background={false} />
+              <InfoCardStep imageSrc="/step3.png" dataAiHint="view results" alt={t('seeResultsStep')} title={t('seeResultsStep')} description={t('seeResultsDescription')} background={false} />
             </div>
           </section>
 
-          {/* Benefits Section - Simplified */}
-          <section className="my-12 md:my-16 bg-muted/50 p-6 md:p-8 rounded-xl shadow">
+          {/* Benefits Section */}
+          <section className="my-12 md:my-16 p-6 md:p-8">
              <h2 className={`text-2xl md:text-3xl font-semibold mb-6 text-center text-foreground ${direction === 'rtl' ? 'md:text-right' : 'md:text-left'}`}>{t('benefitsTitle')}</h2>
             <ul className={`list-disc list-inside space-y-2 text-muted-foreground ${direction === 'rtl' ? 'pr-4' : 'pl-4'}`}>
               <li>{t('benefitFreeScore')}</li>
               <li>{t('benefitATSFeedback')}</li>
               <li>{t('benefitInstantSuggestions')}</li>
               <li>{t('benefitLanguageSupport')}</li>
-              <li>{t('benefitOptionalReport')}</li>
+              <li data-ai-hint="optional detailed report">{t('benefitOptionalReport')}</li>
             </ul>
           </section>
 
-          {/* Trust & Social Proof - Simplified */}
+          {/* Trust & Social Proof */}
           <section className="my-12 md:my-16">
             <h2 className={`text-2xl md:text-3xl font-semibold mb-8 text-center text-foreground ${direction === 'rtl' ? 'md:text-right' : 'md:text-left'}`}>{t('trustProofTitle')}</h2>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-70">
@@ -277,49 +280,31 @@ interface InfoCardStepProps {
   title: string;
   description: string;
   dataAiHint: string;
+  background?: boolean; // Optional prop to control background
 }
 
-function InfoCardStep({ imageSrc, alt, title, description, dataAiHint }: InfoCardStepProps) {
+function InfoCardStep({ imageSrc, alt, title, description, dataAiHint, background = true }: InfoCardStepProps) {
   const { direction } = useContext(LanguageContext);
   return (
-    <Card className={`shadow-lg hover:shadow-xl transition-shadow overflow-hidden bg-card ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
-      <Image src={imageSrc} alt={alt} width={400} height={200} className="w-full h-40 object-cover" data-ai-hint={dataAiHint} loading="lazy"/>
-      <CardContent className="p-5">
+    <ShadCard className={`shadow-none hover:shadow-none transition-shadow overflow-hidden ${background ? 'bg-card' : 'bg-transparent border-none'} flex flex-col items-center pt-5`}>
+      <Image 
+        src={imageSrc} 
+        alt={alt} 
+        width={80} 
+        height={80} 
+        className="object-contain" 
+        data-ai-hint={dataAiHint} 
+        loading="lazy"
+      />
+      <ShadCardContent className="p-5 text-center w-full">
         <h3 className="text-xl font-semibold mb-2 text-foreground">{title}</h3>
-        <p className="text-sm text-muted-foreground">{description}</p>
-      </CardContent>
-    </Card>
+        <p className="text-base text-muted-foreground">{description}</p>
+      </ShadCardContent>
+    </ShadCard>
   );
 }
 
-// Dummy Card, CardHeader, CardTitle, CardContent components if not globally available
-// This is just to satisfy the type-checker if they are not imported from shadcn/ui
-// For a real app, these would come from your UI library (e.g., shadcn/ui)
-
-interface CardProps extends React.HTMLAttributes<HTMLDivElement> {}
-const Card = React.forwardRef<HTMLDivElement, CardProps>(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("rounded-lg border bg-card text-card-foreground shadow-sm", className)} {...props} />
-));
-Card.displayName = "Card";
-
-interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
-const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
-));
-CardHeader.displayName = "CardHeader";
-
-interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
-const CardTitle = React.forwardRef<HTMLHeadingElement, CardTitleProps>(({ className, ...props }, ref) => (
-  <h3 ref={ref} className={cn("text-lg font-semibold leading-none tracking-tight", className)} {...props} />
-));
-CardTitle.displayName = "CardTitle";
-
-interface CardContentProps extends React.HTMLAttributes<HTMLDivElement> {}
-const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
-));
-CardContent.displayName = "CardContent";
-
+// Dummy Card, CardHeader, CardTitle, CardContent components are removed as we import from shadcn/ui directly now.
 // Helper to use cn if not already available
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
@@ -330,3 +315,4 @@ function cn(...inputs: ClassValue[]) {
 
 
 export default UploadCVPage;
+
