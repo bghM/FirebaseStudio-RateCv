@@ -290,8 +290,8 @@ function InfoCardStep({ imageSrc, alt, title, description, dataAiHint, backgroun
       <Image 
         src={imageSrc} 
         alt={alt} 
-        width={80} 
-        height={80} 
+        width={180} 
+        height={180} 
         className="object-contain" 
         data-ai-hint={dataAiHint} 
         loading="lazy"

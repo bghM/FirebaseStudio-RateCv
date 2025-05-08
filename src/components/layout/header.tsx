@@ -68,7 +68,6 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
           >
             {t('getStartedNow')}
           </Button>
-          {/* Language toggle removed as per previous instruction */}
           
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
