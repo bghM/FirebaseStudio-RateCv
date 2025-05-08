@@ -8,7 +8,6 @@ import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Header } from '@/components/layout/header';
-import { Footer } from '@/components/layout/footer';
 import { ResumeAnalysisModal } from '@/components/resume-analysis-modal';
 import { useLanguage } from '@/hooks/use-language';
 import { CheckCircle, Zap, Languages, UploadCloud, BarChartBig, Edit3, Star, MessageSquare, HelpCircle, SparklesIcon } from 'lucide-react';
@@ -17,6 +16,9 @@ export default function HomePage({ searchParams: searchParamsProp }: { searchPar
   // Use React.use to unwrap searchParams if they are a promise (for Suspense)
   // For client components, searchParams are usually passed directly as an object.
   // This check is more relevant if searchParams could be a promise in some scenarios.
+const Footer = dynamic(() => import('@/components/layout/footer').then((mod) => mod.Footer), { ssr: false });
+const ResumeAnalysisModal = dynamic(() => import('@/components/resume-analysis-modal').then((mod) => mod.ResumeAnalysisModal), { ssr: false });
+
   const searchParams = typeof searchParamsProp?.then === 'function' ? use(searchParamsProp) : searchParamsProp;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
