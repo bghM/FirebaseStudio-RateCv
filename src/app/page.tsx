@@ -44,15 +44,16 @@ export default function HomePage({ searchParams: searchParamsProp }: { searchPar
     }
   };
 
-  const handleAnalyzeButtonClick = () => {
+  const handleRateCVButtonClick = () => {
     trackCTAClick('hero_cta');
+    trackCTAClick('final_cta_get_started');
     router.push('/upload-cv');
   };
   
-  const handleFinalCtaClick = () => {    
-    trackCTAClick('final_cta_get_started');
- router.push('/upload-cv');
-  }
+//   const handleFinalCtaClick = () => {
+//     trackCTAClick('final_cta_get_started');
+//  router.push('/upload-cv');
+//   }
 
   if (!mounted) {
     // Prevents hydration mismatch by not rendering anything on the server for this component
@@ -78,7 +79,7 @@ export default function HomePage({ searchParams: searchParamsProp }: { searchPar
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-lg transition-transform transform hover:scale-105"
-                onClick={handleAnalyzeButtonClick} 
+                onClick={handleRateCVButtonClick} 
               >
                 <Zap className="mr-2 h-5 w-5" /> {t('analyzeMyResume')}
               </Button>
@@ -177,7 +178,7 @@ export default function HomePage({ searchParams: searchParamsProp }: { searchPar
               size="lg"
               variant="default"
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-xl transition-transform transform hover:scale-105"
-              onClick={handleFinalCtaClick}
+              onClick={handleRateCVButtonClick}
             >
                <Zap className="mr-2 h-5 w-5" /> {t('getStartedNow')}
             </Button>

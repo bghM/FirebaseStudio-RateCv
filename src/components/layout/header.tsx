@@ -22,7 +22,7 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
     setLanguage(lang);
   };
 
-  const handleGetStartedClick = () => {
+  const handleRateCVButtonClick = () => {
     // Track CTA click
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'cta_click', {
@@ -62,7 +62,7 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
         <div className="flex items-center gap-4">
           <Button
             size="sm"
-            onClick={handleGetStartedClick} // Changed from handleAnalyze
+            onClick={handleRateCVButtonClick}
             data-ai-hint="Call to action button to analyze resume"
             className="bg-primary hover:bg-primary/90 text-primary-foreground" // Ensure primary color
           >
