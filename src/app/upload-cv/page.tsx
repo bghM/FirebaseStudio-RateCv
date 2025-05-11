@@ -1,318 +1,293 @@
 
 'use client';
 
-import React from 'react';
-// React hooks for managing state and memoizing functions.
-import { useState, useCallback, useContext, useEffect } from 'react'; // Added useEffect
-// Hook for handling drag-and-drop file uploads.
-import { useDropzone } from 'react-dropzone';
-// Hook for programmatic navigation in Next.js.
-import { useRouter} from 'next/navigation';
-// Custom hook for accessing language context and translations.
-import { LanguageContext } from '@/contexts/language-context';
-// Layout component for the header.
- import { Header } from '@/components/layout/header';
-// Custom hook for displaying toast notifications.
-import { useToast } from '@/hooks/use-toast';
-// Import for parsing .docx files
-// Loader component from react-loader-spinner (assuming it's installed).
-// Used to display a loading indicator while processing the resume.
-import { TailSpin } from 'react-loader-spinner';
-// Next.js Image component for optimized image rendering.
+import { useState, useEffect, use } from 'react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button'; // Import Button for the main analyze button
-import { UploadCloud } from 'lucide-react'; // Import an icon
-// Import Card components from shadcn/ui explicitly to avoid using local dummy versions
-import { Card as ShadCard, CardContent as ShadCardContent, CardHeader as ShadCardHeader, CardTitle as ShadCardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Header } from '@/components/layout/header';
+import { Footer } from '@/components/layout/footer';
+import { ResumeAnalysisModal } from '@/components/resume-analysis-modal';
+import { useLanguage } from '@/hooks/use-language';
+import { CheckCircle, Zap, Languages, UploadCloud, BarChartBig, Edit3, Star, MessageSquare, HelpCircle, SparklesIcon } from 'lucide-react';
 
+// HomePage is considered the Upload CV feature page, we can separate this feature to its own folder and organize the code accordingly 
+export default function HomePage({ searchParams: searchParamsProp }: { searchParams?: { [key: string]: string | string[] | undefined }}) {
+  // Use React.use to unwrap searchParams if they are a promise (for Suspense)
+  // For client components, searchParams are usually passed directly as an object.
+  // This check is more relevant if searchParams could be a promise in some scenarios.
+  const searchParams = typeof searchParamsProp?.then === 'function' ? use(searchParamsProp) : searchParamsProp;
 
-const UploadCVPage: React.FC = () => {
-  const [file, setFile] = useState<File | null>(null);
-  const [loading, setLoading] = useState(false);
-  const { t, language, direction } = useContext(LanguageContext);
-  const { toast } = useToast();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
+  const { t, direction, language } = useLanguage();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    // Initialize Gtag if it exists for tracking
+     // Initialize Gtag if it exists for tracking
     if (typeof window.gtag === 'undefined') {
       console.warn("Google Analytics gtag not found. Tracking will be disabled.");
     }
   }, []);
 
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
-    if (acceptedFiles.length > 0) {
-      const uploadedFile = acceptedFiles[0];
-      const fileExtension = uploadedFile.name.split('.').pop()?.toLowerCase();
-
-      if (fileExtension === 'pdf' || fileExtension === 'docx') {
-        setFile(uploadedFile);
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'file_dropped', { event_category: 'upload_cv', event_label: fileExtension });
-        }
-      } else {
-        toast({
-          title: t('unsupportedFileFormatError'),
-          description: t('unsupportedFileFormatDescription'),
-          variant: 'destructive',
-        });
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'file_drop_failed', { event_category: 'upload_cv', event_label: 'unsupported_format' });
-        }
-      }
-    }
-  }, [t, toast]);
-
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, accept: { 'application/pdf': ['.pdf'], 'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'] } });
-
-  const handleAnalyze = async () => {
-    if (!file) {
-      toast({
-        title: t('noFileSelectedError'),
-        description: t('noFileSelectedDescription'),
-        variant: 'destructive',
-      });
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'analyze_click_failed', { event_category: 'upload_cv', event_label: 'no_file_selected' });
-      }
-      return;
-    }
-
-    setLoading(true);
+  const trackCTAClick = (ctaName: string) => {
     if (typeof window.gtag === 'function') {
-      window.gtag('event', 'analyze_click_started', { event_category: 'upload_cv' });
+      window.gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: ctaName,
+      });
+    } else {
+      console.log(`CTA Click: ${ctaName} (gtag not available)`);
     }
-
-    let fileContent = '';
-    const reader = new FileReader();
-
-    reader.onload = async (e) => {
-      try {
-        const arrayBuffer = e.target?.result as ArrayBuffer;
-        
-        if (file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-          // Dynamically import mammoth for DOCX parsing
-          const mammoth = (await import('mammoth')).default;
-          const { value } = await mammoth.extractRawText({ arrayBuffer });
-          fileContent = value;
-        } else if (file.type === 'application/pdf') {
-          // Dynamically import pdfjs-dist for PDF parsing
-          const pdfjsLib = await import('pdfjs-dist/legacy/build/pdf.js');
-          // @ts-ignore: Setting workerSrc for pdfjs-dist
-          pdfjsLib.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
-          
-          const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
-          let textContent = '';
-          for (let i = 1; i <= pdf.numPages; i++) {
-            const page = await pdf.getPage(i);
-            const text = await page.getTextContent();
-            textContent += text.items.map(item => ('str' in item ? item.str : '')).join(' ');
-          }
-          fileContent = textContent;
-        } else {
-          toast({
-            title: t('unsupportedFileFormatError'),
-            description: t('unsupportedFileFormatDescription'),
-            variant: 'destructive',
-          });
-          setLoading(false);
-          return;
-        }
-
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'file_parsed', { event_category: 'upload_cv', event_label: file.type });
-        }
-
-        // For demo, simulate API call and redirect to a results page (not implemented)
-        // In a real app, you would send `fileContent` to your Genkit flow.
-        console.log("Extracted text length:", fileContent.length);
-        // This part would call the resumeCritique flow
-        // const analysisInput: ResumeCritiqueInput = { resumeText: fileContent, language };
-        // const analysisOutput: ResumeCritiqueOutput = await resumeCritique(analysisInput);
-
-        // For now, just log and show success
-        toast({
-          title: "Analysis (Simulated)",
-          description: "Resume text extracted. In a real app, this would go to the AI.",
-        });
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'analysis_simulated_success', { event_category: 'upload_cv', value: fileContent.length });
-        }
-        // router.push(`/rate-resume/result?response=${encodeURIComponent(JSON.stringify(analysisOutput))}`);
-        
-      } catch (error) {
-        console.error('Error during analysis:', error);
-        toast({ title: t('analysisError'), description: t('analysisErrorDescription'), variant: 'destructive' });
-         if (typeof window.gtag === 'function') {
-          window.gtag('event', 'analysis_failed', { event_category: 'upload_cv', event_label: String(error) });
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    reader.onerror = (error) => {
-      console.error('File reading error:', error);
-      toast({ title: t('fileReadError'), description: t('fileReadErrorDescription'), variant: 'destructive' });
-      setLoading(false);
-      if (typeof window.gtag === 'function') {
-        window.gtag('event', 'file_read_failed', { event_category: 'upload_cv', event_label: String(error) });
-      }
-    };
-    
-    reader.readAsArrayBuffer(file);
   };
 
+  const handleRateCVButtonClick = () => {
+    trackCTAClick('hero_cta');
+    trackCTAClick('final_cta_get_started');
+    router.push('/upload-cv/uploadCV');
+  };
+  
+//   const handleFinalCtaClick = () => {
+//     trackCTAClick('final_cta_get_started');
+//  router.push('/upload-cv');
+//   }
+
   if (!mounted) {
-    // Prevents hydration mismatch
-    return <div className="min-h-screen flex items-center justify-center bg-background"><UploadCloud className="h-12 w-12 animate-ping text-primary"/></div>;
+    // Prevents hydration mismatch by not rendering anything on the server for this component
+    // or rendering a loading state if preferred.
+    return <div className="min-h-screen flex items-center justify-center bg-background"><Zap className="h-12 w-12 animate-ping text-primary"/></div>;
   }
 
   return (
-    <React.Fragment>
-      <Header /> 
-      <div className={`flex flex-col min-h-screen bg-background ${direction === 'rtl' ? 'font-arabic' : ''}`} dir={direction}>
-        <main className="container mx-auto p-4 md:p-8 flex-grow">
-          <h1 className={`text-3xl md:text-4xl font-bold mb-8 text-center text-primary ${direction === 'rtl' ? 'md:text-right' : 'md:text-left'}`}>{t('uploadCVTitle')}</h1>
+    <div className={`flex flex-col min-h-screen bg-background ${direction === 'rtl' ? 'font-arabic' : ''}`} dir={direction}>
+      <Header ctaTitle="analyzeMyResume" ctaLink="/upload-cv/uploadCV" />
 
-          <ShadCard className="max-w-2xl mx-auto shadow-xl bg-card border-border rounded-xl overflow-hidden">
-            <ShadCardHeader className="bg-muted/30 p-6 border-b border-border">
-              <ShadCardTitle className={`text-2xl font-semibold text-foreground ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>{t('uploadAreaTitle')}</ShadCardTitle>
-            </ShadCardHeader>
-            <ShadCardContent className="p-6 md:p-8">
-              <div
-                {...getRootProps()}
-                className={`border-2 border-dashed rounded-lg p-8 md:p-12 text-center cursor-pointer transition-colors
-                  ${isDragActive ? 'border-primary bg-primary/10 text-primary' : 'border-border hover:border-primary/70 text-muted-foreground'}
-                  ${file ? 'border-green-500 bg-green-500/10 text-green-700' : ''}`}
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-background text-center">
+          <div className={`container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+            <div className={direction === 'rtl' ? 'text-right' : 'text-left'}>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+                {t('heroTitle')}
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 md:max-w-none max-w-2xl mx-auto">
+                {t('heroSubtitle')}
+              </p>
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                onClick={handleRateCVButtonClick} 
               >
-                <input {...getInputProps()} />
-                {loading ? (
-                  <div className="flex flex-col items-center justify-center h-32">
-                    <TailSpin color="hsl(var(--primary))" height={50} width={50} />
-                    <p className="mt-4 text-lg font-semibold text-primary">{t('analyzingResume')}</p>
-                  </div>
-                ) : file ? (
-                  <div className="flex flex-col items-center justify-center h-32">
-                    <UploadCloud className="h-12 w-12 text-green-500 mb-3" />
-                    <p className="text-lg font-semibold mb-1 text-green-700">{t('fileUploaded')}</p>
-                    <p className="text-sm text-muted-foreground">{file.name}</p>
-                  </div>
-                ) : (
-                  <div className="flex flex-col items-center justify-center h-32">
-                    <UploadCloud className={`h-12 w-12 mb-3 ${isDragActive ? 'text-primary' : 'text-muted-foreground'}`} />
-                    <p className="text-lg font-semibold mb-1">{t('dragDropPrompt')}</p>
-                    <p className="text-sm">{t('orClickToBrowse')}</p>
-                    <p className="text-xs text-muted-foreground mt-2">{t('supportedFormats')}</p>
-                  </div>
-                )}
-              </div>
-              {file && !loading && (
-                <Button
-                  onClick={handleAnalyze}
-                  className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3 px-6 rounded-lg text-lg shadow-md transition-transform transform hover:scale-105"
-                  disabled={loading}
-                >
-                  {t('startNowFreeRating')}
-                </Button>
-              )}
-            </ShadCardContent>
-          </ShadCard>
-
-          {/* How It Works Section */}
-          <section className="my-12 md:my-16">
-            <h2 className={`text-2xl md:text-3xl font-semibold mb-8 text-center text-foreground ${direction === 'rtl' ? 'md:text-right' : 'md:text-left'}`}>{t('howItWorksTitle')}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              <InfoCardStep imageSrc="/step1.png" dataAiHint="upload resume" alt={t('uploadResumeStep')} title={t('uploadResumeStep')} description={t('uploadResumeDescription')} background={false} />
-              <InfoCardStep imageSrc="/step2.png" dataAiHint="AI analysis" alt={t('aiScanStep')} title={t('aiScanStep')} description={t('aiScanDescription')} background={false} />
-              <InfoCardStep imageSrc="/step3.png" dataAiHint="view results" alt={t('seeResultsStep')} title={t('seeResultsStep')} description={t('seeResultsDescription')} background={false} />
+                <Zap className="mr-2 h-5 w-5" /> {t('analyzeMyResume')}
+              </Button>
             </div>
-          </section>
-
-          {/* Benefits Section */}
-          <section className="my-12 md:my-16 p-6 md:p-8">
-             <h2 className={`text-2xl md:text-3xl font-semibold mb-6 text-center text-foreground ${direction === 'rtl' ? 'md:text-right' : 'md:text-left'}`}>{t('benefitsTitle')}</h2>
-            <ul className={`list-disc list-inside space-y-2 text-muted-foreground ${direction === 'rtl' ? 'pr-4' : 'pl-4'}`}>
-              <li>{t('benefitFreeScore')}</li>
-              <li>{t('benefitATSFeedback')}</li>
-              <li>{t('benefitInstantSuggestions')}</li>
-              <li>{t('benefitLanguageSupport')}</li>
-              <li data-ai-hint="optional detailed report">{t('benefitOptionalReport')}</li>
-            </ul>
-          </section>
-
-          {/* Trust & Social Proof */}
-          <section className="my-12 md:my-16">
-            <h2 className={`text-2xl md:text-3xl font-semibold mb-8 text-center text-foreground ${direction === 'rtl' ? 'md:text-right' : 'md:text-left'}`}>{t('trustProofTitle')}</h2>
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-70">
-              <Image src="https://picsum.photos/seed/clogo1/120/60" alt="Company Logo 1" width={120} height={60} className="grayscale hover:grayscale-0 transition-all" data-ai-hint="company logo" loading="lazy" />
-              <Image src="https://picsum.photos/seed/clogo2/120/60" alt="Company Logo 2" width={120} height={60} className="grayscale hover:grayscale-0 transition-all" data-ai-hint="company logo" loading="lazy"/>
-              <Image src="https://picsum.photos/seed/clogo3/120/60" alt="Company Logo 3" width={120} height={60} className="grayscale hover:grayscale-0 transition-all" data-ai-hint="company logo" loading="lazy"/>
-              <Image src="https://picsum.photos/seed/clogo4/120/60" alt="Company Logo 4" width={120} height={60} className="grayscale hover:grayscale-0 transition-all" data-ai-hint="company logo" loading="lazy"/>
+            <div className="mt-12 md:mt-0 flex justify-center"> {/* Flex and justify added for centering */}
+              <Image
+                src="/image2.png"
+                alt={t('resumeAnalysisIllustrationAlt')}
+                width={800}
+                height={400}
+                className="mx-auto bg-transparent"
+                data-ai-hint={t('resumeAnalysisIllustrationAlt')}
+                loading="lazy"
+              />
             </div>
-          </section>
-        </main>
+          </div>
+        </section>
 
-        {/* Sticky CTA Footer (Mobile) */}
-        {file && !loading && (
-          <div className={`fixed bottom-0 left-0 right-0 bg-card p-4 shadow-lg border-t border-border md:hidden ${direction === 'rtl' ? 'font-arabic' : ''}`} dir={direction}>
-            <Button
-              onClick={handleAnalyze}
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3 px-6 rounded-lg text-lg"
-              disabled={loading || !file}
+        {/* How It Works Section */}
+        <section id="how-it-works" className="py-16 md:py-20 bg-card">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t('howItWorks')}</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <HowItWorksStep icon={<UploadCloud className="h-12 w-12 text-primary mb-4" />} title={t('step1Title')} description={t('step1Description')} stepNumber="1" />
+              <HowItWorksStep icon={<BarChartBig className="h-12 w-12 text-primary mb-4" />} title={t('step2Title')} description={t('step2Description')} stepNumber="2" />
+              <HowItWorksStep icon={<Edit3 className="h-12 w-12 text-primary mb-4" />} title={t('step3Title')} description={t('step3Description')} stepNumber="3" />
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section id="benefits" className="py-16 md:py-20 bg-background">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t('benefits')}</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <BenefitCard icon={<CheckCircle className="h-10 w-10 text-primary" />} title={t('benefitATSTitle')} description={t('benefitATSDescription')} />
+              <BenefitCard icon={<SparklesIcon className="h-10 w-10 text-primary" />} title={t('benefitAITitle')} description={t('benefitAIDescription')} />
+              <BenefitCard icon={<Languages className="h-10 w-10 text-primary" />} title={t('benefitLangTitle')} description={t('benefitLangDescription')} />
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section id="testimonials" className="py-16 md:py-20 bg-card">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t('testimonials')}</h2>
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <TestimonialCard
+                name={t('testimonial1Name')}
+                quote={t('testimonial1Quote')}
+                avatar="https://picsum.photos/seed/avatar1/100/100"
+                stars={5}
+              />
+              <TestimonialCard
+                name={t('testimonial2Name')}
+                quote={t('testimonial2Quote')}
+                avatar="https://picsum.photos/seed/avatar2/100/100"
+                stars={4}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section id="faq" className="py-16 md:py-20 bg-background">
+          <div className="container mx-auto px-6 max-w-3xl">
+            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t('faq')}</h2>
+            <Accordion type="single" collapsible className="w-full">
+              <FaqItem
+                value="item-1"
+                title={t('faq1Title')}
+                answer={t('faq1Answer')}
+              />
+              <FaqItem
+                value="item-2"
+                title={t('faq2Title')}
+                answer={t('faq2Answer')}
+              />
+              <FaqItem
+                value="item-3"
+                title={t('faq3Title')}
+                answer={t('faq3Answer')}
+              />
+            </Accordion>
+          </div>
+        </section>
+
+        {/* Final CTA Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-primary/80 via-secondary to-primary text-white text-center">
+          <div className="container mx-auto px-6">
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t('finalCtaTitle')}</h2>
+            <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>
+              {t('finalCtaSubtitle')}
+            </p>
+            <Button 
+              size="lg"
+              variant="default"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-xl transition-transform transform hover:scale-105"
+              onClick={handleRateCVButtonClick}
             >
-              {loading ? t('analyzingResume') : t('startNowFreeRatingMobile')}
+               <Zap className="mr-2 h-5 w-5" /> {t('getStartedNow')}
             </Button>
           </div>
-        )}
-      </div>
-    </React.Fragment>
+        </section>
+      </main>
+
+      <Footer />
+
+      <ResumeAnalysisModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </div>
   );
-};
+}
 
-
-interface InfoCardStepProps {
-  imageSrc: string;
-  alt: string;
+interface HowItWorksStepProps {
+  icon: React.ReactNode;
   title: string;
   description: string;
-  dataAiHint: string;
-  background?: boolean; // Optional prop to control background
+  stepNumber: string;
 }
 
-function InfoCardStep({ imageSrc, alt, title, description, dataAiHint, background = true }: InfoCardStepProps) {
-  const { direction } = useContext(LanguageContext);
+function HowItWorksStep({ icon, title, description, stepNumber }: HowItWorksStepProps) {
+  const { direction } = useLanguage();
   return (
-    <ShadCard className={`shadow-none hover:shadow-none transition-shadow overflow-hidden ${background ? 'bg-card' : 'bg-transparent border-none'} flex flex-col items-center pt-5`}>
-      <Image 
-        src={imageSrc} 
-        alt={alt} 
-        width={180} 
-        height={180} 
-        className="object-contain" 
-        data-ai-hint={dataAiHint} 
-        loading="lazy"
-      />
-      <ShadCardContent className="p-5 text-center w-full">
-        <h3 className="text-xl font-semibold mb-2 text-foreground">{title}</h3>
-        <p className="text-base text-muted-foreground">{description}</p>
-      </ShadCardContent>
-    </ShadCard>
+    <div className={`flex flex-col p-6 bg-background rounded-lg shadow-lg hover:shadow-xl transition-shadow ${direction === 'rtl' ? 'items-end text-right' : 'items-center text-left'}`}>
+      <div className="relative mb-4">
+        {icon}
+        <span className={`absolute -top-2 ${direction === 'rtl' ? '-left-2' : '-right-2'} bg-primary text-primary-foreground text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center`}>
+          {stepNumber}
+        </span>
+      </div>
+      <h3 className={`text-xl font-semibold mb-2 text-foreground ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>{title}</h3>
+      <p className={`text-muted-foreground ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>{description}</p>
+    </div>
   );
 }
 
-// Dummy Card, CardHeader, CardTitle, CardContent components are removed as we import from shadcn/ui directly now.
-// Helper to use cn if not already available
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+interface BenefitCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
 }
 
+function BenefitCard({ icon, title, description }: BenefitCardProps) {
+  const { direction } = useLanguage();
+  return (
+    <Card className={`p-6 shadow-lg hover:shadow-xl transition-shadow bg-card ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+      <CardHeader className={`flex flex-col items-center mb-2 ${direction === 'rtl' ? 'items-end' : 'items-start'}`}>
+        {icon}
+        <CardTitle className={`mt-4 text-xl font-semibold text-foreground ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>{title}</CardTitle>
+      </CardHeader>
+      <CardContent className={direction === 'rtl' ? 'text-right' : 'text-left'}>
+        <p className="text-muted-foreground">{description}</p>
+      </CardContent>
+    </Card>
+  );
+}
 
-export default UploadCVPage;
+interface TestimonialCardProps {
+  name: string;
+  quote: string;
+  avatar: string;
+  stars: number;
+}
+
+function TestimonialCard({ name, quote, avatar, stars }: TestimonialCardProps) {
+  const { direction, t } = useLanguage();
+  return (
+    <Card className={`p-6 shadow-lg bg-muted/30 border-border ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+      <CardContent className={`relative ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+        <div className="flex items-center mb-4">
+          <Image src={avatar} alt={t('personAvatarAlt') + ' ' + name} width={50} height={50} className="rounded-full mr-4" data-ai-hint="person avatar" loading="lazy"/>
+          <div>
+            <h4 className="font-semibold text-foreground">{name}</h4>
+            <div className="flex text-yellow-400">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className={`h-5 w-5 ${i < stars ? 'fill-current' : ''} ${direction === 'rtl' ? 'ml-1' : 'mr-1'}`} />
+              ))}
+            </div>
+          </div>
+        </div>
+        <MessageSquare className={`absolute top-0 ${direction === 'rtl' ? 'left-0' : 'right-0'} h-8 w-8 text-primary/20 transform ${direction === 'rtl' ? 'scale-x-[-1]' : ''}`} />
+        <p className="text-muted-foreground italic">"{quote}"</p>
+      </CardContent>
+    </Card>
+  );
+}
+
+interface FaqItemProps {
+  value: string;
+  title: string;
+  answer: string;
+}
+
+function FaqItem({ value, title, answer }: FaqItemProps) {
+  const { direction } = useLanguage();
+  return (
+    <AccordionItem value={value} className="border-b border-border">
+      <AccordionTrigger className={`py-6 text-lg font-semibold text-foreground hover:text-primary transition-colors [&[data-state=open]>svg]:text-primary ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+        <div className={`flex items-center ${direction === 'rtl' ? 'flex-row-reverse' : 'flex-row'}`}>
+          <HelpCircle className="mr-3 h-6 w-6 text-primary/70" />
+          {title}
+        </div>
+      </AccordionTrigger>
+      <AccordionContent className="pb-6 text-muted-foreground text-base leading-relaxed">
+        {answer}
+      </AccordionContent>
+    </AccordionItem>
+  );
+}
 

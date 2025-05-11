@@ -57,7 +57,7 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link
-            href="/www.seirah.com"
+            href="/"
             className="flex items-center gap-2 text-2xl font-bold text-primary hover:opacity-80 transition-opacity"
           >
             <Image
@@ -74,9 +74,9 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
 
           <nav className="ml-8">
             <ul className="flex gap-4">
-              <li><Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabUploadCV')}</Link></li>
-              <li><Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabTranslateCV')}</Link></li>
+              <li><Link href="/upload-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabUploadCV')}</Link></li>
               <li><Link href="/linkedin-to-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabAddLinkedIn')}</Link></li>
+              <li><Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabTranslateCV')}</Link></li>
               <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabAddOldCV')}</Link></li>
               <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabGenerateDescription')}</Link></li>
               <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabJobSpecificResume')}</Link></li>
