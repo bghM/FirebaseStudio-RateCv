@@ -25,6 +25,10 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
   const router = useRouter();
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
 
+  const handleSetLanguage = (lang: 'en' | 'ar') => {
+    setLanguage(lang);
+  };
+
   const handleRateCVButtonClick = () => {
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'cta_click', {
@@ -60,11 +64,11 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
           <Link
             href="/"
             className="flex items-center gap-2 text-2xl font-bold text-primary hover:opacity-80 transition-opacity"
-            aria-label={t.appName + ' homepage'}
+            aria-label={`${t.appName} homepage`}
           >
             <Image
               src="/logo.webp"
-              alt={t.appName + ' Logo'}
+              alt={`${t.appName} Logo`}
               width={48}
               height={48}
               className="h-12 w-12"
@@ -74,14 +78,38 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
             <span className="text-gradient-brand">{t.appName}</span>
           </Link>
 
-          <nav className="ml-8" aria-label={t.appName + ' main navigation'} role="navigation">
+          <nav className="ml-8" aria-label={`${t.appName} main navigation`} role="navigation">
             <ul className="flex gap-4" role="list">
-              <li><Link href="/upload-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabRateCV}</Link></li>
-              <li><Link href="/linkedin-to-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabAddLinkedIn}</Link></li>
-              <li><Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabTranslateCV}</Link></li>
-              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabAddOldCV}</Link></li>
-              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabGenerateDescription}</Link></li>
-              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabJobSpecificResume}</Link></li>
+              <li>
+                <Link href="/upload-cv" className="text-muted-foreground hover:text-primary transition-colors">
+                  {t.header.tabRateCV}
+                </Link>
+              </li>
+              <li>
+                <Link href="/linkedin-to-cv" className="text-muted-foreground hover:text-primary transition-colors">
+                  {t.header.tabAddLinkedIn}
+                </Link>
+              </li>
+              <li>
+                <Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">
+                  {t.header.tabTranslateCV}
+                </Link>
+              </li>
+              <li>
+                <Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">
+                  {t.header.tabAddOldCV}
+                </Link>
+              </li>
+              <li>
+                <Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">
+                  {t.header.tabGenerateDescription}
+                </Link>
+              </li>
+              <li>
+                <Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">
+                  {t.header.tabJobSpecificResume}
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -104,10 +132,10 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => handleSetLanguage('en')} className="cursor-pointer">
-                🇺🇸 English
+                {t.header.english}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => handleSetLanguage('ar')} className="cursor-pointer">
-                🇸🇦 العربية
+              {t.header.arabic}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

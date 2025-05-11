@@ -98,8 +98,8 @@ export const translations: Translations = {
       tabGenerateDescription: "Generate Description",
       tabJobSpecificResume: "Job-Specific Resume",
       toggleLanguage: "Language",
-      english: "English",
-      arabic: "Arabic"
+      english: "🇺🇸 English" ,
+      arabic: "العربية 🇸🇦"
     },
     homepage: {
       heroTitle: "Get an AI Resume Score Tailored for the Saudi Job Market",
@@ -205,6 +205,7 @@ export const translations: Translations = {
     appName: "سيرة",
     header: {
       tabHome: "الرئيسية",
+      tabRateCV: "قيم سيرتي الذاتية",
       tabUploadCV: "رفع السيرة",
       tabTranslateCV: "ترجمة السيرة",
       tabAddLinkedIn: "إضافة لينكدإن",
@@ -212,8 +213,8 @@ export const translations: Translations = {
       tabGenerateDescription: "إنشاء وصف",
       tabJobSpecificResume: "سيرة خاصة بالوظيفة",
       toggleLanguage: "اللغة",
-      english: "English",
-      arabic: "عربي"
+      english: "انجليزي 🇺🇸",
+      arabic: "🇸🇦 Arabic"
     },
     homepage: {
       heroTitle: "احصل على تقييم لسيرتك بالذكاء الاصطناعي",
