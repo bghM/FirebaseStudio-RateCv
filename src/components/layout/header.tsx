@@ -56,9 +56,14 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
           <nav>
             <ul className="flex space-x-4"> {/* Using flex and space-x for horizontal layout and spacing */}
  <li>
- <Link href="/www.seirah.com" className={`text-muted-foreground hover:text-primary transition-colors ${direction === 'rtl' ? 'mr-8 ml-0' : 'ml-8'}`}>
+ {/* <Link href="/www.seirah.com" className={`text-muted-foreground hover:text-primary transition-colors ${direction === 'rtl' ? 'mr-8 ml-0' : 'ml-8'}`}>
             {t('tabHome')}
           </Link>
+ </li> */}
+ <li>
+ <Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">
+                {t('tabUploadCV')}
+ </Link>
  </li>
  <li>
  <Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">

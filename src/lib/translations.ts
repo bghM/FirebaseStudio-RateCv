@@ -8,6 +8,7 @@ export interface Translations {
     heroTitle: string;
     heroSubtitle: string;
     tabHome: string;
+    tabUploadCV: string;
     tabTranslateCV: string;
     tabAddLinkedIn: string;
     tabAddOldCV: string;
@@ -76,6 +77,7 @@ export interface Translations {
     heroTitle: string;
     heroSubtitle: string;
     tabHome: string;
+    tabUploadCV: string;
     tabTranslateCV: string;
     tabAddLinkedIn: string;
     tabAddOldCV: string;
@@ -146,6 +148,7 @@ export const translations: Translations = {
     "heroTitle": "Get an AI Resume Score Tailored for the Saudi Job Market",
     "heroSubtitle": "Evaluate your resume instantly with Seirah’s AI. Get scores on content, format, tailoring, and more – optimized for success in Saudi Arabia.",
     "tabHome": "Home",
+    "tabUploadCV": "Upload CV",
     "tabTranslateCV": "Translate CV",
     "tabAddLinkedIn": "Add your LinkedIn info",
     "tabAddOldCV": "Add Your Old CV",
@@ -240,6 +243,7 @@ export const translations: Translations = {
     "heroTitle": "قيّم سيرتك الذاتية بالذكاء الاصطناعي لسوق العمل السعودي",
     "heroSubtitle": "احصل على تقييم فوري في التخصيص، المحتوى، التنسيق، الأقسام، والأسلوب – لتقترب أكثر من وظيفتك المثالية!",
     "tabHome": "الرئيسية",
+    "tabUploadCV": "رفع السيرة الذاتية",
     "tabTranslateCV": "ترجمة السيرة الذاتية",
     "tabAddLinkedIn": "إضافة معلومات لينكد إن",
     "tabAddOldCV": "إضافة سيرتك القديمة",
