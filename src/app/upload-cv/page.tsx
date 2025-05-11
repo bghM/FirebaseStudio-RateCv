@@ -14,7 +14,7 @@ import { translations } from '@/lib/translations';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-export default function HomePage() {
+export default function RateCV() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
   const { language, direction } = useLanguage();
@@ -180,7 +180,7 @@ export default function HomePage() {
           <div className="container mx-auto px-6">
             <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.uploadCV.finalCtaTitle}</h2>
             <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>
-              {t.uploadCV.homepagefinalCtaSubtitle}
+              {t.uploadCV.finalCtaSubtitle}
             </p>
             <Button 
               size="lg"

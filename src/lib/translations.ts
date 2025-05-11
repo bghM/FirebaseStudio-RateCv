@@ -19,7 +19,7 @@ interface PageTranslations {
     english: string;
     arabic: string;
   };
-  homepage: {
+  rateCV: {
     heroTitle: string;
     heroSubtitle: string;
     analyzeMyResume: string;
@@ -102,6 +102,10 @@ export const translations: Translations = {
       arabic: "العربية 🇸🇦"
     },
     homepage: {
+      heroTitle: "",
+      heroSubtitle: "",
+    },
+    rateCV: {
       heroTitle: "Get an AI Resume Score Tailored for the Saudi Job Market",
       heroSubtitle: "Evaluate your resume instantly with Seirah’s AI. Get scores on content, format, tailoring, and more.",
       analyzeMyResume: "Get My AI Resume Score",
@@ -224,7 +228,7 @@ export const translations: Translations = {
       english: "انجليزي 🇺🇸",
       arabic: "🇸🇦 Arabic"
     },
-    homepage: {
+    rateCV: {
       heroTitle: "احصل على تقييم لسيرتك بالذكاء الاصطناعي",
       heroSubtitle: "حلل سيرتك فورًا واحصل على تقييم المحتوى والتنسيق والتخصيص والمزيد.",
       analyzeMyResume: "احصل على تقييم سيرتي",

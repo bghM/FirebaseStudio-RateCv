@@ -25,7 +25,8 @@ export default function HomePage() {
         <link rel="canonical" href="https://seirah.com" />
       </Head>
 
-      <Header />
+      {/* edit this based on preffered user flow */}
+      <Header ctaTitle={t.header.tabRateCV} ctaLink="/upload-cv/uploadCV" />
 
       <main className="min-h-screen flex items-center justify-center bg-background text-2xl font-semibold text-primary">
         Hello, landing page
