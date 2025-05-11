@@ -12,7 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-
+import { translations } from '@/lib/translations';
 
 interface HeaderProps {
   ctaTitle?: string;
@@ -20,13 +20,10 @@ interface HeaderProps {
 }
 
 export function Header({ ctaTitle, ctaLink }: HeaderProps) {
-  const { t, direction, language, setLanguage } = useLanguage();
+  const { language, direction, setLanguage } = useLanguage();
+  const t = translations[language];
   const router = useRouter();
   const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
-
-  const handleSetLanguage = (lang: 'en' | 'ar') => {
-    setLanguage(lang);
-  };
 
   const handleRateCVButtonClick = () => {
     if (typeof window.gtag === 'function') {
@@ -34,8 +31,6 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
         event_category: 'engagement',
         event_label: 'header_get_started_now',
       });
-    } else {
-      console.log('CTA Click: header_get_started_now (gtag not available)');
     }
 
     if (ctaLink) {
@@ -50,40 +45,43 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
   };
 
   const getCtaButtonText = () => {
-    return ctaTitle || (currentPath === '/linkedin-to-cv' ? t('tabAddLinkedIn') : t('getStartedNow'));
+    return ctaTitle || (currentPath === '/linkedin-to-cv' ? t.header.tabAddLinkedIn : t.header.analyzeMyResume);
   };
 
   return (
-    <header className={`py-4 px-6 md:px-10 shadow-md bg-card ${direction === 'rtl' ? 'font-arabic' : ''}`}
-      role="banner">
+    <header
+      className={`py-4 px-6 md:px-10 shadow-md bg-card ${direction === 'rtl' ? 'font-arabic' : ''}`}
+      role="banner"
+      dir={direction}
+      lang={language}
+    >
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link
             href="/"
-            passHref
             className="flex items-center gap-2 text-2xl font-bold text-primary hover:opacity-80 transition-opacity"
-            aria-label={t('appName') + ' homepage'}
+            aria-label={t.appName + ' homepage'}
           >
             <Image
               src="/logo.webp"
-              alt={t('appName') + ' Logo'}
+              alt={t.appName + ' Logo'}
               width={48}
               height={48}
               className="h-12 w-12"
               priority
               loading="eager"
             />
-            <span className="text-gradient-brand">{t('appName')}</span>
+            <span className="text-gradient-brand">{t.appName}</span>
           </Link>
 
-          <nav className="ml-8" aria-label={t('appName') + ' main'} role="navigation">
+          <nav className="ml-8" aria-label={t.appName + ' main navigation'} role="navigation">
             <ul className="flex gap-4" role="list">
-              <li><Link href="/upload-cv" passHref legacyBehavior><a role="link" className="text-muted-foreground hover:text-primary transition-colors">{t('tabUploadCV')}</a></Link></li>
-              <li><Link href="/linkedin-to-cv" passHref legacyBehavior><a role="link" className="text-muted-foreground hover:text-primary transition-colors">{t('tabAddLinkedIn')}</a></Link></li>
-              <li><Link href="/translate-cv" passHref legacyBehavior><a role="link" className="text-muted-foreground hover:text-primary transition-colors">{t('tabTranslateCV')}</a></Link></li>
-              <li><Link href="/add-old-cv" passHref legacyBehavior><a role="link" className="text-muted-foreground hover:text-primary transition-colors">{t('tabAddOldCV')}</a></Link></li>
-              <li><Link href="/add-old-cv" passHref legacyBehavior><a role="link" className="text-muted-foreground hover:text-primary transition-colors">{t('tabGenerateDescription')}</a></Link></li>
-              <li><Link href="/add-old-cv" passHref legacyBehavior><a role="link" className="text-muted-foreground hover:text-primary transition-colors">{t('tabJobSpecificResume')}</a></Link></li>
+              <li><Link href="/upload-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabRateCV}</Link></li>
+              <li><Link href="/linkedin-to-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabAddLinkedIn}</Link></li>
+              <li><Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabTranslateCV}</Link></li>
+              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabAddOldCV}</Link></li>
+              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabGenerateDescription}</Link></li>
+              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabJobSpecificResume}</Link></li>
             </ul>
           </nav>
         </div>
@@ -100,7 +98,7 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label={t('toggleLanguage')}>
+              <Button variant="ghost" size="icon" aria-label={t.header.toggleLanguage}>
                 <Globe className="h-6 w-6 text-muted-foreground" />
               </Button>
             </DropdownMenuTrigger>

@@ -89,7 +89,7 @@ export default function HomePage() {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-lg transition-transform transform hover:scale-105"
                 onClick={handleRateCVButtonClick}
               >
-                <Zap className="mr-2 h-5 w-5" /> {t.header.analyzeMyResume}
+                <Zap className="mr-2 h-5 w-5" /> {t.uploadCV.analyzeMyResume}
               </Button>
             </div>
             <div className="mt-12 md:mt-0 flex justify-center">
