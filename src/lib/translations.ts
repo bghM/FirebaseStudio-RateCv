@@ -7,10 +7,10 @@ export interface Translations {
     appName: string;
     heroTitle: string;
     heroSubtitle: string;
-    tabBar1: string;
-    tabBar2: string;
-    tabBar3: string;
-    tabBar4: string;
+    tabHome: string;
+    tabTranslateCV: string;
+    tabAddLinkedIn: string;
+    tabAddOldCV: string;
     analyzeMyResume: string;
     howItWorks: string;
     step1Title: string;
@@ -73,10 +73,10 @@ export interface Translations {
     appName: string;
     heroTitle: string;
     heroSubtitle: string;
-    tabBar1: string;
-    tabBar2: string;
-    tabBar3: string;
-    tabBar4: string;
+    tabHome: string;
+    tabTranslateCV: string;
+    tabAddLinkedIn: string;
+    tabAddOldCV: string;
     analyzeMyResume: string;
     howItWorks: string;
     step1Title: string;
@@ -141,10 +141,10 @@ export const translations: Translations = {
     "appName": "Seirah",
     "heroTitle": "Get an AI Resume Score Tailored for the Saudi Job Market",
     "heroSubtitle": "Evaluate your resume instantly with Seirah’s AI. Get scores on content, format, tailoring, and more – optimized for success in Saudi Arabia.",
-    "tabBar1": "Home",
-    "tabBar2": "string",
-    "tabBar3": "string",
-    "tabBar4": "string",
+    "tabHome": "Home",
+    "tabTranslateCV": "Translate CV",
+    "tabAddLinkedIn": "Add your LinkedIn info",
+    "tabAddOldCV": "Add Your Old CV",
     "analyzeMyResume": "Get My AI Resume Score",
     "howItWorks": "How It Works",
     "step1Title": "Upload Your CV",
@@ -233,10 +233,10 @@ export const translations: Translations = {
     "appName": "سيرة",
     "heroTitle": "قيّم سيرتك الذاتية بالذكاء الاصطناعي لسوق العمل السعودي",
     "heroSubtitle": "احصل على تقييم فوري في التخصيص، المحتوى، التنسيق، الأقسام، والأسلوب – لتقترب أكثر من وظيفتك المثالية!",
-    "tabBar1": "الرئيسية",
-    "tabBar2": "string",
-    "tabBar3": "string",
-    "tabBar4": "string",
+    "tabHome": "الرئيسية",
+    "tabTranslateCV": "ترجمة السيرة الذاتية",
+    "tabAddLinkedIn": "إضافة معلومات لينكد إن",
+    "tabAddOldCV": "إضافة سيرتك القديمة",
     "analyzeMyResume": "حلل سيرتي الذاتية",
     "howItWorks": "كيف يعمل",
     "step1Title": "حمّل سيرتك الذاتية",

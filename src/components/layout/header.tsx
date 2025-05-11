@@ -51,11 +51,32 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
               priority
               loading="eager" // Main logo, eager load
             />
-            <span className="text-gradient-brand">{t('appName')}</span>
+ <span className="text-gradient-brand">{t('appName')}</span>
           </Link>
-          <Link href="/" className={`ml-8 text-muted-foreground hover:text-primary transition-colors ${direction === 'rtl' ? 'mr-8 ml-0' : 'ml-8'}`}>
-            {t('tabBar1')}
+          <nav>
+            <ul className="flex space-x-4"> {/* Using flex and space-x for horizontal layout and spacing */}
+ <li>
+ <Link href="/" className={`text-muted-foreground hover:text-primary transition-colors ${direction === 'rtl' ? 'mr-8 ml-0' : 'ml-8'}`}>
+            {t('tabHome')}
           </Link>
+ </li>
+ <li>
+ <Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">
+                {t('tabTranslateCV')}
+ </Link>
+ </li>
+ <li>
+ <Link href="/add-linkedin" className="text-muted-foreground hover:text-primary transition-colors">
+                {t('tabAddLinkedIn')}
+ </Link>
+ </li>
+ <li>
+ <Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">
+                {t('tabAddOldCV')}
+ </Link>
+ </li>
+ </ul>
+ </nav>
         </div>
 
         {/* Right section: CTA Button */}
