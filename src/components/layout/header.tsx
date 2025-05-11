@@ -40,7 +40,7 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
       <div className="container mx-auto flex justify-between items-center">
         {/* Left section: Logo and Home Link */}
         <div className="flex items-center">
-          <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
+          <Link href="/www.seirah.com" className="flex items-center gap-2 text-2xl font-bold text-primary hover:opacity-80 transition-opacity">
             <Image
               src="/logo.webp"
               alt={t('appName') + ' Logo'}
@@ -56,7 +56,7 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
           <nav>
             <ul className="flex space-x-4"> {/* Using flex and space-x for horizontal layout and spacing */}
  <li>
- <Link href="/" className={`text-muted-foreground hover:text-primary transition-colors ${direction === 'rtl' ? 'mr-8 ml-0' : 'ml-8'}`}>
+ <Link href="/www.seirah.com" className={`text-muted-foreground hover:text-primary transition-colors ${direction === 'rtl' ? 'mr-8 ml-0' : 'ml-8'}`}>
             {t('tabHome')}
           </Link>
  </li>
