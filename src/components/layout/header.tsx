@@ -75,6 +75,16 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
                 {t('tabAddOldCV')}
  </Link>
  </li>
+ <li>
+ <Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">
+                {t('tabGenerateDescription')}
+ </Link>
+ </li>
+ <li>
+ <Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">
+                {t('tabJobSpecificResume')}
+ </Link>
+ </li>
  </ul>
  </nav>
         </div>

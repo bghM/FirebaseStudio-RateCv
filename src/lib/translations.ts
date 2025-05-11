@@ -11,6 +11,8 @@ export interface Translations {
     tabTranslateCV: string;
     tabAddLinkedIn: string;
     tabAddOldCV: string;
+    tabGenerateDescription : string; 
+    tabJobSpecificResume : string; 
     analyzeMyResume: string;
     howItWorks: string;
     step1Title: string;
@@ -77,6 +79,8 @@ export interface Translations {
     tabTranslateCV: string;
     tabAddLinkedIn: string;
     tabAddOldCV: string;
+    tabGenerateDescription : string; 
+    tabJobSpecificResume : string; 
     analyzeMyResume: string;
     howItWorks: string;
     step1Title: string;
@@ -145,6 +149,8 @@ export const translations: Translations = {
     "tabTranslateCV": "Translate CV",
     "tabAddLinkedIn": "Add your LinkedIn info",
     "tabAddOldCV": "Add Your Old CV",
+    "tabGenerateDescription" : "Generate Description", 
+    "tabJobSpecificResume" : "Job Specific Resume", 
     "analyzeMyResume": "Get My AI Resume Score",
     "howItWorks": "How It Works",
     "step1Title": "Upload Your CV",
@@ -238,6 +244,8 @@ export const translations: Translations = {
     "tabAddLinkedIn": "إضافة معلومات لينكد إن",
     "tabAddOldCV": "إضافة سيرتك القديمة",
     "analyzeMyResume": "حلل سيرتي الذاتية",
+    "tabGenerateDescription" : "إنشاء الوصف", 
+    "tabJobSpecificResume" : "سيرة عمل خاص", 
     "howItWorks": "كيف يعمل",
     "step1Title": "حمّل سيرتك الذاتية",
     "step1Description": "قدّم سيرتك النصية بسهولة لتحليلها.",
