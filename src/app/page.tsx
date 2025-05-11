@@ -13,6 +13,7 @@ import { ResumeAnalysisModal } from '@/components/resume-analysis-modal';
 import { useLanguage } from '@/hooks/use-language';
 import { CheckCircle, Zap, Languages, UploadCloud, BarChartBig, Edit3, Star, MessageSquare, HelpCircle, SparklesIcon } from 'lucide-react';
 
+// HomePage is considered the Upload CV feature page, we can separate this feature to its own folder and organize the code accordingly 
 export default function HomePage({ searchParams: searchParamsProp }: { searchParams?: { [key: string]: string | string[] | undefined }}) {
   // Use React.use to unwrap searchParams if they are a promise (for Suspense)
   // For client components, searchParams are usually passed directly as an object.

@@ -71,7 +71,7 @@ export function Header(/*{ handleAnalyze }: HeaderProps*/) {
  </Link>
  </li>
  <li>
- <Link href="/add-linkedin" className="text-muted-foreground hover:text-primary transition-colors">
+ <Link href="/linkedin-to-cv" className="text-muted-foreground hover:text-primary transition-colors">
                 {t('tabAddLinkedIn')}
  </Link>
  </li>
