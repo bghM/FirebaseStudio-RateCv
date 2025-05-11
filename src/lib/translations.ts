@@ -169,7 +169,6 @@ export const translations: Translations = {
       finalCtaSubtitle: "No more guessing. Use Seirah to upgrade your CV and get noticed by top employers in Saudi Arabia.",
       getStartedNow: "Analyze My Resume Now"
     },
-
     linkedinToCV: {
       heroTitle: "Convert LinkedIn Profile to CV in Seconds",
       heroSubtitle: "Upload your LinkedIn PDF or paste content – AI will auto-generate your CV.",

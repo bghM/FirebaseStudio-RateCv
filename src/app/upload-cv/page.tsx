@@ -123,9 +123,9 @@ export default function HomePage() {
           <div className="container mx-auto px-6 text-center">
             <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.benefits}</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <BenefitCard icon={<CheckCircle className="h-10 w-10 text-primary" />} title={t.benefitATSTitle} description={t.benefitATSDescription} />
-              <BenefitCard icon={<SparklesIcon className="h-10 w-10 text-primary" />} title={t.benefitAITitle} description={t.benefitAIDescription} />
-              <BenefitCard icon={<Languages className="h-10 w-10 text-primary" />} title={t.benefitLangTitle} description={t.benefitLangDescription} />
+              <BenefitCard icon={<CheckCircle className="h-10 w-10 text-primary" />} title={t.uploadCV.benefitATSTitle} description={t.uploadCV.benefitATSDescription} />
+              <BenefitCard icon={<SparklesIcon className="h-10 w-10 text-primary" />} title={t.uploadCV.benefitAITitle} description={t.uploadCV.benefitAIDescription} />
+              <BenefitCard icon={<Languages className="h-10 w-10 text-primary" />} title={t.uploadCV.benefitLangTitle} description={t.uploadCV.benefitLangDescription} />
             </div>
           </div>
         </section>
@@ -136,14 +136,14 @@ export default function HomePage() {
             <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.testimonials}</h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <TestimonialCard
-                name={t.testimonial1Name}
-                quote={t.testimonial1Quote}
+                name={t.uploadCV.testimonial1Name}
+                quote={t.uploadCV.testimonial1Quote}
                 avatar="https://picsum.photos/seed/avatar1/100/100"
                 stars={5}
               />
               <TestimonialCard
-                name={t.testimonial2Name}
-                quote={t.testimonial2Quote}
+                name={t.uploadCV.testimonial2Name}
+                quote={t.uploadCV.testimonial2Quote}
                 avatar="https://picsum.photos/seed/avatar2/100/100"
                 stars={4}
               />
@@ -158,18 +158,18 @@ export default function HomePage() {
             <Accordion type="single" collapsible className="w-full">
               <FaqItem
                 value="item-1"
-                title={t.faq1Title}
-                answer={t.faq1Answer}
+                title={t.uploadCV.faq1Title}
+                answer={t.uploadCV.faq1Answer}
               />
               <FaqItem
                 value="item-2"
-                title={t.faq2Title}
-                answer={t.faq2Answer}
+                title={t.uploadCV.faq2Title}
+                answer={t.uploadCV.faq2Answer}
               />
               <FaqItem
                 value="item-3"
-                title={t.faq3Title}
-                answer={t.faq3Answer}
+                title={t.uploadCV.faq3Title}
+                answer={t.uploadCV.faq3Answer}
               />
             </Accordion>
           </div>
@@ -178,9 +178,9 @@ export default function HomePage() {
         {/* Final CTA Section */}
         <section className="py-16 md:py-24 bg-gradient-to-br from-primary/80 via-secondary to-primary text-white text-center">
           <div className="container mx-auto px-6">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.finalCtaTitle}</h2>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.uploadCV.finalCtaTitle}</h2>
             <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>
-              {t.homepagefinalCtaSubtitle}
+              {t.uploadCV.homepagefinalCtaSubtitle}
             </p>
             <Button 
               size="lg"
@@ -188,7 +188,7 @@ export default function HomePage() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-xl transition-transform transform hover:scale-105"
               onClick={handleRateCVButtonClick}
             >
-               <Zap className="mr-2 h-5 w-5" /> {t.homepagegetStartedNow}
+               <Zap className="mr-2 h-5 w-5" /> {t.uploadCV.homepagegetStartedNow}
             </Button>
           </div>
         </section>
@@ -257,7 +257,7 @@ interface TestimonialCardProps {
 function TestimonialCard({ name, quote, avatar, stars }: TestimonialCardProps) {
   const { direction, t } = useLanguage();
   return (
-    <Card className={`p-6 shadow-lg bg-muted/30 border-border ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+    <Card className={`p-6 shadow-lg bg-muted/30 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
       <CardContent className={`relative ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
         <div className="flex items-center mb-4">
           <Image src={avatar} alt={t('personAvatarAlt') + ' ' + name} width={50} height={50} className="rounded-full mr-4" data-ai-hint="person avatar" loading="lazy"/>
@@ -286,7 +286,7 @@ interface FaqItemProps {
 function FaqItem({ value, title, answer }: FaqItemProps) {
   const { direction } = useLanguage();
   return (
-    <AccordionItem value={value} className="border-b border-border">
+    <AccordionItem value={value} className="">
       <AccordionTrigger className={`py-6 text-lg font-semibold text-foreground hover:text-primary transition-colors [&[data-state=open]>svg]:text-primary ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
         <div className={`flex items-center ${direction === 'rtl' ? 'flex-row-reverse' : 'flex-row'}`}>
           <HelpCircle className="mr-3 h-6 w-6 text-primary/70" />
