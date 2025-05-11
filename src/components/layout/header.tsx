@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
+
 interface HeaderProps {
   ctaTitle?: string;
   ctaLink?: string;
@@ -53,12 +54,15 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
   };
 
   return (
-    <header className={`py-4 px-6 md:px-10 shadow-md bg-card ${direction === 'rtl' ? 'font-arabic' : ''}`}>
+    <header className={`py-4 px-6 md:px-10 shadow-md bg-card ${direction === 'rtl' ? 'font-arabic' : ''}`}
+      role="banner">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link
             href="/"
+            passHref
             className="flex items-center gap-2 text-2xl font-bold text-primary hover:opacity-80 transition-opacity"
+            aria-label={t('appName') + ' homepage'}
           >
             <Image
               src="/logo.webp"
@@ -72,14 +76,14 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
             <span className="text-gradient-brand">{t('appName')}</span>
           </Link>
 
-          <nav className="ml-8">
-            <ul className="flex gap-4">
-              <li><Link href="/upload-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabUploadCV')}</Link></li>
-              <li><Link href="/linkedin-to-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabAddLinkedIn')}</Link></li>
-              <li><Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabTranslateCV')}</Link></li>
-              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabAddOldCV')}</Link></li>
-              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabGenerateDescription')}</Link></li>
-              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t('tabJobSpecificResume')}</Link></li>
+          <nav className="ml-8" aria-label={t('appName') + ' main'} role="navigation">
+            <ul className="flex gap-4" role="list">
+              <li><Link href="/upload-cv" passHref legacyBehavior><a role="link" className="text-muted-foreground hover:text-primary transition-colors">{t('tabUploadCV')}</a></Link></li>
+              <li><Link href="/linkedin-to-cv" passHref legacyBehavior><a role="link" className="text-muted-foreground hover:text-primary transition-colors">{t('tabAddLinkedIn')}</a></Link></li>
+              <li><Link href="/translate-cv" passHref legacyBehavior><a role="link" className="text-muted-foreground hover:text-primary transition-colors">{t('tabTranslateCV')}</a></Link></li>
+              <li><Link href="/add-old-cv" passHref legacyBehavior><a role="link" className="text-muted-foreground hover:text-primary transition-colors">{t('tabAddOldCV')}</a></Link></li>
+              <li><Link href="/add-old-cv" passHref legacyBehavior><a role="link" className="text-muted-foreground hover:text-primary transition-colors">{t('tabGenerateDescription')}</a></Link></li>
+              <li><Link href="/add-old-cv" passHref legacyBehavior><a role="link" className="text-muted-foreground hover:text-primary transition-colors">{t('tabJobSpecificResume')}</a></Link></li>
             </ul>
           </nav>
         </div>
