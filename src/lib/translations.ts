@@ -167,7 +167,15 @@ export const translations: Translations = {
       faq3Answer: "Yes! Improve your CV instantly using our built-in feedback and smart AI rewriting tools – no downloads or formatting headaches.",
       finalCtaTitle: "Your Future Job Starts with a Strong Resume",
       finalCtaSubtitle: "No more guessing. Use Seirah to upgrade your CV and get noticed by top employers in Saudi Arabia.",
-      getStartedNow: "Analyze My Resume Now"
+      getStartedNow: "Analyze My Resume Now",
+      uploadCVTitle: "Upload Your Resume – Get Free AI Feedback",
+      uploadAreaTitle: "Drop or Upload Your CV Below",
+      analyzingResume: "Analyzing your resume with AI... Please wait.",
+      fileUploaded: "File uploaded successfully!",
+      dragDropPrompt: "Drag and drop your resume here",
+      orClickToBrowse: "or click to browse files",
+      supportedFormats: "Supported formats: PDF or DOCX",
+      startNowFreeRating: "Start Now – Free Resume Rating",
     },
     linkedinToCV: {
       heroTitle: "Convert LinkedIn Profile to CV in Seconds",
@@ -282,7 +290,15 @@ export const translations: Translations = {
       faq3Answer: "بالتأكيد! الأداة تعطيك ملاحظات فورية مع خيارات إعادة صياغة آلية تساعدك في تحسين الأجزاء الضعيفة مباشرة.",
       finalCtaTitle: "جاهز لرفع مستوى سيرتك؟",
       finalCtaSubtitle: "توقف عن التخمين وابدأ بالتحسين! احصل على تحليل مجاني بالذكاء الاصطناعي الآن واتخذ الخطوة القادمة في مسارك المهني.",
-      getStartedNow: "ابدأ الآن"
+      getStartedNow: "ابدأ الآن",
+      uploadCVTitle: "ارفع سيرتك الذاتية – احصل على تحليل مجاني بالذكاء الاصطناعي",
+      uploadAreaTitle: "قم بإسقاط أو رفع سيرتك الذاتية هنا",
+      analyzingResume: "جارٍ تحليل سيرتك الذاتية بالذكاء الاصطناعي... الرجاء الانتظار.",
+      fileUploaded: "تم رفع الملف بنجاح!",
+      dragDropPrompt: "اسحب وأسقط سيرتك الذاتية هنا",
+      orClickToBrowse: "أو اضغط لتصفح الملفات",
+      supportedFormats: "الصيغ المدعومة: PDF أو DOCX",
+      startNowFreeRating: "ابدأ الآن – تقييم مجاني لسيرتك الذاتية",
     },
 
     linkedinToCV: {

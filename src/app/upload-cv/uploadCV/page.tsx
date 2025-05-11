@@ -80,7 +80,9 @@ const UploadCVPage: React.FC = () => {
         <meta name="language" content={language === 'ar' ? 'Arabic' : 'English'} />
       </Head>
 
-      <Header />
+      <Header ctaTitle={t.header.tabRateCV} ctaLink="/upload-cv/uploadCV" />
+
+      
       <div className={`flex flex-col min-h-screen bg-background ${direction === 'rtl' ? 'font-arabic' : ''}`} dir={direction} lang={language}>
         <main className="container mx-auto p-4 md:p-8 flex-grow">
           <h1 className={`text-3xl md:text-4xl font-bold mb-8 text-center text-primary ${direction === 'rtl' ? 'md:text-right' : 'md:text-left'}`}>{t.uploadCV.uploadCVTitle}</h1>
