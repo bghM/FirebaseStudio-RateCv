@@ -75,7 +75,7 @@ export default function HomePage() {
         <link rel="canonical" href="https://seirah.com/upload-cv" />
       </Head>
 
-      <Header ctaTitle={t.header.analyzeMyResume} ctaLink="/upload-cv/uploadCV" />
+      <Header ctaTitle={t.header.tabRateCV} ctaLink="/upload-cv/uploadCV" />
 
       <main className="flex-grow">
         {/* Hero section */}
@@ -188,7 +188,7 @@ export default function HomePage() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-xl transition-transform transform hover:scale-105"
               onClick={handleRateCVButtonClick}
             >
-               <Zap className="mr-2 h-5 w-5" /> {t.uploadCV.homepagegetStartedNow}
+               <Zap className="mr-2 h-5 w-5" /> {t.uploadCV.getStartedNow}
             </Button>
           </div>
         </section>

@@ -90,7 +90,7 @@ export const translations: Translations = {
     appName: "Seirah",
     header: {
       tabHome: "Home",
-      tabRateCV: "Rate CV",
+      tabRateCV: "Rate My CV",
       tabUploadCV: "Upload CV",
       tabTranslateCV: "Translate CV",
       tabAddLinkedIn: "Add LinkedIn Info",
