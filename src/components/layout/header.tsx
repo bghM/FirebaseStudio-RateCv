@@ -17,9 +17,10 @@ import { translations } from '@/lib/translations';
 interface HeaderProps {
   ctaTitle?: string;
   ctaLink?: string;
+  ctaOnClick?: () => void;
 }
 
-export function Header({ ctaTitle, ctaLink }: HeaderProps) {
+export function Header({ ctaTitle, ctaLink, ctaOnClick }: HeaderProps) {
   const { language, direction, setLanguage } = useLanguage();
   const t = translations[language];
   const router = useRouter();
@@ -37,7 +38,9 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
       });
     }
 
-    if (ctaLink) {
+    if (ctaOnClick) {
+      ctaOnClick(); // Custom action (like handleAnalyze)
+    } else if (ctaLink) {
       router.push(ctaLink);
     } else if (currentPath === '/') {
       router.push('/upload-cv');
@@ -78,38 +81,14 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
             <span className="text-gradient-brand">{t.appName}</span>
           </Link>
 
-          <nav className="ml-8" aria-label={`${t.appName} main navigation`} role="navigation">
-            <ul className="flex gap-4" role="list">
-              <li>
-                <Link href="/upload-cv" className="text-muted-foreground hover:text-primary transition-colors">
-                  {t.header.tabRateCV}
-                </Link>
-              </li>
-              <li>
-                <Link href="/linkedin-to-cv" className="text-muted-foreground hover:text-primary transition-colors">
-                  {t.header.tabAddLinkedIn}
-                </Link>
-              </li>
-              <li>
-                <Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">
-                  {t.header.tabTranslateCV}
-                </Link>
-              </li>
-              <li>
-                <Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">
-                  {t.header.tabAddOldCV}
-                </Link>
-              </li>
-              <li>
-                <Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">
-                  {t.header.tabGenerateDescription}
-                </Link>
-              </li>
-              <li>
-                <Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">
-                  {t.header.tabJobSpecificResume}
-                </Link>
-              </li>
+          <nav className="ml-8" aria-label={`${t.appName} main navigation`}>
+            <ul className="flex gap-4">
+              <li><Link href="/upload-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabRateCV}</Link></li>
+              <li><Link href="/linkedin-to-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabAddLinkedIn}</Link></li>
+              <li><Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabTranslateCV}</Link></li>
+              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabAddOldCV}</Link></li>
+              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabGenerateDescription}</Link></li>
+              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabJobSpecificResume}</Link></li>
             </ul>
           </nav>
         </div>
@@ -135,7 +114,7 @@ export function Header({ ctaTitle, ctaLink }: HeaderProps) {
                 {t.header.english}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => handleSetLanguage('ar')} className="cursor-pointer">
-              {t.header.arabic}
+                {t.header.arabic}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
