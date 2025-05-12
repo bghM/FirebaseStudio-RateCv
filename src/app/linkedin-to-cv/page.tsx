@@ -6,7 +6,7 @@ import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Header } from '@/components/layout/header';
 import { Button } from '@/components/ui/button';
-import { Zap } from 'lucide-react';
+import { Zap, UploadCloud, Sparkles, Download } from 'lucide-react';
 
 export default function LinkedInToCVLandingPage() {
   const { language, direction } = useLanguage();
@@ -37,21 +37,6 @@ export default function LinkedInToCVLandingPage() {
       <Header ctaTitle={t.tabAddLinkedIn} ctaLink="/linkedin-to-cv" />
 
       <main className="flex-grow">
-      {/* <main className="container mx-auto px-4 py-12"> */}
-        {/* Hero Section */}
-        {/* <section className="flex flex-col md:flex-row items-center justify-between mb-20 animate-fade-in delay-100">
-          <div className="md:w-1/2 mb-8 md:mb-0">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{t.linkedinToCV.heroTitle}</h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">{t.linkedinToCV.heroSubtitle}</p>
-            <button className="bg-primary text-primary-foreground px-8 py-3 rounded-md text-lg hover:bg-primary/90 transition duration-300">
-              {t.linkedinToCV.heroButton}
-            </button>
-          </div>
-          <div className="md:w-1/2 flex justify-center">
-            <Image src="/image3.png" alt="LinkedIn Import" width={300} height={300} />
-          </div>
-        </section> */}
-
 
         {/* Hero section */}
         <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-background text-center">
@@ -103,6 +88,35 @@ export default function LinkedInToCVLandingPage() {
         </section>
 
 
+
+{/* How It Works Section */}
+<section className="py-16 md:py-20 bg-card">
+  <div className="container mx-auto px-6 text-center">
+    <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>
+      {t.linkedinToCV.howItWorks}
+    </h2>
+    <div className="grid md:grid-cols-3 gap-8">
+      {[
+        { icon: <UploadCloud className="h-12 w-12 text-primary mb-4" />, title: t.linkedinToCV.step1Title, step: '1' },
+        { icon: <Sparkles className="h-12 w-12 text-primary mb-4" />, title: t.linkedinToCV.step2Title, step: '2' },
+        { icon: <Download className="h-12 w-12 text-primary mb-4" />, title: t.linkedinToCV.step3Title, step: '3' },
+      ].map(({ icon, title, step }) => (
+        <div key={step} className={`flex flex-col p-6 bg-background rounded-lg shadow-lg hover:shadow-xl transition-shadow ${direction === 'rtl' ? 'items-center text-right' : 'items-center text-left'}`}>
+          <div className="relative mb-4">
+            {icon}
+            <span className={`absolute -top-2 ${direction === 'rtl' ? '-left-2' : '-right-2'} bg-primary text-primary-foreground text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center`}>
+              {step}
+            </span>
+          </div>
+          <h3 className={`text-xl font-semibold mb-2 text-foreground ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>{title}</h3>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
         {/* How It Works */}
         <section className="mb-20">
           <h2 className="text-3xl font-bold mb-12 text-center">{t.linkedinToCV.howItWorks}</h2>
@@ -118,34 +132,46 @@ export default function LinkedInToCVLandingPage() {
           </div>
         </section>
 
-        {/* Why Use */}
-        <section className="mb-20">
-          <h2 className="text-3xl font-bold mb-12 text-center">{t.linkedinToCV.whyUse}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="flex items-center p-4 bg-muted rounded-md animate-fade-in delay-[100ms]">
-                <div className="w-8 h-8 bg-primary/10 rounded-full mr-4" />
-                <span className="text-lg">{t.linkedinToCV[`whyUse${i}`]}</span>
-              </div>
-            ))}
+
+        {/* Why Use Section */}
+        <section className="py-16 md:py-20 bg-background">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">{t.linkedinToCV.whyUse}</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="flex items-center p-4 bg-muted rounded-md shadow-sm">
+                  <div className={`w-8 h-8 bg-primary/10 rounded-full ${direction === 'rtl' ? 'ml-4' : 'mr-4'}`} />
+                  <span className={`text-lg text-foreground ${direction === 'rtl' ? 'text-right' : ''}`}>
+                    {t.linkedinToCV[`whyUse${i}`]}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Testimonial */}
-        <section className="mb-20 text-center animate-fade-in delay-[250ms]">
+        {/* Testimonial Section */}
+        <section className="py-16 md:py-20 bg-card text-center">
           <div className="max-w-2xl mx-auto p-8 bg-muted/30 rounded-lg shadow-inner">
-            <p className="text-xl italic mb-4">"{t.linkedinToCV.testimonial}"</p>
-            <p className="text-lg font-semibold">{t.linkedinToCV.testimonialAuthor}</p>
+            <p className="text-xl italic mb-4 text-muted-foreground">"{t.linkedinToCV.testimonial}"</p>
+            <p className="text-lg font-semibold text-foreground">{t.linkedinToCV.testimonialAuthor}</p>
           </div>
         </section>
 
-        {/* Call to Action */}
-        <section className="text-center animate-fade-in delay-[300ms]">
-          <h2 className="text-3xl font-bold mb-8">{t.linkedinToCV.callToActionText}</h2>
-          <button className="bg-secondary text-secondary-foreground px-10 py-4 rounded-md text-xl hover:bg-secondary/90 transition duration-300">
-            {t.linkedinToCV.callToActionButton}
-          </button>
+        {/* Final CTA */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-primary/80 via-secondary to-primary text-white text-center">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.linkedinToCV.callToActionText}</h2>
+            <Button
+              size="lg"
+              className="bg-white text-primary font-semibold px-10 py-4 rounded-lg text-xl hover:bg-white/90 transition-transform transform hover:scale-105"
+            >
+              {t.linkedinToCV.callToActionButton}
+            </Button>
+          </div>
         </section>
+
+
       </main>
 
       <style jsx global>{`

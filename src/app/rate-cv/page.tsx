@@ -121,7 +121,7 @@ export default function RateCV() {
         {/* Benefits Section */}
         <section id="benefits" className="py-16 md:py-20 bg-background">
           <div className="container mx-auto px-6 text-center">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.rateCV.benefits}</h2>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'items-center' : 'text-center'}`}>{t.rateCV.benefits}</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <BenefitCard icon={<CheckCircle className="h-10 w-10 text-primary" />} title={t.rateCV.benefitATSTitle} description={t.rateCV.benefitATSDescription} />
               <BenefitCard icon={<SparklesIcon className="h-10 w-10 text-primary" />} title={t.rateCV.benefitAITitle} description={t.rateCV.benefitAIDescription} />
@@ -212,7 +212,7 @@ interface HowItWorksStepProps {
 function HowItWorksStep({ icon, title, description, stepNumber }: HowItWorksStepProps) {
   const { direction } = useLanguage();
   return (
-    <div className={`flex flex-col p-6 bg-background rounded-lg shadow-lg hover:shadow-xl transition-shadow ${direction === 'rtl' ? 'items-end text-right' : 'items-center text-left'}`}>
+    <div className={`flex flex-col p-6 bg-background rounded-lg shadow-lg hover:shadow-xl transition-shadow ${direction === 'rtl' ? 'items-center text-right' : 'items-center text-left'}`}>
       <div className="relative mb-4">
         {icon}
         <span className={`absolute -top-2 ${direction === 'rtl' ? '-left-2' : '-right-2'} bg-primary text-primary-foreground text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center`}>
@@ -234,11 +234,17 @@ interface BenefitCardProps {
 
 function BenefitCard({ icon, title, description }: BenefitCardProps) {
   const { direction } = useLanguage();
+
   return (
-    <Card className={`p-6 shadow-lg hover:shadow-xl transition-shadow bg-card ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
-      <CardHeader className={`flex flex-col items-center mb-2 ${direction === 'rtl' ? 'items-end' : 'items-start'}`}>
+    <Card
+      dir={direction}
+      className="p-6 shadow-lg hover:shadow-xl transition-shadow bg-card"
+    >
+      <CardHeader className="flex flex-col items-start mb-2">
         {icon}
-        <CardTitle className={`mt-4 text-xl font-semibold text-foreground ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>{title}</CardTitle>
+        <CardTitle className="mt-4 text-xl font-semibold text-foreground">
+          {title}
+        </CardTitle>
       </CardHeader>
       <CardContent className={direction === 'rtl' ? 'text-right' : 'text-left'}>
         <p className="text-muted-foreground">{description}</p>
@@ -246,6 +252,7 @@ function BenefitCard({ icon, title, description }: BenefitCardProps) {
     </Card>
   );
 }
+
 
 interface TestimonialCardProps {
   name: string;
@@ -260,7 +267,7 @@ function TestimonialCard({ name, quote, avatar, stars }: TestimonialCardProps) {
     <Card className={`p-6 shadow-lg bg-muted/30 ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
       <CardContent className={`relative ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
         <div className="flex items-center mb-4">
-          <Image src={avatar} alt={t('personAvatarAlt') + ' ' + name} width={50} height={50} className="rounded-full mr-4" data-ai-hint="person avatar" loading="lazy"/>
+          <Image src={avatar} alt={t('personAvatarAlt') + ' ' + name} width={50} height={50} className={`rounded-full ${direction === 'rtl' ? 'ml-4' : 'mr-4'}`} data-ai-hint="person avatar" loading="lazy"/>
           <div>
             <h4 className="font-semibold text-foreground">{name}</h4>
             <div className="flex text-yellow-400">
