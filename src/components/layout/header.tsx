@@ -52,7 +52,7 @@ export function Header({ ctaTitle, ctaLink, ctaOnClick }: HeaderProps) {
   };
 
   const getCtaButtonText = () => {
-    return ctaTitle || (currentPath === '/linkedin-to-cv' ? t.header.tabAddLinkedIn : t.header.analyzeMyResume);
+    return ctaTitle || (currentPath === '/linkedin-to-cv' ? t.header.tabAddLinkedIn : "Upload Your Resume");
   };
 
   return (

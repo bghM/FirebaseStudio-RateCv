@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Header } from '@/components/layout/header';
+import { Button } from '@/components/ui/button';
+import { Zap } from 'lucide-react';
 
 export default function LinkedInToCVLandingPage() {
   const { language, direction } = useLanguage();
@@ -34,10 +36,10 @@ export default function LinkedInToCVLandingPage() {
 
       <Header ctaTitle={t.tabAddLinkedIn} ctaLink="/linkedin-to-cv" />
 
-
-      <main className="container mx-auto px-4 py-12">
+      <main className="flex-grow">
+      {/* <main className="container mx-auto px-4 py-12"> */}
         {/* Hero Section */}
-        <section className="flex flex-col md:flex-row items-center justify-between mb-20 animate-fade-in delay-100">
+        {/* <section className="flex flex-col md:flex-row items-center justify-between mb-20 animate-fade-in delay-100">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">{t.linkedinToCV.heroTitle}</h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">{t.linkedinToCV.heroSubtitle}</p>
@@ -48,7 +50,58 @@ export default function LinkedInToCVLandingPage() {
           <div className="md:w-1/2 flex justify-center">
             <Image src="/image3.png" alt="LinkedIn Import" width={300} height={300} />
           </div>
+        </section> */}
+
+
+        {/* Hero section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-background text-center">
+          <div className={`container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+            <div className={direction === 'rtl' ? 'text-right' : 'text-left'}>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">{t.linkedinToCV.heroTitle}</h1>
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 md:max-w-none max-w-2xl mx-auto">{t.linkedinToCV.heroSubtitle}</p>
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                // onClick={}
+              >
+                <Zap className="mr-2 h-5 w-5" /> {t.linkedinToCV.heroButton}
+              </Button>
+            </div>
+
+            {/* Crop the image and add a bottom haze or gradient fade */}
+            {/* <div className="mt-12 md:mt-0 flex justify-center">
+              <div className="w-full max-w-2xl h-[600px] overflow-hidden relative rounded-lg">
+                <Image
+                  src="/image3.png"
+                  alt={t.shared.resumeAnalysisIllustrationAlt}
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                /> */}
+                {/* Add Bottom Haze (Gradient Fade) */}
+                {/* <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+              </div>
+            </div> */}
+
+            {/* Crop the image and add Full Haze Overlay */}
+            <div className="mt-12 md:mt-0 flex justify-center">
+              <div className="relative w-full max-w-2xl h-[600px] overflow-hidden rounded-lg">
+                <Image
+                  src="/image3.png"
+                  alt={t.shared.resumeAnalysisIllustrationAlt}
+                  fill
+                  className="object-cover"
+                  loading="lazy"
+                />
+                {/* Haze overlay across full image */}
+                <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/10 to-white/0 pointer-events-none rounded-lg" />
+              </div>
+            </div>
+
+
+          </div>
         </section>
+
 
         {/* How It Works */}
         <section className="mb-20">
