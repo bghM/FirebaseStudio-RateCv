@@ -6,7 +6,7 @@ import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Header } from '@/components/layout/header';
 import { Button } from '@/components/ui/button';
-import { Zap, UploadCloud, Sparkles, Download } from 'lucide-react';
+import { Zap, UploadCloud, Sparkles, Download, Clock, ArrowRightLeft, BadgeCheck } from 'lucide-react';
 import { HowItWorksStep, BenefitCard, TestimonialCard } from '@/components/ui/cards';
 import { FinalCTASection } from '@/components/ui/sections';
 
@@ -143,11 +143,28 @@ export default function LinkedInToCVLandingPage() {
           <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">{t.linkedinToCV.whyUse}</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              {[1, 2, 3, 4].map((i) => (
+              {[
+                {
+                  icon: <Clock className="w-10 h-10 text-primary" />,
+                  title: t.linkedinToCV.whyUse1,
+                },
+                {
+                  icon: <ArrowRightLeft className="w-10 h-10 text-primary" />,
+                  title: t.linkedinToCV.whyUse2,
+                },
+                {
+                  icon: <BadgeCheck className="w-10 h-10 text-primary" />,
+                  title: t.linkedinToCV.whyUse3,
+                },
+                {
+                  icon: <Sparkles className="w-10 h-10 text-primary" />,
+                  title: t.linkedinToCV.whyUse4,
+                },
+              ].map(({ icon, title }, i) => (
                 <BenefitCard
                   key={i}
-                  icon={<div className="w-8 h-8 bg-primary/10 rounded-full" />}
-                  title={t.linkedinToCV[`whyUse${i}`]}
+                  icon={icon}
+                  title={title}
                   description=""
                 />
               ))}
