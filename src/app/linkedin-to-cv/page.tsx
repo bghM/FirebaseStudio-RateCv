@@ -1,7 +1,6 @@
 'use client';
 
 import Head from 'next/head';
-import { headers } from 'next/headers';
 import Image from 'next/image';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
