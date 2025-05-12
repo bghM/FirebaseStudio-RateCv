@@ -9,6 +9,7 @@ export default function HomePage() {
   const { language, direction } = useLanguage();
   const t = translations[language];
 
+  
   return (
     <div className={`${direction === 'rtl' ? 'font-arabic' : ''}`} dir={direction} lang={language}>
       <Head>

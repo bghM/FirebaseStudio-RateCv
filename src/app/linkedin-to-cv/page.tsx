@@ -1,6 +1,7 @@
 'use client';
 
 import Head from 'next/head';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
@@ -9,11 +10,33 @@ import { Button } from '@/components/ui/button';
 import { Zap, UploadCloud, Sparkles, Download, Clock, ArrowRightLeft, BadgeCheck } from 'lucide-react';
 import { HowItWorksStep, BenefitCard, TestimonialCard } from '@/components/ui/cards';
 import { FinalCTASection } from '@/components/ui/sections';
+import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+
 
 
 export default function LinkedInToCVLandingPage() {
   const { language, direction } = useLanguage();
   const t = translations[language];
+  const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const handleLinkedinToCVButtonClick = () => {
+    router.push('/linkedin-to-cv/linkedinToCV');
+  };
+
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <Zap className="h-12 w-12 animate-ping text-primary" />
+      </div>
+    );
+  }
 
   return (
     <div className={`min-h-screen bg-background ${direction === 'rtl' ? 'rtl text-right font-arabic' : 'ltr text-left'}`} lang={language} dir={direction}>
@@ -37,7 +60,7 @@ export default function LinkedInToCVLandingPage() {
         <link rel="canonical" href="https://seirah.com/linkedin-to-cv" />
       </Head>
 
-      <Header ctaTitle={t.tabAddLinkedIn} ctaLink="/linkedin-to-cv" />
+      <Header ctaTitle={t.tabAddLinkedIn} ctaLink="/linkedin-to-cv/linkedinToCV" />
 
       <main className="flex-grow">
 
@@ -50,7 +73,7 @@ export default function LinkedInToCVLandingPage() {
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-lg transition-transform transform hover:scale-105"
-                // onClick={}
+                onClick={handleLinkedinToCVButtonClick}
               >
                 <Zap className="mr-2 h-5 w-5" /> {t.linkedinToCV.heroButton}
               </Button>
@@ -189,7 +212,7 @@ export default function LinkedInToCVLandingPage() {
           title={t.linkedinToCV.callToActionText}
           subtitle=""
           buttonText={t.linkedinToCV.callToActionButton}
-          onClick={() => console.log('CTA Clicked')} // Replace with actual handler
+          onClick={handleLinkedinToCVButtonClick}
         />
 
 

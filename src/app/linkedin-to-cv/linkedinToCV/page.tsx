@@ -4,11 +4,26 @@ import Head from 'next/head';
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Header } from '@/components/layout/header';
+import React, { useState, useCallback, useEffect } from 'react';
 
 export default function HomePage() {
   const { language, direction } = useLanguage();
   const t = translations[language];
+  const [mounted, setMounted] = useState(false);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <Zap className="h-12 w-12 animate-ping text-primary" />
+      </div>
+    );
+  }
+
+  
   return (
     <div className={`${direction === 'rtl' ? 'font-arabic' : ''}`} dir={direction} lang={language}>
       <Head>
