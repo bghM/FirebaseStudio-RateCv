@@ -81,7 +81,7 @@ export function Header({ ctaTitle, ctaLink, ctaOnClick }: HeaderProps) {
             <span className="text-gradient-brand">{t.appName}</span>
           </Link>
 
-          <nav className="ml-8" aria-label={`${t.appName} main navigation`}>
+          <nav className={`${direction === 'rtl' ? 'mr-8' : 'ml-8'}`} aria-label={`${t.appName} main navigation`}>
             <ul className="flex gap-4">
               <li><Link href="/rate-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabRateCV}</Link></li>
               <li><Link href="/linkedin-to-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabAddLinkedIn}</Link></li>
@@ -91,6 +91,8 @@ export function Header({ ctaTitle, ctaLink, ctaOnClick }: HeaderProps) {
               <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabJobSpecificResume}</Link></li>
             </ul>
           </nav>
+
+          
         </div>
 
         <div className="flex items-center gap-4">
