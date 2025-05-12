@@ -243,7 +243,6 @@ export const translations: Translations = {
       supportedFormats: "الصيغ المدعومة: PDF أو DOCX",
       startNowFreeRating: "ابدأ الآن – تقييم مجاني لسيرتك الذاتية",
     },
-
     linkedinToCV: {
       heroTitle: "حوّل لينكدإن إلى سيرة ذاتية خلال ثوانٍ",
       heroSubtitle: "ارفع ملف PDF أو الصق المحتوى وسيقوم الذكاء الاصطناعي بالباقي.",

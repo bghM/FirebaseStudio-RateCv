@@ -13,7 +13,7 @@ import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Header } from '@/components/layout/header';
 
-const UploadCVPage: React.FC = () => {
+const RateCVPage: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const { language, direction } = useLanguage();
@@ -37,12 +37,12 @@ const UploadCVPage: React.FC = () => {
       if (fileExtension === 'pdf' || fileExtension === 'docx') {
         setFile(uploadedFile);
         if (typeof window.gtag === 'function') {
-          window.gtag('event', 'file_dropped', { event_category: 'upload_cv', event_label: fileExtension });
+          window.gtag('event', 'file_dropped', { event_category: 'rate_cv', event_label: fileExtension });
         }
       } else {
         toast({ title: t.rateCV.unsupportedFileFormatError, description: t.rateCV.unsupportedFileFormatDescription, variant: 'destructive' });
         if (typeof window.gtag === 'function') {
-          window.gtag('event', 'file_drop_failed', { event_category: 'upload_cv', event_label: 'unsupported_format' });
+          window.gtag('event', 'file_drop_failed', { event_category: 'rate_cv', event_label: 'unsupported_format' });
         }
       }
     }
@@ -80,7 +80,7 @@ const UploadCVPage: React.FC = () => {
         <meta name="language" content={language === 'ar' ? 'Arabic' : 'English'} />
       </Head>
 
-      <Header ctaTitle={t.header.tabRateCV} ctaLink="/upload-cv/uploadCV" />
+      <Header ctaTitle={t.header.tabRateCV} ctaLink="/rate-cv/rateCV" />
 
       
       <div className={`flex flex-col min-h-screen bg-background ${direction === 'rtl' ? 'font-arabic' : ''}`} dir={direction} lang={language}>
@@ -127,4 +127,4 @@ const UploadCVPage: React.FC = () => {
   );
 };
 
-export default UploadCVPage;
+export default RateCVPage;

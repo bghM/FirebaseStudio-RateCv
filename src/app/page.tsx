@@ -26,7 +26,7 @@ export default function HomePage() {
       </Head>
 
       {/* edit this based on preffered user flow */}
-      <Header ctaTitle={t.header.tabRateCV} ctaLink="/upload-cv/uploadCV" />
+      <Header ctaTitle={t.header.tabRateCV} ctaLink="/rate-cv/rateCV" />
 
       <main className="min-h-screen flex items-center justify-center bg-background text-2xl font-semibold text-primary">
         Hello, landing page

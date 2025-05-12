@@ -43,11 +43,11 @@ export function Header({ ctaTitle, ctaLink, ctaOnClick }: HeaderProps) {
     } else if (ctaLink) {
       router.push(ctaLink);
     } else if (currentPath === '/') {
-      router.push('/upload-cv');
+      router.push('/rate-cv');
     } else if (currentPath === '/linkedin-to-cv') {
       router.push('/linkedin-upload');
     } else {
-      router.push('/upload-cv');
+      router.push('/rate-cv');
     }
   };
 
@@ -83,7 +83,7 @@ export function Header({ ctaTitle, ctaLink, ctaOnClick }: HeaderProps) {
 
           <nav className="ml-8" aria-label={`${t.appName} main navigation`}>
             <ul className="flex gap-4">
-              <li><Link href="/upload-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabRateCV}</Link></li>
+              <li><Link href="/rate-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabRateCV}</Link></li>
               <li><Link href="/linkedin-to-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabAddLinkedIn}</Link></li>
               <li><Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabTranslateCV}</Link></li>
               <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabAddOldCV}</Link></li>

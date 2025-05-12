@@ -42,7 +42,7 @@ export default function RateCV() {
   const handleRateCVButtonClick = () => {
     trackCTAClick('hero_cta');
     trackCTAClick('final_cta_get_started');
-    router.push('/upload-cv/uploadCV');
+    router.push('/rate-cv/rateCV');
   };
 
   if (!mounted) {
@@ -66,16 +66,16 @@ export default function RateCV() {
         <meta property="og:description" content={t.rateCV.heroSubtitle} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={language === 'ar' ? 'ar_SA' : 'en_US'} />
-        <meta property="og:url" content="https://seirah.com/upload-cv" />
+        <meta property="og:url" content="https://seirah.com/rate-cv" />
         <meta property="og:image" content="/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t.rateCV.heroTitle} />
         <meta name="twitter:description" content={t.rateCV.heroSubtitle} />
         <meta name="twitter:image" content="/og-image.png" />
-        <link rel="canonical" href="https://seirah.com/upload-cv" />
+        <link rel="canonical" href="https://seirah.com/rate-cv" />
       </Head>
 
-      <Header ctaTitle={t.header.tabRateCV} ctaLink="/upload-cv/uploadCV" />
+      <Header ctaTitle={t.header.tabRateCV} ctaLink="/rate-cv/rateCV" />
 
       <main className="flex-grow">
         {/* Hero section */}
