@@ -79,6 +79,7 @@ export default function RateCV() {
       <Header ctaTitle={t.header.tabRateCV} ctaLink="/rate-cv/rateCV" />
 
       <main className="flex-grow">
+        
         {/* Hero section */}
         <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-background text-center">
           <div className={`container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>

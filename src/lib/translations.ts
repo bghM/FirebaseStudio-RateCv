@@ -223,6 +223,7 @@ export const translations: Translations = {
     },
     shared: {
       resumeAnalysisIllustrationAlt: "Resume analysis illustration",
+      resumeTranslationIllustrationAlt: "Resume translation illustration",
       personAvatarAlt: "Avatar image",
       close: "Close",
       rephrasing: "Rephrasing...",
@@ -335,6 +336,7 @@ export const translations: Translations = {
     },
     shared: {
       resumeAnalysisIllustrationAlt: "رسم توضيحي لتحليل السيرة",
+      resumeTranslationIllustrationAlt: "صوره ترجمة السيرة",
       personAvatarAlt: "صورة رمزية",
       close: "إغلاق",
       rephrasing: "جارٍ إعادة الصياغة...",

@@ -65,7 +65,7 @@ export default function TranslateCVPage() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-background text-center">
+        {/* <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-background text-center">
           <div className={`container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">{t.translateCV.heroTitle}</h1>
@@ -79,6 +79,28 @@ export default function TranslateCVPage() {
                 <Image src="/image4.png" alt={t.shared.resumeTranslationIllustrationAlt} fill className="object-cover" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/10 to-white/0 pointer-events-none rounded-lg" />
               </div>
+            </div>
+          </div>
+        </section> */}
+
+        <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-background text-center">
+          <div className={`container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
+            <div className={direction === 'rtl' ? 'text-right' : 'text-left'}>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">{t.translateCV.heroTitle}</h1>
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 md:max-w-none max-w-2xl mx-auto">{t.translateCV.heroSubtitle}</p>
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                <Zap className="mr-2 h-5 w-5" /> {t.translateCV.heroButton}
+              </Button>
+            </div>
+            <div className="mt-12 md:mt-0 flex justify-center">
+              <Image
+                src="/image5.png"
+                alt={t.shared.resumeTranslationIllustrationAlt}
+                width={500}
+                height={800}
+                className="object-cover"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
