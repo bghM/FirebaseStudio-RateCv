@@ -78,6 +78,29 @@ interface PageTranslations {
     callToActionText: string;
     callToActionButton: string;
   };
+  translateCV: {
+    tab: string;
+    heroTitle: string;
+    heroSubtitle: string;
+    heroButton: string;
+  
+    howItWorks: string;
+    step1Title: string;
+    step2Title: string;
+    step3Title: string;
+  
+    whyUse: string;
+    whyUse1: string;
+    whyUse2: string;
+    whyUse3: string;
+    whyUse4: string;
+  
+    testimonial: string;
+    testimonialAuthor: string;
+  
+    callToActionText: string;
+    callToActionButton: string;
+  },
   footer: {
     rights: string;
   };
@@ -172,6 +195,29 @@ export const translations: Translations = {
       callToActionText: "Use your LinkedIn profile to generate your resume now",
       callToActionButton: "Start Instantly"
     },
+    translateCV: {
+      tab: "Translate Resume",
+      heroTitle: "Translate Your Resume to Arabic or English Instantly",
+      heroSubtitle: "Convert your CV to Arabic or English in seconds — perfect for applying to jobs in Saudi Arabia, the Gulf, or international markets.",
+      heroButton: "Translate My Resume Now",
+    
+      howItWorks: "How the Translation Works",
+      step1Title: "Upload Your Resume (PDF)",
+      step2Title: "AI Translates It Accurately",
+      step3Title: "Download Your Professionally Translated CV",
+    
+      whyUse: "Why Use the CV Translator?",
+      whyUse1: "Save hours of manual rewriting",
+      whyUse2: "Powered by OpenAI for natural, high-quality translations",
+      whyUse3: "Keeps ATS-friendly formatting intact",
+      whyUse4: "Private, secure, and blazing fast",
+    
+      testimonial: "I used this to apply for jobs in both English and Arabic — the translation was shockingly good. Saved me so much time!",
+      testimonialAuthor: "Mona A., Marketing Specialist",
+    
+      callToActionText: "Need to Translate Your Resume in Seconds?",
+      callToActionButton: "Get My Translated Resume",
+    },
     footer: {
       rights: "© 2024 Seirah. All rights reserved."
     },
@@ -260,6 +306,29 @@ export const translations: Translations = {
       testimonialAuthor: "– سارة، أخصائية تسويق",
       callToActionText: "ابدأ الآن وخلّ الأمور أبسط وأسرع",
       callToActionButton: "ابدأ فورًا"
+    },
+    translateCV: {
+      tab: "ترجمة السيرة الذاتية",
+      heroTitle: "ترجم سيرتك الذاتية إلى العربية أو الإنجليزية فورًا",
+      heroSubtitle: "حوّل سيرتك الذاتية إلى اللغة العربية أو الإنجليزية في ثوانٍ — مثالي للتقديم على وظائف في السعودية، الخليج، أو الخارج.",
+      heroButton: "ترجم سيرتي الآن",
+    
+      howItWorks: "آلية الترجمة",
+      step1Title: "حمّل سيرتك الذاتية (PDF)",
+      step2Title: "نترجمها بدقة باستخدام الذكاء الاصطناعي",
+      step3Title: "نزّل نسخة مترجمة باحتراف",
+    
+      whyUse: "لماذا تستخدم أداة الترجمة؟",
+      whyUse1: "وفّر وقتك وجهدك بدون إعادة كتابة يدوية",
+      whyUse2: "مدعومة بـ OpenAI لترجمة طبيعية ودقيقة",
+      whyUse3: "تحافظ على التنسيق المتوافق مع أنظمة ATS",
+      whyUse4: "آمنة، سريعة، وتحافظ على الخصوصية",
+    
+      testimonial: "استخدمتها للتقديم على وظائف بالعربية والإنجليزية، والترجمة كانت رائعة ووفرت علي وقت وجهد كبير!",
+      testimonialAuthor: "منى أ.، أخصائية تسويق",
+    
+      callToActionText: "تحتاج ترجمة سيرتك الذاتية بسرعة؟",
+      callToActionButton: "احصل على سيرتي المترجمة الآن",
     },
     footer: {
       rights: "© 2024 سيرة. جميع الحقوق محفوظة."
