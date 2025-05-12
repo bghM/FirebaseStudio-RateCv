@@ -56,21 +56,21 @@ export default function RateCV() {
   return (
     <div className={`flex flex-col min-h-screen bg-background ${direction === 'rtl' ? 'font-arabic' : ''}`} dir={direction} lang={language}>
       <Head>
-        <title>{t.uploadCV.heroTitle}</title>
-        <meta name="description" content={t.uploadCV.heroSubtitle} />
+        <title>{t.rateCV.heroTitle}</title>
+        <meta name="description" content={t.rateCV.heroSubtitle} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
         <meta name="language" content={language === 'ar' ? 'Arabic' : 'English'} />
         <meta name="theme-color" content="#ffffff" />
-        <meta property="og:title" content={t.uploadCV.heroTitle} />
-        <meta property="og:description" content={t.uploadCV.heroSubtitle} />
+        <meta property="og:title" content={t.rateCV.heroTitle} />
+        <meta property="og:description" content={t.rateCV.heroSubtitle} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={language === 'ar' ? 'ar_SA' : 'en_US'} />
         <meta property="og:url" content="https://seirah.com/upload-cv" />
         <meta property="og:image" content="/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={t.uploadCV.heroTitle} />
-        <meta name="twitter:description" content={t.uploadCV.heroSubtitle} />
+        <meta name="twitter:title" content={t.rateCV.heroTitle} />
+        <meta name="twitter:description" content={t.rateCV.heroSubtitle} />
         <meta name="twitter:image" content="/og-image.png" />
         <link rel="canonical" href="https://seirah.com/upload-cv" />
       </Head>
@@ -82,14 +82,14 @@ export default function RateCV() {
         <section className="py-16 md:py-24 bg-gradient-to-br from-primary/10 via-background to-background text-center">
           <div className={`container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
             <div className={direction === 'rtl' ? 'text-right' : 'text-left'}>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">{t.uploadCV.heroTitle}</h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 md:max-w-none max-w-2xl mx-auto">{t.uploadCV.heroSubtitle}</p>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">{t.rateCV.heroTitle}</h1>
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 md:max-w-none max-w-2xl mx-auto">{t.rateCV.heroSubtitle}</p>
               <Button
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-lg transition-transform transform hover:scale-105"
                 onClick={handleRateCVButtonClick}
               >
-                <Zap className="mr-2 h-5 w-5" /> {t.uploadCV.analyzeMyResume}
+                <Zap className="mr-2 h-5 w-5" /> {t.rateCV.analyzeMyResume}
               </Button>
             </div>
             <div className="mt-12 md:mt-0 flex justify-center">
@@ -108,11 +108,11 @@ export default function RateCV() {
         {/* How It Works Section */}
         <section id="how-it-works" className="py-16 md:py-20 bg-card">
           <div className="container mx-auto px-6 text-center">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.uploadCV.howItWorks}</h2>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.rateCV.howItWorks}</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <HowItWorksStep icon={<UploadCloud className="h-12 w-12 text-primary mb-4" />} title={t.uploadCV.step1Title} description={t.uploadCV.step1Description} stepNumber="1" />
-              <HowItWorksStep icon={<BarChartBig className="h-12 w-12 text-primary mb-4" />} title={t.uploadCV.step2Title} description={t.uploadCV.step2Description} stepNumber="2" />
-              <HowItWorksStep icon={<Edit3 className="h-12 w-12 text-primary mb-4" />} title={t.uploadCV.step3Title} description={t.uploadCV.step3Description} stepNumber="3" />
+              <HowItWorksStep icon={<UploadCloud className="h-12 w-12 text-primary mb-4" />} title={t.rateCV.step1Title} description={t.rateCV.step1Description} stepNumber="1" />
+              <HowItWorksStep icon={<BarChartBig className="h-12 w-12 text-primary mb-4" />} title={t.rateCV.step2Title} description={t.rateCV.step2Description} stepNumber="2" />
+              <HowItWorksStep icon={<Edit3 className="h-12 w-12 text-primary mb-4" />} title={t.rateCV.step3Title} description={t.rateCV.step3Description} stepNumber="3" />
             </div>
           </div>
         </section>
@@ -121,11 +121,11 @@ export default function RateCV() {
         {/* Benefits Section */}
         <section id="benefits" className="py-16 md:py-20 bg-background">
           <div className="container mx-auto px-6 text-center">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.benefits}</h2>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.rateCV.benefits}</h2>
             <div className="grid md:grid-cols-3 gap-8">
-              <BenefitCard icon={<CheckCircle className="h-10 w-10 text-primary" />} title={t.uploadCV.benefitATSTitle} description={t.uploadCV.benefitATSDescription} />
-              <BenefitCard icon={<SparklesIcon className="h-10 w-10 text-primary" />} title={t.uploadCV.benefitAITitle} description={t.uploadCV.benefitAIDescription} />
-              <BenefitCard icon={<Languages className="h-10 w-10 text-primary" />} title={t.uploadCV.benefitLangTitle} description={t.uploadCV.benefitLangDescription} />
+              <BenefitCard icon={<CheckCircle className="h-10 w-10 text-primary" />} title={t.rateCV.benefitATSTitle} description={t.rateCV.benefitATSDescription} />
+              <BenefitCard icon={<SparklesIcon className="h-10 w-10 text-primary" />} title={t.rateCV.benefitAITitle} description={t.rateCV.benefitAIDescription} />
+              <BenefitCard icon={<Languages className="h-10 w-10 text-primary" />} title={t.rateCV.benefitLangTitle} description={t.rateCV.benefitLangDescription} />
             </div>
           </div>
         </section>
@@ -133,17 +133,17 @@ export default function RateCV() {
         {/* Testimonials Section */}
         <section id="testimonials" className="py-16 md:py-20 bg-card">
           <div className="container mx-auto px-6 text-center">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.testimonials}</h2>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.rateCV.testimonials}</h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
               <TestimonialCard
-                name={t.uploadCV.testimonial1Name}
-                quote={t.uploadCV.testimonial1Quote}
+                name={t.rateCV.testimonial1Name}
+                quote={t.rateCV.testimonial1Quote}
                 avatar="https://picsum.photos/seed/avatar1/100/100"
                 stars={5}
               />
               <TestimonialCard
-                name={t.uploadCV.testimonial2Name}
-                quote={t.uploadCV.testimonial2Quote}
+                name={t.rateCV.testimonial2Name}
+                quote={t.rateCV.testimonial2Quote}
                 avatar="https://picsum.photos/seed/avatar2/100/100"
                 stars={4}
               />
@@ -158,18 +158,18 @@ export default function RateCV() {
             <Accordion type="single" collapsible className="w-full">
               <FaqItem
                 value="item-1"
-                title={t.uploadCV.faq1Title}
-                answer={t.uploadCV.faq1Answer}
+                title={t.rateCV.faq1Title}
+                answer={t.rateCV.faq1Answer}
               />
               <FaqItem
                 value="item-2"
-                title={t.uploadCV.faq2Title}
-                answer={t.uploadCV.faq2Answer}
+                title={t.rateCV.faq2Title}
+                answer={t.rateCV.faq2Answer}
               />
               <FaqItem
                 value="item-3"
-                title={t.uploadCV.faq3Title}
-                answer={t.uploadCV.faq3Answer}
+                title={t.rateCV.faq3Title}
+                answer={t.rateCV.faq3Answer}
               />
             </Accordion>
           </div>
@@ -178,9 +178,9 @@ export default function RateCV() {
         {/* Final CTA Section */}
         <section className="py-16 md:py-24 bg-gradient-to-br from-primary/80 via-secondary to-primary text-white text-center">
           <div className="container mx-auto px-6">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.uploadCV.finalCtaTitle}</h2>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.rateCV.finalCtaTitle}</h2>
             <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>
-              {t.uploadCV.finalCtaSubtitle}
+              {t.rateCV.finalCtaSubtitle}
             </p>
             <Button 
               size="lg"
@@ -188,7 +188,7 @@ export default function RateCV() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-xl transition-transform transform hover:scale-105"
               onClick={handleRateCVButtonClick}
             >
-               <Zap className="mr-2 h-5 w-5" /> {t.uploadCV.getStartedNow}
+               <Zap className="mr-2 h-5 w-5" /> {t.rateCV.getStartedNow}
             </Button>
           </div>
         </section>

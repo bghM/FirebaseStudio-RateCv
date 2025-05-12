@@ -40,7 +40,7 @@ const UploadCVPage: React.FC = () => {
           window.gtag('event', 'file_dropped', { event_category: 'upload_cv', event_label: fileExtension });
         }
       } else {
-        toast({ title: t.uploadCV.unsupportedFileFormatError, description: t.uploadCV.unsupportedFileFormatDescription, variant: 'destructive' });
+        toast({ title: t.rateCV.unsupportedFileFormatError, description: t.rateCV.unsupportedFileFormatDescription, variant: 'destructive' });
         if (typeof window.gtag === 'function') {
           window.gtag('event', 'file_drop_failed', { event_category: 'upload_cv', event_label: 'unsupported_format' });
         }
@@ -52,7 +52,7 @@ const UploadCVPage: React.FC = () => {
 
   const handleAnalyze = async () => {
     if (!file) {
-      toast({ title: t.uploadCV.noFileSelectedError, description: t.uploadCV.noFileSelectedDescription, variant: 'destructive' });
+      toast({ title: t.rateCV.noFileSelectedError, description: t.rateCV.noFileSelectedDescription, variant: 'destructive' });
       return;
     }
     setLoading(true);
@@ -67,16 +67,16 @@ const UploadCVPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>{t.uploadCV.heroTitle}</title>
-        <meta name="description" content={t.uploadCV.heroSubtitle} />
+        <title>{t.rateCV.heroTitle}</title>
+        <meta name="description" content={t.rateCV.heroSubtitle} />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content={t.uploadCV.heroTitle} />
-        <meta property="og:description" content={t.uploadCV.heroSubtitle} />
+        <meta property="og:title" content={t.rateCV.heroTitle} />
+        <meta property="og:description" content={t.rateCV.heroSubtitle} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={language === 'ar' ? 'ar_SA' : 'en_US'} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={t.uploadCV.heroTitle} />
-        <meta name="twitter:description" content={t.uploadCV.heroSubtitle} />
+        <meta name="twitter:title" content={t.rateCV.heroTitle} />
+        <meta name="twitter:description" content={t.rateCV.heroSubtitle} />
         <meta name="language" content={language === 'ar' ? 'Arabic' : 'English'} />
       </Head>
 
@@ -85,11 +85,11 @@ const UploadCVPage: React.FC = () => {
       
       <div className={`flex flex-col min-h-screen bg-background ${direction === 'rtl' ? 'font-arabic' : ''}`} dir={direction} lang={language}>
         <main className="container mx-auto p-4 md:p-8 flex-grow">
-          <h1 className={`text-3xl md:text-4xl font-bold mb-8 text-center text-primary ${direction === 'rtl' ? 'md:text-right' : 'md:text-left'}`}>{t.uploadCV.uploadCVTitle}</h1>
+          <h1 className={`text-3xl md:text-4xl font-bold mb-8 text-center text-primary ${direction === 'rtl' ? 'md:text-right' : 'md:text-left'}`}>{t.rateCV.uploadCVTitle}</h1>
 
           <ShadCard className="max-w-2xl mx-auto shadow-xl bg-card border-border rounded-xl overflow-hidden">
             <ShadCardHeader className="bg-muted/30 p-6 border-b border-border">
-              <ShadCardTitle className={`text-2xl font-semibold text-foreground ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>{t.uploadCV.uploadAreaTitle}</ShadCardTitle>
+              <ShadCardTitle className={`text-2xl font-semibold text-foreground ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>{t.rateCV.uploadAreaTitle}</ShadCardTitle>
             </ShadCardHeader>
             <ShadCardContent className="p-6 md:p-8">
               <div {...getRootProps()} className={`border-2 border-dashed rounded-lg p-8 md:p-12 text-center cursor-pointer ${isDragActive ? 'border-primary bg-primary/10 text-primary' : 'border-border hover:border-primary/70 text-muted-foreground'} ${file ? 'border-green-500 bg-green-500/10 text-green-700' : ''}`}>
@@ -97,26 +97,26 @@ const UploadCVPage: React.FC = () => {
                 {loading ? (
                   <div className="flex flex-col items-center justify-center h-32">
                     <UploadCloud className="h-12 w-12 animate-spin text-primary mb-2" />
-                    <p className="mt-4 text-lg font-semibold text-primary">{t.uploadCV.analyzingResume}</p>
+                    <p className="mt-4 text-lg font-semibold text-primary">{t.rateCV.analyzingResume}</p>
                   </div>
                 ) : file ? (
                   <div className="flex flex-col items-center justify-center h-32">
                     <UploadCloud className="h-12 w-12 text-green-500 mb-3" />
-                    <p className="text-lg font-semibold mb-1 text-green-700">{t.uploadCV.fileUploaded}</p>
+                    <p className="text-lg font-semibold mb-1 text-green-700">{t.rateCV.fileUploaded}</p>
                     <p className="text-sm text-muted-foreground">{file.name}</p>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center justify-center h-32">
                     <UploadCloud className={`h-12 w-12 mb-3 ${isDragActive ? 'text-primary' : 'text-muted-foreground'}`} />
-                    <p className="text-lg font-semibold mb-1">{t.uploadCV.dragDropPrompt}</p>
-                    <p className="text-sm">{t.uploadCV.orClickToBrowse}</p>
-                    <p className="text-xs text-muted-foreground mt-2">{t.uploadCV.supportedFormats}</p>
+                    <p className="text-lg font-semibold mb-1">{t.rateCV.dragDropPrompt}</p>
+                    <p className="text-sm">{t.rateCV.orClickToBrowse}</p>
+                    <p className="text-xs text-muted-foreground mt-2">{t.rateCV.supportedFormats}</p>
                   </div>
                 )}
               </div>
               {file && !loading && (
                 <Button onClick={handleAnalyze} className="w-full mt-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3 px-6 rounded-lg text-lg shadow-md transition-transform transform hover:scale-105">
-                  {t.uploadCV.startNowFreeRating}
+                  {t.rateCV.startNowFreeRating}
                 </Button>
               )}
             </ShadCardContent>

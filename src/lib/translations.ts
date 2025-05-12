@@ -9,7 +9,7 @@ interface PageTranslations {
   appName: string;
   header: {
     tabHome: string;
-    tabUploadCV: string;
+    // tabUploadCV: string;
     tabTranslateCV: string;
     tabAddLinkedIn: string;
     tabAddOldCV: string;
@@ -20,38 +20,45 @@ interface PageTranslations {
     arabic: string;
   };
   rateCV: {
-    heroTitle: string;
-    heroSubtitle: string;
-    analyzeMyResume: string;
-    howItWorks: string;
-    step1Title: string;
-    step1Description: string;
-    step2Title: string;
-    step2Description: string;
-    step3Title: string;
-    step3Description: string;
-    benefits: string;
-    benefitATSTitle: string;
-    benefitATSDescription: string;
-    benefitAITitle: string;
-    benefitAIDescription: string;
-    benefitLangTitle: string;
-    benefitLangDescription: string;
-    testimonials: string;
-    testimonial1Name: string;
-    testimonial1Quote: string;
-    testimonial2Name: string;
-    testimonial2Quote: string;
-    faq: string;
-    faq1Title: string;
-    faq1Answer: string;
-    faq2Title: string;
-    faq2Answer: string;
-    faq3Title: string;
-    faq3Answer: string;
-    finalCtaTitle: string;
-    finalCtaSubtitle: string;
-    getStartedNow: string;
+    heroTitle: string
+    heroSubtitle: string,
+    analyzeMyResume: string,
+    howItWorks: string,
+    step1Title: string,
+    step1Description: string,
+    step2Title: string,
+    step2Description: string,
+    step3Title: string,
+    step3Description: string,
+    benefits: string,
+    benefitATSTitle: string,
+    benefitATSDescription: string,
+    benefitAITitle: string,
+    benefitAIDescription: string,
+    benefitLangTitle: string,
+    benefitLangDescription: string,
+    testimonials: string,
+    testimonial1Name: string,
+    testimonial1Quote: string,
+    testimonial2Name: string,
+    testimonial2Quote: string,
+    faq: string,
+    faq1Title: string,
+    faq1Answer: string,
+    faq2Answer: string,
+    faq3Title: string,
+    faq3Answer: string,
+    finalCtaTitle: string,
+    finalCtaSubtitle: string,
+    getStartedNow: string,
+    uploadCVTitle: string,
+    uploadAreaTitle: string,
+    analyzingResume: string,
+    fileUploaded: string,
+    dragDropPrompt: string,
+    orClickToBrowse: string,
+    supportedFormats: string,
+    startNowFreeRating: string,
   };
   linkedinToCV: {
     heroTitle: string;
@@ -91,7 +98,7 @@ export const translations: Translations = {
     header: {
       tabHome: "Home",
       tabRateCV: "Rate My CV",
-      tabUploadCV: "Upload CV",
+      // tabUploadCV: "Upload CV",
       tabTranslateCV: "Translate CV",
       tabAddLinkedIn: "Add LinkedIn Info",
       tabAddOldCV: "Add Old CV",
@@ -106,40 +113,6 @@ export const translations: Translations = {
       heroSubtitle: "",
     },
     rateCV: {
-      heroTitle: "Get an AI Resume Score Tailored for the Saudi Job Market",
-      heroSubtitle: "Evaluate your resume instantly with Seirah’s AI. Get scores on content, format, tailoring, and more.",
-      analyzeMyResume: "Get My AI Resume Score",
-      howItWorks: "How It Works",
-      step1Title: "Upload Your CV",
-      step1Description: "Paste your CV text or upload it – no signup required.",
-      step2Title: "Get Instant Score",
-      step2Description: "Seirah analyzes your resume based on Saudi employer criteria.",
-      step3Title: "Improve Instantly",
-      step3Description: "Get rephrasing tips to improve your resume in minutes.",
-      benefits: "Why People Love Seirah",
-      benefitATSTitle: "ATS-Compatible",
-      benefitATSDescription: "Structured to pass ATS filters.",
-      benefitAITitle: "AI Suggestions",
-      benefitAIDescription: "Personalized improvement advice.",
-      benefitLangTitle: "Arabic/English Support",
-      benefitLangDescription: "Optimized for bilingual resumes.",
-      testimonials: "User Testimonials",
-      testimonial1Name: "Ahmed K.",
-      testimonial1Quote: "Seirah helped me land interviews!",
-      testimonial2Name: "Fatima S.",
-      testimonial2Quote: "The rephrasing feature is amazing.",
-      faq: "FAQs",
-      faq1Title: "What does resume scoring analyze?",
-      faq1Answer: "We analyze content, tailoring, formatting, clarity, and tone.",
-      faq2Title: "Is resume scoring free?",
-      faq2Answer: "Yes. Premium features like rewriting are optional.",
-      faq3Title: "Can I edit my CV directly?",
-      faq3Answer: "Yes. Use our suggestions to improve instantly.",
-      finalCtaTitle: "Start Improving Your Resume",
-      finalCtaSubtitle: "Make your resume stand out for Saudi employers.",
-      getStartedNow: "Analyze My Resume"
-    },
-    uploadCV: {
       heroTitle: "Get an AI Resume Score Tailored for the Saudi Job Market",
       heroSubtitle: "Evaluate your resume instantly with Seirah’s AI. Get scores on content, format, tailoring, and more – optimized for success in Saudi Arabia.",
       analyzeMyResume: "Get My AI Resume Score",
@@ -218,7 +191,7 @@ export const translations: Translations = {
     header: {
       tabHome: "الرئيسية",
       tabRateCV: "قيم سيرتي الذاتية",
-      tabUploadCV: "رفع السيرة",
+      // tabUploadCV: "رفع السيرة",
       tabTranslateCV: "ترجمة السيرة",
       tabAddLinkedIn: "إضافة لينكدإن",
       tabAddOldCV: "سيرتك القديمة",
@@ -229,40 +202,6 @@ export const translations: Translations = {
       arabic: "🇸🇦 Arabic"
     },
     rateCV: {
-      heroTitle: "احصل على تقييم لسيرتك بالذكاء الاصطناعي",
-      heroSubtitle: "حلل سيرتك فورًا واحصل على تقييم المحتوى والتنسيق والتخصيص والمزيد.",
-      analyzeMyResume: "احصل على تقييم سيرتي",
-      howItWorks: "كيف يعمل",
-      step1Title: "حمّل سيرتك",
-      step1Description: "انسخ السيرة أو ارفعها بسهولة.",
-      step2Title: "احصل على التقييم",
-      step2Description: "نقيّمها حسب معايير التوظيف بالسعودية.",
-      step3Title: "حسّنها فورًا",
-      step3Description: "اقتراحات فورية وإعادة صياغة.",
-      benefits: "لماذا يثقون بنا؟",
-      benefitATSTitle: "متوافقة مع ATS",
-      benefitATSDescription: "تمر بأنظمة التصفية بسهولة.",
-      benefitAITitle: "اقتراحات ذكية",
-      benefitAIDescription: "توصيات شخصية.",
-      benefitLangTitle: "دعم ثنائي اللغة",
-      benefitLangDescription: "مثالية للسعودية.",
-      testimonials: "آراء المستخدمين",
-      testimonial1Name: "أحمد ك.",
-      testimonial1Quote: "سيرة ساعدتني في الحصول على مقابلات.",
-      testimonial2Name: "فاطمة س.",
-      testimonial2Quote: "ميزة إعادة الصياغة رائعة.",
-      faq: "الأسئلة الشائعة",
-      faq1Title: "ما الذي يتم تحليله؟",
-      faq1Answer: "المحتوى، التخصيص، التنسيق، الوضوح، والأسلوب.",
-      faq2Title: "هل التحليل مجاني؟",
-      faq2Answer: "نعم، الميزات المتقدمة اختيارية.",
-      faq3Title: "هل يمكن التعديل مباشرة؟",
-      faq3Answer: "نعم، من خلال الاقتراحات المباشرة.",
-      finalCtaTitle: "ابدأ تحسين سيرتك الآن",
-      finalCtaSubtitle: "واجعل سيرتك تبرز لأصحاب العمل.",
-      getStartedNow: "ابدأ الآن"
-    },
-    uploadCV: {
       heroTitle: "قيّم سيرتك الذاتية بالذكاء الاصطناعي لسوق العمل السعودي",
       heroSubtitle: "احصل على تقييم فوري في التخصيص، المحتوى، التنسيق، الأقسام، والأسلوب – لتقترب أكثر من وظيفتك المثالية!",
       analyzeMyResume: "حلل سيرتي الذاتية",
