@@ -11,9 +11,9 @@ import { ResumeAnalysisModal } from '@/components/resume-analysis-modal';
 import { useLanguage } from '@/hooks/use-language';
 import { CheckCircle, Zap, Languages, UploadCloud, BarChartBig, Edit3, Star, MessageSquare, HelpCircle, SparklesIcon } from 'lucide-react';
 import { translations } from '@/lib/translations';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Accordion } from '@/components/ui/accordion';
 import { HowItWorksStep, BenefitCard, TestimonialCard } from '@/components/ui/cards';
+import { FaqItem } from '@/components/ui/sections';
 
 export default function RateCV() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -109,7 +109,7 @@ export default function RateCV() {
         {/* How It Works Section */}
         <section id="how-it-works" className="py-16 md:py-20 bg-card">
           <div className="container mx-auto px-6 text-center">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.rateCV.howItWorks}</h2>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-center' : 'text-center'}`}>{t.rateCV.howItWorks}</h2>
             <div className="grid md:grid-cols-3 gap-8">
               <HowItWorksStep icon={<UploadCloud className="h-12 w-12 text-primary mb-4" />} title={t.rateCV.step1Title} description={t.rateCV.step1Description} stepNumber="1" />
               <HowItWorksStep icon={<BarChartBig className="h-12 w-12 text-primary mb-4" />} title={t.rateCV.step2Title} description={t.rateCV.step2Description} stepNumber="2" />
@@ -200,30 +200,6 @@ export default function RateCV() {
       <Footer />
       <ResumeAnalysisModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
-  );
-}
-
-
-interface FaqItemProps {
-  value: string;
-  title: string;
-  answer: string;
-}
-
-function FaqItem({ value, title, answer }: FaqItemProps) {
-  const { direction } = useLanguage();
-  return (
-    <AccordionItem value={value} className="">
-      <AccordionTrigger className={`py-6 text-lg font-semibold text-foreground hover:text-primary transition-colors [&[data-state=open]>svg]:text-primary ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>
-        <div className={`flex items-center ${direction === 'rtl' ? 'flex-row-reverse' : 'flex-row'}`}>
-          <HelpCircle className="mr-3 h-6 w-6 text-primary/70" />
-          {title}
-        </div>
-      </AccordionTrigger>
-      <AccordionContent className="pb-6 text-muted-foreground text-base leading-relaxed">
-        {answer}
-      </AccordionContent>
-    </AccordionItem>
   );
 }
 

@@ -37,21 +37,25 @@ export interface BenefitCardProps {
 }
 
 export function BenefitCard({ icon, title, description }: BenefitCardProps) {
-  const { direction } = useLanguage();
-  return (
-    <Card dir={direction} className="p-6 shadow-lg hover:shadow-xl transition-shadow bg-card">
-      <CardHeader className={`flex flex-col mb-2 ${direction === 'rtl' ? 'items-end text-right' : 'items-start text-left'}`}>
-        {icon}
-        <CardTitle className="mt-4 text-xl font-semibold text-foreground">
-          {title}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className={direction === 'rtl' ? 'text-right' : 'text-left'}>
-        <p className="text-muted-foreground">{description}</p>
-      </CardContent>
-    </Card>
-  );
-}
+    const { direction } = useLanguage();
+    const isRTL = direction === 'rtl';
+  
+    return (
+      <Card dir={direction} className="p-6 shadow-lg hover:shadow-xl transition-shadow bg-card">
+        <CardHeader className={`flex flex-col mb-2 ${isRTL ? 'items-end' : 'items-start'}`}>
+          <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
+            <div className="mb-2">{icon}</div>
+            <CardTitle className="text-xl font-semibold text-foreground">
+              {title}
+            </CardTitle>
+          </div>
+        </CardHeader>
+        <CardContent className={isRTL ? 'text-right' : 'text-left'}>
+          <p className="text-muted-foreground">{description}</p>
+        </CardContent>
+      </Card>
+    );
+  }
 
 export interface TestimonialCardProps {
   name: string;
