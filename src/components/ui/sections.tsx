@@ -44,7 +44,7 @@ export function FinalCTASection({ title, subtitle, buttonText, onClick }: FinalC
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-primary/80 via-secondary to-primary text-white text-center">
       <div className="container mx-auto px-6">
-        <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{title}</h2>
+        <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${direction === 'rtl' ? 'text-center' : 'text-center'}`}>{title}</h2>
         <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{subtitle}</p>
         <button
           onClick={onClick}

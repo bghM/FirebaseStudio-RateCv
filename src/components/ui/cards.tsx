@@ -35,27 +35,26 @@ export interface BenefitCardProps {
   title: string;
   description: string;
 }
-
 export function BenefitCard({ icon, title, description }: BenefitCardProps) {
-    const { direction } = useLanguage();
-    const isRTL = direction === 'rtl';
-  
-    return (
-      <Card dir={direction} className="p-6 shadow-lg hover:shadow-xl transition-shadow bg-card">
-        <CardHeader className={`flex flex-col mb-2 ${isRTL ? 'items-end' : 'items-start'}`}>
-          <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
-            <div className="mb-2">{icon}</div>
-            <CardTitle className="text-xl font-semibold text-foreground">
-              {title}
-            </CardTitle>
-          </div>
-        </CardHeader>
-        <CardContent className={isRTL ? 'text-right' : 'text-left'}>
-          <p className="text-muted-foreground">{description}</p>
-        </CardContent>
-      </Card>
-    );
-  }
+  const { direction } = useLanguage();
+  const isRTL = direction === 'rtl';
+
+  return (
+    <Card dir={direction} className="p-6 shadow-lg hover:shadow-xl transition-shadow bg-card">
+      <CardHeader className="flex flex-col mb-2">
+        <div className={`w-full ${isRTL ? 'text-right' : 'text-left'}`}>
+          <div className="mb-2 inline-block">{icon}</div>
+          <CardTitle className="mt-2 text-xl font-semibold text-foreground">
+            {title}
+          </CardTitle>
+        </div>
+      </CardHeader>
+      <CardContent className={`w-full ${isRTL ? 'text-right' : 'text-left'}`}>
+        <p className="text-muted-foreground">{description}</p>
+      </CardContent>
+    </Card>
+  );
+}
 
 export interface TestimonialCardProps {
   name: string;

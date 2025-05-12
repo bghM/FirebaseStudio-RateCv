@@ -7,6 +7,9 @@ import { translations } from '@/lib/translations';
 import { Header } from '@/components/layout/header';
 import { Button } from '@/components/ui/button';
 import { Zap, UploadCloud, Sparkles, Download } from 'lucide-react';
+import { HowItWorksStep, BenefitCard, TestimonialCard } from '@/components/ui/cards';
+import { FinalCTASection } from '@/components/ui/sections';
+
 
 export default function LinkedInToCVLandingPage() {
   const { language, direction } = useLanguage();
@@ -89,36 +92,39 @@ export default function LinkedInToCVLandingPage() {
 
 
 
-{/* How It Works Section */}
-<section className="py-16 md:py-20 bg-card">
-  <div className="container mx-auto px-6 text-center">
-    <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>
-      {t.linkedinToCV.howItWorks}
-    </h2>
-    <div className="grid md:grid-cols-3 gap-8">
-      {[
-        { icon: <UploadCloud className="h-12 w-12 text-primary mb-4" />, title: t.linkedinToCV.step1Title, step: '1' },
-        { icon: <Sparkles className="h-12 w-12 text-primary mb-4" />, title: t.linkedinToCV.step2Title, step: '2' },
-        { icon: <Download className="h-12 w-12 text-primary mb-4" />, title: t.linkedinToCV.step3Title, step: '3' },
-      ].map(({ icon, title, step }) => (
-        <div key={step} className={`flex flex-col p-6 bg-background rounded-lg shadow-lg hover:shadow-xl transition-shadow ${direction === 'rtl' ? 'items-center text-right' : 'items-center text-left'}`}>
-          <div className="relative mb-4">
-            {icon}
-            <span className={`absolute -top-2 ${direction === 'rtl' ? '-left-2' : '-right-2'} bg-primary text-primary-foreground text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center`}>
-              {step}
-            </span>
+        {/* How It Works Section */}
+        <section className="py-16 md:py-20 bg-card">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>
+              {t.linkedinToCV.howItWorks}
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <HowItWorksStep
+                icon={<UploadCloud className="h-12 w-12 text-primary mb-4" />}
+                title={t.linkedinToCV.step1Title}
+                description=""
+                stepNumber="1"
+              />
+              <HowItWorksStep
+                icon={<Sparkles className="h-12 w-12 text-primary mb-4" />}
+                title={t.linkedinToCV.step2Title}
+                description=""
+                stepNumber="2"
+              />
+              <HowItWorksStep
+                icon={<Download className="h-12 w-12 text-primary mb-4" />}
+                title={t.linkedinToCV.step3Title}
+                description=""
+                stepNumber="3"
+              />
+            </div>
           </div>
-          <h3 className={`text-xl font-semibold mb-2 text-foreground ${direction === 'rtl' ? 'text-right' : 'text-left'}`}>{title}</h3>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+        </section>
 
 
 
-        {/* How It Works */}
-        <section className="mb-20">
+        {/* How It Works - with animation */}
+        {/* <section className="mb-20">
           <h2 className="text-3xl font-bold mb-12 text-center">{t.linkedinToCV.howItWorks}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[1, 2, 3].map((step) => (
@@ -130,7 +136,7 @@ export default function LinkedInToCVLandingPage() {
               </div>
             ))}
           </div>
-        </section>
+        </section> */}
 
 
         {/* Why Use Section */}
@@ -139,12 +145,12 @@ export default function LinkedInToCVLandingPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-primary">{t.linkedinToCV.whyUse}</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {[1, 2, 3, 4].map((i) => (
-                <div key={i} className="flex items-center p-4 bg-muted rounded-md shadow-sm">
-                  <div className={`w-8 h-8 bg-primary/10 rounded-full ${direction === 'rtl' ? 'ml-4' : 'mr-4'}`} />
-                  <span className={`text-lg text-foreground ${direction === 'rtl' ? 'text-right' : ''}`}>
-                    {t.linkedinToCV[`whyUse${i}`]}
-                  </span>
-                </div>
+                <BenefitCard
+                  key={i}
+                  icon={<div className="w-8 h-8 bg-primary/10 rounded-full" />}
+                  title={t.linkedinToCV[`whyUse${i}`]}
+                  description=""
+                />
               ))}
             </div>
           </div>
@@ -152,24 +158,23 @@ export default function LinkedInToCVLandingPage() {
 
         {/* Testimonial Section */}
         <section className="py-16 md:py-20 bg-card text-center">
-          <div className="max-w-2xl mx-auto p-8 bg-muted/30 rounded-lg shadow-inner">
-            <p className="text-xl italic mb-4 text-muted-foreground">"{t.linkedinToCV.testimonial}"</p>
-            <p className="text-lg font-semibold text-foreground">{t.linkedinToCV.testimonialAuthor}</p>
+          <div className="max-w-2xl mx-auto">
+            <TestimonialCard
+              name={t.linkedinToCV.testimonialAuthor}
+              quote={t.linkedinToCV.testimonial}
+              avatar="https://picsum.photos/seed/avatar5/100/100"
+              stars={5}
+            />
           </div>
         </section>
 
         {/* Final CTA */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-primary/80 via-secondary to-primary text-white text-center">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.linkedinToCV.callToActionText}</h2>
-            <Button
-              size="lg"
-              className="bg-white text-primary font-semibold px-10 py-4 rounded-lg text-xl hover:bg-white/90 transition-transform transform hover:scale-105"
-            >
-              {t.linkedinToCV.callToActionButton}
-            </Button>
-          </div>
-        </section>
+        <FinalCTASection
+          title={t.linkedinToCV.callToActionText}
+          subtitle=""
+          buttonText={t.linkedinToCV.callToActionButton}
+          onClick={() => console.log('CTA Clicked')} // Replace with actual handler
+        />
 
 
       </main>
