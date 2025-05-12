@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+// change this later
 export const metadata: Metadata = {
   title: 'ResumeAI Rate',
   description: 'AI-powered resume analysis tool for the Saudi job market.',
