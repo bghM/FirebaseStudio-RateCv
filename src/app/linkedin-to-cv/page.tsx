@@ -122,7 +122,6 @@ export default function LinkedInToCVLandingPage() {
         </section>
 
 
-
         {/* How It Works - with animation */}
         {/* <section className="mb-20">
           <h2 className="text-3xl font-bold mb-12 text-center">{t.linkedinToCV.howItWorks}</h2>
