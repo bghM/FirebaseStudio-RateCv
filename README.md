@@ -6,7 +6,6 @@ To get started, take a look at src/app/page.tsx.
 
 
 
-<<<<<<< HEAD
 
 Step-by-step implementation plan to integrate MCP (Model Context Protocol)
 ✅ Step 1: Define the Purpose of MCP in Seirah
@@ -17,17 +16,6 @@ Seirah uses AI across:
     •   Generating summaries/descriptions
     •   Feedback analysis
     •   Resume rating
-=======
-step-by-step implementation plan to integrate MCP (Model Context Protocol)
-✅ Step 1: Define the Purpose of MCP in Seirah
-
-Seirah uses AI across:
-	•	Rephrasing content
-	•	Translating CV sections
-	•	Generating summaries/descriptions
-	•	Feedback analysis
-	•	Resume rating
->>>>>>> c8c72a6d456bd4091b1fbd92f4429bc55e00255e
 
 MCP helps give consistent, structured, and brand-aligned context to every model call.
 
@@ -52,17 +40,10 @@ Wherever you call OpenAI or your backend /api/ai/* routes
 
 
 🔐 Step 6: Secure the Backend
-<<<<<<< HEAD
     •   ✅ Validate inputs on server (zod or schema)
     •   ✅ Limit token length (e.g. 1000 tokens max)
     •   ✅ Add rate limiting on endpoints
     •   ✅ Sanitize mcp.inputs for prompts
-=======
-	•	✅ Validate inputs on server (zod or schema)
-	•	✅ Limit token length (e.g. 1000 tokens max)
-	•	✅ Add rate limiting on endpoints
-	•	✅ Sanitize mcp.inputs for prompts
->>>>>>> c8c72a6d456bd4091b1fbd92f4429bc55e00255e
 
 
 🔁 Step 7: Reuse Across Features
@@ -90,7 +71,6 @@ Excessive input size      |Truncate or reject long input text
 
 
 🌟 Step 9: Future-Proof Suggestions
-<<<<<<< HEAD
     1.  Log MCPs in analytics (e.g., Segment or PostHog) for insight.
     2.  Auto-switch tone for recruiter vs job seeker roles.
     3.  Support platform = 'mobile' for future native apps.
@@ -98,12 +78,3 @@ Excessive input size      |Truncate or reject long input text
     •   Add zod schema validation?
     •   Set up proper error logging + OpenAI error handling?
     •   Enable support for streaming output?
-=======
-	1.	Log MCPs in analytics (e.g., Segment or PostHog) for insight.
-	2.	Auto-switch tone for recruiter vs job seeker roles.
-	3.	Support platform = 'mobile' for future native apps.
-	4.	Integrate userId, sessionId in metadata.
-	•	Add zod schema validation?
-	•	Set up proper error logging + OpenAI error handling?
-	•	Enable support for streaming output?
->>>>>>> c8c72a6d456bd4091b1fbd92f4429bc55e00255e
