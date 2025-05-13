@@ -96,10 +96,10 @@ export default function RateCV() {
             </div>
             <div className="mt-12 md:mt-0 flex justify-center">
               <Image
-                src="/image2.png"
+                src="/image1.png"
                 alt={t.shared.resumeAnalysisIllustrationAlt}
-                width={800}
-                height={400}
+                width={700}
+                height={300}
                 className="mx-auto bg-transparent"
                 loading="lazy"
               />
