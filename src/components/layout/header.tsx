@@ -46,6 +46,12 @@ export function Header({ ctaTitle, ctaLink, ctaOnClick }: HeaderProps) {
       router.push('/rate-cv');
     } else if (currentPath === '/linkedin-to-cv') {
       router.push('/linkedin-upload');
+    } else if (currentPath === '/add-old-cv') {
+      router.push('//addOldCV');
+    } else if (currentPath === '/generate-description') {
+      router.push('/generateDescription');
+    } else if (currentPath === '/job-specific-cv') {
+      router.push('/jobSpecificCV');
     } else {
       router.push('/rate-cv');
     }

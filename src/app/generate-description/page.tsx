@@ -46,10 +46,8 @@ export default function LinkedInToCVUploadPage() {
       <Header ctaTitle={t.header.tabRateCV} ctaLink="/rate-cv/rateCV" />
 
       <main className="min-h-screen flex items-center justify-center bg-background text-2xl font-semibold text-primary">
-        Hello, linkedin page
+        Hello, generate description page
       </main>
     </div>
   );
 }
-
-

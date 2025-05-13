@@ -8,7 +8,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { Zap } from 'lucide-react';
 
 
-export default function GenerateDescriptionUploadPage() {
+export default function LinkedInToCVUploadPage() {
   const { language, direction } = useLanguage();
   const t = translations[language];
   const [mounted, setMounted] = useState(false);
@@ -46,7 +46,7 @@ export default function GenerateDescriptionUploadPage() {
       <Header ctaTitle={t.header.tabRateCV} ctaLink="/rate-cv/rateCV" />
 
       <main className="min-h-screen flex items-center justify-center bg-background text-2xl font-semibold text-primary">
-        Hello, generate description page
+        Hello, generate description details page
       </main>
     </div>
   );
