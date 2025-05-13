@@ -10,7 +10,7 @@ import { Zap, UploadCloud, Sparkles, Download, Clock, ArrowRightLeft, BadgeCheck
 import { HowItWorksStep, BenefitCard, TestimonialCard } from '@/components/ui/cards';
 import { FinalCTASection } from '@/components/ui/sections';
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Footer } from '@/components/layout/footer';
 
 
@@ -221,7 +221,7 @@ export default function LinkedInToCVLandingPage() {
       </main>
 
       <Footer />
-      {/* <ResumeAnalysisModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}
+
       <style jsx global>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(20px); }

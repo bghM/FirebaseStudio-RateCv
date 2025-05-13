@@ -33,7 +33,7 @@ import { Zap, UploadCloud, BookText, Download, TimerReset, Brain, LayoutTemplate
 import { HowItWorksStep, BenefitCard, TestimonialCard } from '@/components/ui/cards';
 import { FinalCTASection } from '@/components/ui/sections';
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Footer } from '@/components/layout/footer';
 
 
