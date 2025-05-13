@@ -56,21 +56,21 @@ export default function AddOldCVLandingPage() {
     <div className={`min-h-screen bg-background text-foreground ${direction === 'rtl' ? 'font-arabic' : ''}`} dir={direction} lang={language}>
      
      <Head>
-        <title>{t.uploadOldResume.heroTitle}</title>
-        <meta name="description" content={t.uploadOldResume.heroSubtitle} />
+        <title>{t.addOldCV.heroTitle}</title>
+        <meta name="description" content={t.addOldCV.heroSubtitle} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
         <meta name="language" content={language === 'ar' ? 'Arabic' : 'English'} />
         <meta name="theme-color" content="#ffffff" />
-        <meta property="og:title" content={t.uploadOldResume.heroTitle} />
-        <meta property="og:description" content={t.uploadOldResume.heroSubtitle} />
+        <meta property="og:title" content={t.addOldCV.heroTitle} />
+        <meta property="og:description" content={t.addOldCV.heroSubtitle} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={language === 'ar' ? 'ar_SA' : 'en_US'} />
         <meta property="og:url" content="https://seirah.com/rate-cv" />
         <meta property="og:image" content="/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={t.uploadOldResume.heroTitle} />
-        <meta name="twitter:description" content={t.uploadOldResume.heroSubtitle} />
+        <meta name="twitter:title" content={t.addOldCV.heroTitle} />
+        <meta name="twitter:description" content={t.addOldCV.heroSubtitle} />
         <meta name="twitter:image" content="/og-image.png" />
         <link rel="canonical" href="https://seirah.com/rate-cv" />
       </Head>
@@ -82,16 +82,16 @@ export default function AddOldCVLandingPage() {
       {/* Hero Section */}
       <section className="py-20 px-6 text-center bg-gradient-to-br from-primary/10 to-background">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
-         {t.uploadOldResume.heroTitle}
+         {t.addOldCV.heroTitle}
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-        {t.uploadOldResume.heroSubtitle}
+        {t.addOldCV.heroSubtitle}
         </p>
         <Button 
           size="lg" 
           className="text-lg px-8 py-4 rounded-xl bg-primary text-primary-foreground"
           onClick={handleAddOldCVButtonClick}>
-          {t.uploadOldResume.heroButton}
+          {t.addOldCV.heroButton}
         </Button>
       </section>
 
@@ -101,9 +101,9 @@ export default function AddOldCVLandingPage() {
           {t.rateCV.howItWorks}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
-          <HowStep icon={<UploadCloud className="h-10 w-10" />} text={t.uploadOldResume.step1Title} />
-          <HowStep icon={<Brain className="h-10 w-10" />} text={t.uploadOldResume.step2Title} />
-          <HowStep icon={<Pencil className="h-10 w-10" />} text={t.uploadOldResume.step2Title} />
+          <HowStep icon={<UploadCloud className="h-10 w-10" />} text={t.addOldCV.step1Title} />
+          <HowStep icon={<Brain className="h-10 w-10" />} text={t.addOldCV.step2Title} />
+          <HowStep icon={<Pencil className="h-10 w-10" />} text={t.addOldCV.step2Title} />
         </div>
       </section>
 
@@ -113,21 +113,21 @@ export default function AddOldCVLandingPage() {
           {t.rateCV.benefits} 
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto px-4 text-muted-foreground">
-          <WhyPoint icon={<ArrowRight />} text={t.uploadOldResume.whyUse1} />
-          <WhyPoint icon={<ArrowRight />} text={t.uploadOldResume.whyUse2} />
-          <WhyPoint icon={<ArrowRight />} text={t.uploadOldResume.whyUse3} />
-          <WhyPoint icon={<ArrowRight />} text={t.uploadOldResume.whyUse4} />
+          <WhyPoint icon={<ArrowRight />} text={t.addOldCV.whyUse1} />
+          <WhyPoint icon={<ArrowRight />} text={t.addOldCV.whyUse2} />
+          <WhyPoint icon={<ArrowRight />} text={t.addOldCV.whyUse3} />
+          <WhyPoint icon={<ArrowRight />} text={t.addOldCV.whyUse4} />
         </div>
       </section>
 
       {/* Testimonials Section */}
       <section id="testimonials" className="py-16 md:py-20 bg-card">
         <div className="container mx-auto px-6 text-center">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.uploadOldResume.testimonials}</h2>
+          <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-primary ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.addOldCV.testimonials}</h2>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <TestimonialCard
-              name={t.uploadOldResume.testimonial1Name}
-              quote={t.uploadOldResume.testimonial1Quote}
+              name={t.addOldCV.testimonial1Name}
+              quote={t.addOldCV.testimonial1Quote}
               avatar="https://picsum.photos/seed/avatar1/100/100"
               stars={5}
             />  
@@ -140,9 +140,9 @@ export default function AddOldCVLandingPage() {
       {/* Final CTA Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary/80 via-secondary to-primary text-white text-center">
           <div className="container mx-auto px-6">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${direction === 'rtl' ? 'text-center' : 'text-center'}`}>{t.uploadOldResume.finalCtaTitle}</h2>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${direction === 'rtl' ? 'text-center' : 'text-center'}`}>{t.addOldCV.callToActionText}</h2>
             <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>
-              {t.uploadOldResume.callToActionText}
+              {/* {t.addOldCV.callToActionText} */}
             </p>
             <Button 
               size="lg"
@@ -150,7 +150,7 @@ export default function AddOldCVLandingPage() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-4 text-lg rounded-lg shadow-xl transition-transform transform hover:scale-105"
               onClick={handleAddOldCVButtonClick}
             >
-              <Zap className="mr-2 h-5 w-5" /> {t.uploadOldResume.getStartedNow}
+              <Zap className="mr-2 h-5 w-5" /> {t.addOldCV.getStartedNow}
             </Button>
           </div>
         </section>

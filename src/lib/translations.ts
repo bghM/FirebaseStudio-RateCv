@@ -101,23 +101,57 @@ interface PageTranslations {
     callToActionText: string;
     callToActionButton: string;
   },
-  uploadOldResume: {
+  addOldCV: {
     heroTitle: string;
-    heroSubtitle: string;
+    heroSubtitle:string;
+    heroButton: string;
+    
     howItWorks: string;
     step1Title: string;
     step2Title: string;
     step3Title: string;
+
     whyUse: string;
     whyUse1: string;
     whyUse2: string;
     whyUse3: string;
     whyUse4: string;
-    testimonial: string;
-    testimonialAuthor: string;
+
+    testimonial1Name: string;
+    testimonial1Quote: string;
+
     callToActionText: string;
-    callToActionButton: string;
-  }
+    getStartedNow: string;
+  },
+  generateSummary: {
+    heroTitle: string;
+    heroSubtitle: string;
+    heroButton: string;
+    howItWorks: string;
+    step1Title: string;
+    step1Description: string;
+    step2Title: string;
+    step2Description: string;
+    step3Title: string;
+    step3Description: string;
+    benefits: string;
+    benefitATSTitle: string;
+    benefitATSDescription: string;
+    benefitAITitle: string;
+    benefitAIDescription: string;
+    benefitLangTitle: string;
+    benefitLangDescription: string;
+    sample: string;
+    sampleText: string;
+    testimonials: string;
+    testimonial1Name: string;
+    testimonial1Quote: string;
+    testimonial2Name: string;
+    testimonial2Quote: string;
+    finalCtaTitle: string;
+    finalCtaSubtitle: string;
+    getStartedNow: string;
+  },
   footer: {
     rights: string;
   };
@@ -235,7 +269,7 @@ export const translations: Translations = {
       callToActionText: "Need to Translate Your Resume in Seconds?",
       callToActionButton: "Get My Translated Resume",
     },
-    uploadOldResume: {
+    addOldCV: {
       heroTitle: "Turn Your Old Resume into a Professional CV",
       heroSubtitle: "Upload your resume as a PDF, Word, or image file, and Seirah’s AI will instantly convert it into an editable CV.",
       heroButton: "Get Started",
@@ -250,8 +284,37 @@ export const translations: Translations = {
       whyUse4: "Secure, fast, and privacy-first",
       testimonial1Quote: "I uploaded an image of my old resume, and within minutes, I had a fully editable version!",
       testimonial1Name: "– Majed, Recent Graduate",
-      finalCtaTitle: "Start now and save valuable time",
+      callToActionText: "Start now and save valuable time",
       getStartedNow: "Try the Tool"
+    },
+    generateSummary: {
+      heroTitle: "Create a Resume Summary That Impresses Recruiters",
+      heroSubtitle: "With AI, generate a personalized summary that reflects your skills and personality in seconds",
+      heroButton: "Try the Feature",
+      howItWorks: "How It Works",
+      step1Title: "Input your details or upload your resume",
+      step1Description: "Enter some key info or upload your CV directly.",
+      step2Title: "Click 'Generate Summary'",
+      step2Description: "AI analyzes your data and generates a strong professional summary.",
+      step3Title: "Copy the result or insert it into your CV",
+      step3Description: "You can tweak the output or use it as-is inside your resume.",
+      benefits: "Why Use This Feature?",
+      benefitATSTitle: "Inspiring and clear writing",
+      benefitATSDescription: "The summary is written with professional yet easy-to-understand language.",
+      benefitAITitle: "Tailored to your field",
+      benefitAIDescription: "The summary reflects your domain and experience accurately.",
+      benefitLangTitle: "Save time and effort",
+      benefitLangDescription: "No need to write your personal statement from scratch.",
+      sample: "Sample Output",
+      sampleText: "Project management professional with 5+ years of experience leading growth strategies in fast-paced tech environments.",
+      testimonials: "What Users Say",
+      testimonial1Name: "Laila A.",
+      testimonial1Quote: "I used to struggle with writing my summary – now it’s done in seconds!",
+      testimonial2Name: "Sami N.",
+      testimonial2Quote: "This saved me a lot of time and gave me a result I’m proud of.",
+      finalCtaTitle: "Create Your Summary in One Click",
+      finalCtaSubtitle: "Let your resume speak for you in the best possible way",
+      getStartedNow: "Get Started"
     },
     footer: {
       rights: "© 2024 Seirah. All rights reserved."
@@ -366,7 +429,7 @@ export const translations: Translations = {
       callToActionText: "تحتاج ترجمة سيرتك الذاتية بسرعة؟",
       callToActionButton: "احصل على سيرتي المترجمة الآن",
     },
-    uploadOldResume: {
+    addOldCV: {
       heroTitle: "حوّل سيرتك القديمة إلى سيرة ذاتية احترافية",
       heroSubtitle: "ارفَع ملفك بصيغة PDF، Word أو صورة، ودع الذكاء الاصطناعي في سيرة يحوّله إلى سيرة ذاتية جاهزة للتعديل خلال لحظات.",
       heroButton: "ابدأ الآن",
@@ -381,8 +444,37 @@ export const translations: Translations = {
       whyUse4: "آمنة، سريعة، وتحافظ على الخصوصية",
       testimonial1Quote: "رفعت سيرتي القديمة كصورة، وخلال دقائق حصلت على نسخة جاهزة للاستخدام!",
       testimonial1Name: "– ماجد، خريج جديد",
-      finalCtaTitle: "ابدأ الآن ووفّر وقتك وجهدك",
+      callToActionText: "ابدأ الآن ووفّر وقتك وجهدك",
       getStartedNow: "جرب الأداة"
+    },
+    generateSummary: {
+      heroTitle: "احصل على نبذة مهنية تلهم أصحاب العمل",
+      heroSubtitle: "باستخدام الذكاء الاصطناعي، يمكنك إنشاء ملخص احترافي يعكس مهاراتك وشخصيتك خلال ثوانٍ",
+      heroButton: "جرب الميزة",
+      howItWorks: "كيف تعمل الميزة",
+      step1Title: "أدخل بياناتك أو ارفع سيرتك الذاتية",
+      step1Description: "يمكنك كتابة بعض المعلومات الأساسية أو رفع السيرة الذاتية مباشرة.",
+      step2Title: "اضغط على 'إنشاء النبذة'",
+      step2Description: "الذكاء الاصطناعي يحلّل المحتوى ويولد ملخصًا احترافيًا.",
+      step3Title: "انسخ النتيجة أو أضفها مباشرة لسيرتك",
+      step3Description: "يمكنك تعديل الملخص أو استخدامه كما هو في سيرتك الذاتية.",
+      benefits: "لماذا تستخدم هذه الميزة؟",
+      benefitATSTitle: "كتابة ملهمة وبسيطة",
+      benefitATSDescription: "الملخص مكتوب بلغة احترافية واضحة تجذب القارئ.",
+      benefitAITitle: "ملائمة لمجالك المهني",
+      benefitAIDescription: "يأخذ في الاعتبار تخصصك وخبراتك لكتابة ملخص مناسب.",
+      benefitLangTitle: "توفير الوقت والجهد",
+      benefitLangDescription: "لن تحتاج إلى كتابة النبذة بنفسك، نوفر عليك العناء.",
+      sample: "نموذج للنتيجة",
+      sampleText: "محترف في إدارة المشاريع يتمتع بخبرة تزيد عن 5 سنوات في تخطيط وتنفيذ استراتيجيات النمو في بيئات تقنية سريعة التغير.",
+      testimonials: "ماذا يقول المستخدمون",
+      testimonial1Name: "ليلى ع.",
+      testimonial1Quote: "كنت أحتار دائمًا كيف أكتب ملخصي، والآن أصبح جاهزًا خلال ثوانٍ!",
+      testimonial2Name: "سامي ن.",
+      testimonial2Quote: "الميزة وفرت لي الكثير من الوقت، والنتيجة رائعة فعلًا.",
+      finalCtaTitle: "أنشئ ملخصك الآن بخطوة واحدة",
+      finalCtaSubtitle: "اجعل سيرتك الذاتية تتحدث عنك بطريقة مميزة",
+      getStartedNow: "ابدأ الآن"
     },
     footer: {
       rights: "© 2024 سيرة. جميع الحقوق محفوظة."
