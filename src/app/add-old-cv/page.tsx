@@ -20,9 +20,10 @@ export default function AddOldCVLandingPage() {
 
   useEffect(() => {
     setMounted(true);
-    if (typeof window.gtag === 'undefined') {
-      console.warn('Google Analytics gtag not found. Tracking will be disabled.');
-    }
+    // the error could be here
+    // if (typeof window.gtag === 'undefined') {
+    //   console.warn('Google Analytics gtag not found. Tracking will be disabled.');
+    // }
   }, []);
 
   const trackCTAClick = (ctaName: string) => {
