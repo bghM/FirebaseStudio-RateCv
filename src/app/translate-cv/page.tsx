@@ -21,9 +21,6 @@
 // }
 
 
-
-// File: /src/app/translate-cv/page.tsx
-
 'use client';
 
 import Head from 'next/head';
@@ -41,7 +38,7 @@ import { Footer } from '@/components/layout/footer';
 
 
 
-export default function TranslateCVPage() {
+export default function TranslateCVLandingPage() {
   const { language, direction } = useLanguage();
   const t = translations[language];
   const router = useRouter();
@@ -207,3 +204,4 @@ export default function TranslateCVPage() {
     </div>
   );
 }
+

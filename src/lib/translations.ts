@@ -101,6 +101,23 @@ interface PageTranslations {
     callToActionText: string;
     callToActionButton: string;
   },
+  uploadOldResume: {
+    heroTitle: string;
+    heroSubtitle: string;
+    howItWorks: string;
+    step1Title: string;
+    step2Title: string;
+    step3Title: string;
+    whyUse: string;
+    whyUse1: string;
+    whyUse2: string;
+    whyUse3: string;
+    whyUse4: string;
+    testimonial: string;
+    testimonialAuthor: string;
+    callToActionText: string;
+    callToActionButton: string;
+  }
   footer: {
     rights: string;
   };
@@ -218,6 +235,24 @@ export const translations: Translations = {
       callToActionText: "Need to Translate Your Resume in Seconds?",
       callToActionButton: "Get My Translated Resume",
     },
+    uploadOldResume: {
+      heroTitle: "Turn Your Old Resume into a Professional CV",
+      heroSubtitle: "Upload your resume as a PDF, Word, or image file, and Seirah’s AI will instantly convert it into an editable CV.",
+      heroButton: "Get Started",
+      howItWorks: "How It Works",
+      step1Title: "Upload Your Old Resume",
+      step2Title: "We Auto-Convert It into a Structured CV",
+      step3Title: "Pick a Design, Edit Details & Download",
+      whyUse: "Why Use This Feature?",
+      whyUse1: "Save time—No manual rewriting needed",
+      whyUse2: "Powered by OpenAI for natural, accurate content extraction",
+      whyUse3: "Keeps formatting ATS-friendly for better job matching",
+      whyUse4: "Secure, fast, and privacy-first",
+      testimonial1Quote: "I uploaded an image of my old resume, and within minutes, I had a fully editable version!",
+      testimonial1Name: "– Majed, Recent Graduate",
+      finalCtaTitle: "Start now and save valuable time",
+      getStartedNow: "Try the Tool"
+    },
     footer: {
       rights: "© 2024 Seirah. All rights reserved."
     },
@@ -331,6 +366,24 @@ export const translations: Translations = {
       callToActionText: "تحتاج ترجمة سيرتك الذاتية بسرعة؟",
       callToActionButton: "احصل على سيرتي المترجمة الآن",
     },
+    uploadOldResume: {
+      heroTitle: "حوّل سيرتك القديمة إلى سيرة ذاتية احترافية",
+      heroSubtitle: "ارفَع ملفك بصيغة PDF، Word أو صورة، ودع الذكاء الاصطناعي في سيرة يحوّله إلى سيرة ذاتية جاهزة للتعديل خلال لحظات.",
+      heroButton: "ابدأ الآن",
+      howItWorks: "كيف تعمل الميزة",
+      step1Title: "ارفع سيرتك القديمة",
+      step2Title: "نحوّلها تلقائيًا إلى نموذج قابل للتعديل",
+      step3Title: "اختر التصميم وعدّل البيانات وحمّل سيرتك",
+      whyUse: "لماذا تستخدم هذه الميزة؟",
+      whyUse1: "وفّر وقتك وجهدك بدون إعادة كتابة يدوية",
+      whyUse2: "مدعومة بـ OpenAI لترجمة طبيعية ودقيقة",
+      whyUse3: "تحافظ على التنسيق المتوافق مع أنظمة ATS",
+      whyUse4: "آمنة، سريعة، وتحافظ على الخصوصية",
+      testimonial1Quote: "رفعت سيرتي القديمة كصورة، وخلال دقائق حصلت على نسخة جاهزة للاستخدام!",
+      testimonial1Name: "– ماجد، خريج جديد",
+      finalCtaTitle: "ابدأ الآن ووفّر وقتك وجهدك",
+      getStartedNow: "جرب الأداة"
+    },
     footer: {
       rights: "© 2024 سيرة. جميع الحقوق محفوظة."
     },
@@ -346,3 +399,6 @@ export const translations: Translations = {
     }
   }
 };
+
+
+

@@ -87,8 +87,8 @@ export function Header({ ctaTitle, ctaLink, ctaOnClick }: HeaderProps) {
               <li><Link href="/linkedin-to-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabAddLinkedIn}</Link></li>
               <li><Link href="/translate-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabTranslateCV}</Link></li>
               <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabAddOldCV}</Link></li>
-              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabGenerateDescription}</Link></li>
-              <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabJobSpecificResume}</Link></li>
+              <li><Link href="/generate-description" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabGenerateDescription}</Link></li>
+              <li><Link href="/job-specific-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabJobSpecificResume}</Link></li>
             </ul>
           </nav>
 
@@ -125,3 +125,5 @@ export function Header({ ctaTitle, ctaLink, ctaOnClick }: HeaderProps) {
     </header>
   );
 }
+
+

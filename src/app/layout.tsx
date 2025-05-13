@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 // change this later
 export const metadata: Metadata = {
-  title: 'ResumeAI Rate',
+  title: 'Seirah AI',
   description: 'AI-powered resume analysis tool for the Saudi job market.',
   keywords: 'تحسين السيرة الذاتية, Resume checker, تقييم السيرة الذاتية, resume analysis, CV rating, Saudi job market, ATS optimization',
 };

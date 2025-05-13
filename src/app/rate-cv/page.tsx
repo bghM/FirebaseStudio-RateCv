@@ -15,7 +15,7 @@ import { Accordion } from '@/components/ui/accordion';
 import { HowItWorksStep, BenefitCard, TestimonialCard } from '@/components/ui/cards';
 import { FaqItem } from '@/components/ui/sections';
 
-export default function RateCV() {
+export default function RateCVLangingPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
   const { language, direction } = useLanguage();
@@ -180,7 +180,7 @@ export default function RateCV() {
         {/* Final CTA Section */}
         <section className="py-16 md:py-24 bg-gradient-to-br from-primary/80 via-secondary to-primary text-white text-center">
           <div className="container mx-auto px-6">
-            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>{t.rateCV.finalCtaTitle}</h2>
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${direction === 'rtl' ? 'text-center' : 'text-center'}`}>{t.rateCV.finalCtaTitle}</h2>
             <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90 ${direction === 'rtl' ? 'text-right' : 'text-center'}`}>
               {t.rateCV.finalCtaSubtitle}
             </p>
