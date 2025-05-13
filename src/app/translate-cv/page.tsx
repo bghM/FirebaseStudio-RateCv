@@ -1,27 +1,3 @@
-// "use client";
-
-// import { Button } from "@/components/ui/button";
-// import Link from "next/link";
-
-// export default function TranslateCVPage() {
-//   return (
-//     <div className="container mx-auto px-4 py-8">
-//       <h1 className="text-3xl font-bold mb-4">Translate Your CV</h1>
-//       <p className="text-lg text-gray-700 mb-6">
-//         Easily translate your resume between Arabic and English using our AI-powered tool.
-//         Upload your existing CV and get a professionally translated version ready for download.
-//       </p>
-//       <Link href="/translate-cv/translateCV" passHref>
-//         <Button size="lg">
-//           Start Translating
-//         </Button>
-//       </Link>
-//     </div>
-//   );
-// }
-
-
-
 // File: /src/app/translate-cv/page.tsx
 
 'use client';
