@@ -13,7 +13,7 @@ import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Header } from '@/components/layout/header';
 
-const RateCVPage: React.FC = () => {
+const RateCVUploadPage: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const { language, direction } = useLanguage();
@@ -127,4 +127,4 @@ const RateCVPage: React.FC = () => {
   );
 };
 
-export default RateCVPage;
+export default RateCVUploadPage;

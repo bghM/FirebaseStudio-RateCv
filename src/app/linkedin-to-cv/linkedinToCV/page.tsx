@@ -5,8 +5,10 @@ import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Header } from '@/components/layout/header';
 import React, { useState, useCallback, useEffect } from 'react';
+import { Zap } from 'lucide-react';
 
-export default function HomePage() {
+
+export default function LinkedInToCVUploadPage() {
   const { language, direction } = useLanguage();
   const t = translations[language];
   const [mounted, setMounted] = useState(false);
@@ -44,7 +46,7 @@ export default function HomePage() {
       <Header ctaTitle={t.header.tabRateCV} ctaLink="/rate-cv/rateCV" />
 
       <main className="min-h-screen flex items-center justify-center bg-background text-2xl font-semibold text-primary">
-        Hello, landing page
+        Hello, linkedin page
       </main>
     </div>
   );

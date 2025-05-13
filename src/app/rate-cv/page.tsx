@@ -42,7 +42,7 @@ export default function RateCV() {
 
   const handleRateCVButtonClick = () => {
     trackCTAClick('hero_cta');
-    trackCTAClick('final_cta_get_started');
+    // trackCTAClick('final_cta_get_started');
     router.push('/rate-cv/rateCV');
   };
 

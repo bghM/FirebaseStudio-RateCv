@@ -11,6 +11,8 @@ import { HowItWorksStep, BenefitCard, TestimonialCard } from '@/components/ui/ca
 import { FinalCTASection } from '@/components/ui/sections';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import { Footer } from '@/components/layout/footer';
+
 
 
 
@@ -25,6 +27,7 @@ export default function LinkedInToCVLandingPage() {
   }, []);
 
   const handleLinkedinToCVButtonClick = () => {
+    // trackCTAClick('hero_cta');
     router.push('/linkedin-to-cv/linkedinToCV');
   };
 
@@ -95,7 +98,7 @@ export default function LinkedInToCVLandingPage() {
 
             {/* Crop the image and add Full Haze Overlay */}
             <div className="mt-12 md:mt-0 flex justify-center">
-              <div className="relative w-full max-w-2xl h-[600px] overflow-hidden rounded-lg">
+              <div className="relative w-full max-w-2xl h-[700px] overflow-hidden rounded-lg">
                 <Image
                   src="/image3.png"
                   alt={t.shared.resumeAnalysisIllustrationAlt}
@@ -217,6 +220,8 @@ export default function LinkedInToCVLandingPage() {
 
       </main>
 
+      <Footer />
+      {/* <ResumeAnalysisModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}
       <style jsx global>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(20px); }
