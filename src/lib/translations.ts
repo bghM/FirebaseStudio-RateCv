@@ -122,6 +122,14 @@ interface PageTranslations {
 
     callToActionText: string;
     getStartedNow: string;
+
+    readyToConvert: string;
+    dragDropPrompt: string;
+    orClickToBrowse: string;
+    supportedFormats: string;
+    uploadError: string;
+    analyzingFile: string;
+    fileUploaded: string;
   },
   generateSummary: {
     heroTitle: string;
@@ -209,16 +217,19 @@ export const translations: Translations = {
       testimonial1Quote: "This tool gave me the insights I needed to finally get interview calls!",
       testimonial2Name: "Fatima S.",
       testimonial2Quote: "The AI rephrasing feature is a game-changer. My resume sounds so much more professional now.",
+      
       faq: "Frequently Asked Questions",
       faq1Title: "What does 'Rate Your Resume' check?",
       faq1Answer: "Seirah analyzes your resume based on 5 pillars: job fit, content strength, design quality, section clarity, and professional tone – all aligned with Saudi hiring standards.",
       faq2Title: "Is the basic analysis free?",
       faq2Answer: "Yes! You get a full resume score and smart suggestions for free. Premium features like AI rewriting are optional.",
       faq3Title: "Can I improve my CV directly using this tool?",
+      
       faq3Answer: "Yes! Improve your CV instantly using our built-in feedback and smart AI rewriting tools – no downloads or formatting headaches.",
       finalCtaTitle: "Your Future Job Starts with a Strong Resume",
       finalCtaSubtitle: "No more guessing. Use Seirah to upgrade your CV and get noticed by top employers in Saudi Arabia.",
       getStartedNow: "Analyze My Resume Now",
+      
       uploadCVTitle: "Upload Your Resume – Get Free AI Feedback",
       uploadAreaTitle: "Drop or Upload Your CV Below",
       analyzingResume: "Analyzing your resume with AI... Please wait.",
@@ -273,19 +284,31 @@ export const translations: Translations = {
       heroTitle: "Turn Your Old Resume into a Professional CV",
       heroSubtitle: "Upload your resume as a PDF, Word, or image file, and Seirah’s AI will instantly convert it into an editable CV.",
       heroButton: "Get Started",
+
       howItWorks: "How It Works",
       step1Title: "Upload Your Old Resume",
       step2Title: "We Auto-Convert It into a Structured CV",
       step3Title: "Pick a Design, Edit Details & Download",
+
       whyUse: "Why Use This Feature?",
       whyUse1: "Save time—No manual rewriting needed",
       whyUse2: "Powered by OpenAI for natural, accurate content extraction",
       whyUse3: "Keeps formatting ATS-friendly for better job matching",
       whyUse4: "Secure, fast, and privacy-first",
+
       testimonial1Quote: "I uploaded an image of my old resume, and within minutes, I had a fully editable version!",
       testimonial1Name: "– Majed, Recent Graduate",
+
       callToActionText: "Start now and save valuable time",
-      getStartedNow: "Try the Tool"
+      getStartedNow: "Try the Tool",
+      
+      readyToConvert: "Ready to convert your old resume?",
+      dragDropPrompt: "Upload your old resume to begin",
+      orClickToBrowse: "or click to browse files",
+      supportedFormats: "Supported formats: PDF or DOCX",
+      uploadError: "Please upload a supported file format",
+      analyzingFile: "Processing your file... just a moment",
+      fileUploaded: "File uploaded successfully!",
     },
     generateSummary: {
       heroTitle: "Create a Resume Summary That Impresses Recruiters",
@@ -433,19 +456,32 @@ export const translations: Translations = {
       heroTitle: "حوّل سيرتك القديمة إلى سيرة ذاتية احترافية",
       heroSubtitle: "ارفَع ملفك بصيغة PDF، Word أو صورة، ودع الذكاء الاصطناعي في سيرة يحوّله إلى سيرة ذاتية جاهزة للتعديل خلال لحظات.",
       heroButton: "ابدأ الآن",
+
       howItWorks: "كيف تعمل الميزة",
       step1Title: "ارفع سيرتك القديمة",
       step2Title: "نحوّلها تلقائيًا إلى نموذج قابل للتعديل",
       step3Title: "اختر التصميم وعدّل البيانات وحمّل سيرتك",
+
       whyUse: "لماذا تستخدم هذه الميزة؟",
       whyUse1: "وفّر وقتك وجهدك بدون إعادة كتابة يدوية",
       whyUse2: "مدعومة بـ OpenAI لترجمة طبيعية ودقيقة",
       whyUse3: "تحافظ على التنسيق المتوافق مع أنظمة ATS",
       whyUse4: "آمنة، سريعة، وتحافظ على الخصوصية",
+
       testimonial1Quote: "رفعت سيرتي القديمة كصورة، وخلال دقائق حصلت على نسخة جاهزة للاستخدام!",
       testimonial1Name: "– ماجد، خريج جديد",
+
       callToActionText: "ابدأ الآن ووفّر وقتك وجهدك",
-      getStartedNow: "جرب الأداة"
+      getStartedNow: "جرب الأداة",
+
+      supportedFormats: "الملفات المدعومة: PDF او Word",
+      dragDropPrompt: "ارفع سيرتك الذاتية القديمة لتبدأ",
+      uploadError: "يرجى رفع ملف بصيغة مدعومة",
+      analyzingFile: "جاري معالجة الملف... لحظات فقط",
+      fileUploaded: "تم رفع الملف بنجاح!",
+      readyToConvert:  "هل أنت مستعد لتحويل سيرتك القديمة؟",
+      orClickToBrowse: "او اضغط لتصفح ملفاتك",
+
     },
     generateSummary: {
       heroTitle: "احصل على نبذة مهنية تلهم أصحاب العمل",

@@ -3,7 +3,7 @@
 import { useLanguage } from '@/hooks/use-language';
 import { translations } from '@/lib/translations';
 import { Button } from '@/components/ui/button';
-import { Zap, UploadCloud, Brain, Pencil, ArrowRight } from 'lucide-react';
+import { Zap, UploadCloud, Brain, Pencil, ArrowRight, BrainCircuit, FileText, Save, Download } from 'lucide-react';
 import Head from 'next/head';
 import React, { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -108,7 +108,7 @@ export default function AddOldCVLandingPage() {
       </section>
 
         {/* Benefits Section */}
-        <section className="py-16 bg-background text-center">
+        {/* <section className="py-16 bg-background text-center">
         <h2 className="text-3xl font-bold mb-12 text-primary">
           {t.rateCV.benefits} 
         </h2>
@@ -117,6 +117,16 @@ export default function AddOldCVLandingPage() {
           <WhyPoint icon={<ArrowRight />} text={t.addOldCV.whyUse2} />
           <WhyPoint icon={<ArrowRight />} text={t.addOldCV.whyUse3} />
           <WhyPoint icon={<ArrowRight />} text={t.addOldCV.whyUse4} />
+        </div>
+      </section> */}
+
+      <section className="py-16 px-6 text-center">
+        <h2 className="text-3xl font-bold text-primary mb-12">{t.addOldCV.whyUse}</h2>
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <WhyUseItem text={t.addOldCV.whyUse1} icon={<FileText className="h-8 w-8" />} />
+          <WhyUseItem text={t.addOldCV.whyUse2} icon={<BrainCircuit className="h-8 w-8" />} />
+          <WhyUseItem text={t.addOldCV.whyUse3} icon={<Download className="h-8 w-8" />} />
+          <WhyUseItem text={t.addOldCV.whyUse4} icon={<UploadCloud className="h-8 w-8" />} />
         </div>
       </section>
 
@@ -171,15 +181,23 @@ function HowStep({ icon, text }: { icon: React.ReactNode; text: string }) {
   );
 }
 
-function WhyPoint({ icon, text }: { icon: React.ReactNode; text: string }) {
+// function WhyPoint({ icon, text }: { icon: React.ReactNode; text: string }) {
+//   return (
+//     <div className="flex items-center gap-3 text-lg justify-start">
+//       <span className="text-primary">{icon}</span>
+//       <p>{text}</p>
+//     </div>
+//   );
+// }
+
+function WhyUseItem({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="flex items-center gap-3 text-lg justify-start">
-      <span className="text-primary">{icon}</span>
-      <p>{text}</p>
+    <div className="flex items-center gap-4 bg-muted/100 p-4 rounded-xl">
+      <div className="text-primary">{icon}</div>
+      <p className="text-muted-foreground text-start text-base">{text}</p>
     </div>
   );
 }
-
 
 
 // 'use client';
