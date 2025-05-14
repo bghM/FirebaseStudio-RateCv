@@ -4,7 +4,12 @@
 
 import Link from 'next/link';
 import { useLanguage } from '@/hooks/use-language';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+
+// Add PDF + PNG files under /public/cvs/
+
+const BATCH_SIZE = 12;
 
 export default function ResumeExamplesPage() {
     const resumeExamples = [
@@ -91,7 +96,36 @@ export default function ResumeExamplesPage() {
         ];
     
     const { lang, t } = useLanguage();
+    const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
+    const [hasMore, setHasMore] = useState(true);
+    const observerRef = useRef<HTMLDivElement | null>(null);
   
+
+    // const sortedJobs = resumeExamples.sort((a, b) =>
+    //     a[`title_${lang}`].localeCompare(b[`title_${lang}`])
+    //   );
+    
+    useEffect(() => {
+    const observer = new IntersectionObserver(
+        (entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+            setVisibleCount((prev) => {
+            const next = prev + BATCH_SIZE;
+            if (next >= resumeExamples.length) setHasMore(false);
+            // if (next >= sortedJobs.length) setHasMore(false);
+            return next;
+            });
+        }
+        },
+        { threshold: 1 }
+    );
+
+    if (observerRef.current) observer.observe(observerRef.current);
+
+    return () => observer.disconnect();
+    }, [hasMore]);
+
+    
 
 // ✅ 2. Placeholder PNGs
 // Create the following files under /public/cvs/:
@@ -103,12 +137,14 @@ export default function ResumeExamplesPage() {
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-10">
-      <h1 className="text-3xl font-bold mb-6">
-        {lang === 'ar' ? 'نماذج سيرة ذاتية حسب المسمى الوظيفي' : 'Resume Examples by Job Title'}
-      </h1>
+    <h1 className="text-3xl font-bold mb-6">
+      {lang === 'ar' ? 'نماذج سيرة ذاتية حسب المسمى الوظيفي' : 'Resume Examples by Job Title'}
+    </h1>
+
 
       <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {resumeExamples.map((job) => (
+        // {sortedJobs.slice(0, visibleCount).map((job) => (
           <li key={job.slug}>
             <Link href={`/resume-examples/${job.slug}`}>
               <div className="p-4 border rounded hover:bg-gray-50 text-center text-sm">
@@ -127,6 +163,14 @@ export default function ResumeExamplesPage() {
           </li>
         ))}
       </ul>
+
+      {hasMore && (
+        <div ref={observerRef} className="text-center py-8 text-gray-500">
+          {lang === 'ar' ? 'تحميل المزيد...' : 'Loading more...'}
+        </div>
+      )}
+
+
     </main>
   );
 } 
