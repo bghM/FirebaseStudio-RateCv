@@ -52,6 +52,8 @@ export function Header({ ctaTitle, ctaLink, ctaOnClick }: HeaderProps) {
       router.push('/generateDescription');
     } else if (currentPath === '/job-specific-cv') {
       router.push('/jobSpecificCV');
+    } else if (currentPath === '/') {
+      router.push('/cvs');
     } else {
       router.push('/rate-cv');
     }
@@ -95,6 +97,9 @@ export function Header({ ctaTitle, ctaLink, ctaOnClick }: HeaderProps) {
               <li><Link href="/add-old-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabAddOldCV}</Link></li>
               <li><Link href="/generate-description" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabGenerateDescription}</Link></li>
               <li><Link href="/job-specific-cv" className="text-muted-foreground hover:text-primary transition-colors">{t.header.tabJobSpecificResume}</Link></li>
+              <li><Link href="/cvs" className="text-muted-foreground hover:text-primary transition-colors">CV Template</Link></li>
+              <li><Link href="/cv" className="text-muted-foreground hover:text-primary transition-colors">CV Example</Link></li>
+
             </ul>
           </nav>
 

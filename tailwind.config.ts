@@ -91,5 +91,13 @@ export default {
   		}
   	}
   },
+  variants: {
+    extend: {
+      display: ['print'],
+      border: ['print'],
+      backgroundColor: ['print'],
+    },
+  },
+
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
