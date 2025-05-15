@@ -85,14 +85,14 @@ export default function PDFPreview({ slug, templateId }: PDFPreviewProps) {
           </div>
         )}
 
-        <Image
+        {/* <Image
           src={`/cvs/${slug}.png`}
           alt={`Resume preview for ${`title_${language}`}`}
           width={900}
           height={1200}
           loading="lazy"
           className="w-full h-auto object-contain mt-6"
-        />
+        /> */}
       </div>
 
 
@@ -111,7 +111,7 @@ export default function PDFPreview({ slug, templateId }: PDFPreviewProps) {
         {language === 'ar' ? 'خصص هذا النموذج' : 'Customize This CV'}
       </Link>
     </div>
-    </div>
+  </div>
   );
 }
 
