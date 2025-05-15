@@ -99,13 +99,33 @@ export default function ResumeExamplePage() {
   ];
   const { language, direction } = useLanguage();
   const { slug } = useParams();
-  const [fileData, setFileData] = useState<Blob | null>(null);
+  // const [fileData, setFileData] = useState<Blob | null>(null);
+  const [fileUrl, setFileUrl] = useState<string | null>(null);
   const [numPages, setNumPages] = useState<number>(0);
   const [error, setError] = useState(false);
   const job = resumeExamples.find((j) => j.slug === slug);
   if (!job) return notFound();
 
   
+  // useEffect(() => {
+  //   if (typeof slug !== 'string') return;
+  
+  //   const loadPdf = async () => {
+  //     try {
+  //       const res = await fetch(`/cvs/${slug}.pdf`);
+  //       if (!res.ok) throw new Error('PDF not found');
+  //       const blob = await res.blob();
+  //       setFileData(blob);
+  //     } catch (err) {
+  //       console.error('Failed to load PDF:', err);
+  //       setError(true);
+  //     }
+  //   };
+  
+  //   loadPdf();
+  // }, [slug]);
+
+
   useEffect(() => {
     if (typeof slug !== 'string') return;
   
@@ -114,7 +134,8 @@ export default function ResumeExamplePage() {
         const res = await fetch(`/cvs/${slug}.pdf`);
         if (!res.ok) throw new Error('PDF not found');
         const blob = await res.blob();
-        setFileData(blob);
+        const url = URL.createObjectURL(blob);
+        setFileUrl(url);
       } catch (err) {
         console.error('Failed to load PDF:', err);
         setError(true);
@@ -122,7 +143,15 @@ export default function ResumeExamplePage() {
     };
   
     loadPdf();
+  
+    return () => {
+      // cleanup to avoid memory leaks
+      if (fileUrl) URL.revokeObjectURL(fileUrl);
+    };
   }, [slug]);
+
+
+
 
   return (
     <div className={`min-h-screen bg-background ${direction === 'rtl' ? 'rtl text-right font-arabic' : 'ltr text-left'}`} lang={language} dir={direction}>
@@ -135,7 +164,7 @@ export default function ResumeExamplePage() {
       <p className="text-gray-600 mb-6">{job[`description_${language}`]}</p>
 
         <div className="rounded overflow-hidden shadow mb-6">
-        {fileData && !error ? (
+        {/* {fileData && !error ? (
           <Document
             file={fileData}
             onLoadSuccess={({ numPages }) => setNumPages(numPages)}
@@ -150,7 +179,25 @@ export default function ResumeExamplePage() {
                 renderAnnotationLayer={false}
               />
             ))}
-          </Document>
+          </Document> */}
+
+
+{fileUrl && !error ? (
+  <Document
+    file={fileUrl}
+    onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+    onLoadError={() => setError(true)}
+    className="border rounded"
+  >
+    {Array.from({ length: numPages }, (_, i) => (
+      <Page
+        key={`page_${i + 1}`}
+        pageNumber={i + 1}
+        width={900}
+        renderAnnotationLayer={false}
+      />
+    ))}
+  </Document>
         )  : error ? (
             <div className="text-red-600 text-center py-8">
               {language === 'ar'
