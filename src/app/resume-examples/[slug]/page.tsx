@@ -238,7 +238,7 @@ export default function ResumeExamplePage({ params }: { params: { slug: string }
       {/* Embed PDF Using react-pdf */}
         <Document
             // file={`/cvs/${job.slug}.pdf`}
-            file={`/cvs/Software_eng.pdf`}
+            file={`/cvs/software-engineer.pdf`}
             onLoadSuccess={handleLoadSuccess}
             className="border rounded"
         >
