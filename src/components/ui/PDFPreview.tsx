@@ -114,3 +114,39 @@ export default function PDFPreview({ slug, templateId }: PDFPreviewProps) {
     </div>
   );
 }
+
+
+// -------------------------------------------------
+// --------------- Component Summary ---------------
+// -------------------------------------------------
+// ✅ Purpose
+// 	•	Displays a full PDF preview for a resume based on a given slug
+// 	•	Optionally includes a CTA button to customize the resume template
+
+// ⸻
+
+// 🧩 Props
+// 	•	slug: string – the identifier used to load /cvs/[slug].pdf
+// 	•	templateId: string – used to build a link to /builder?template=...
+
+// ⸻
+
+// 📦 Features
+// 	•	Loads the PDF file as a Blob and converts it to a URL via URL.createObjectURL
+// 	•	Renders the PDF using react-pdf’s <Document /> and <Page />
+// 	•	Shows all pages of the document with selectable and searchable text (TextLayer.css)
+// 	•	Displays loading and error fallback messages
+// 	•	Cleans up the blob URL on unmount using URL.revokeObjectURL()
+// 	•	Includes a localized “Customize This CV” button linking to the builder
+
+// ⸻
+
+// 🧠 Internal Hooks
+// 	•	Uses useLanguage() to:
+// 	•	Detect current language (ar or en)
+// 	•	Apply translation to the button text
+
+// ⸻
+
+// 💡 Usage Example
+// <PDFPreview slug="software-engineer" templateId="template_1" />

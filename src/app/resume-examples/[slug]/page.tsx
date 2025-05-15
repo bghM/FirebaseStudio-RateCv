@@ -10,7 +10,7 @@ import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css'; // 	With it, pdf file text is selectable, searchable, and copyable 
 import { Header } from '@/components/layout/header';
 import workerSrc from 'pdfjs-dist/build/pdf.worker.entry';
-import c from '@/components/ui/PDFPreview';
+import PDFPreview from '@/components/ui/PDFPreview';
 
 pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
@@ -125,7 +125,7 @@ export default function ResumeExamplePage() {
 
 
 // -------------------------------------------------
-// ---------------Page Summary ---------------------
+// --------------- Page Summary --------------------
 // -------------------------------------------------
 // 🧠 Page Purpose
 // 	•	Displays a full resume example page based on a dynamic slug (e.g., /resume-examples/software-engineer)
@@ -140,7 +140,7 @@ export default function ResumeExamplePage() {
 
 // ⸻
 
-// 📄 PDF Preview
+// 📄 PDF Preview (Using PDFPreview Component)
 // 	•	Fetches the matching PDF file from /public/cvs/[slug].pdf
 // 	•	Converts it to a Blob object URL using URL.createObjectURL(blob)
 // 	•	Displays the PDF using <Document /> and <Page /> from react-pdf
@@ -149,7 +149,7 @@ export default function ResumeExamplePage() {
 
 // ⸻
 
-// 🛑 Error Handling
+// 🛑 Error Handling (Using PDFPreview Component)
 // 	•	Shows a red error message if PDF load fails
 // 	•	Shows a loading message until PDF is ready
 // 	•	Cleans up object URL when component unmounts (memory-safe)
