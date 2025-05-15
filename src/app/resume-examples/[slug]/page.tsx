@@ -2,6 +2,12 @@
 
 'use client';
 
+// •	Fetching the PDF as a Blob
+// •	Creating an object URL
+// •	Passing it to react-pdf
+// •	Handling errors and cleanup correctly
+
+
 import { useParams, notFound } from 'next/navigation';
 import { useLanguage } from '@/hooks/use-language';
 import Link from 'next/link';
@@ -99,54 +105,35 @@ export default function ResumeExamplePage() {
   ];
   const { language, direction } = useLanguage();
   const { slug } = useParams();
-  // const [fileData, setFileData] = useState<Blob | null>(null);
-  const [fileUrl, setFileUrl] = useState<string | null>(null);
+  const [pdfPreviewUrl, setPdfPreviewUrl] = useState<string | null>(null);
   const [numPages, setNumPages] = useState<number>(0);
   const [error, setError] = useState(false);
+
   const job = resumeExamples.find((j) => j.slug === slug);
   if (!job) return notFound();
 
-  
-  // useEffect(() => {
-  //   if (typeof slug !== 'string') return;
-  
-  //   const loadPdf = async () => {
-  //     try {
-  //       const res = await fetch(`/cvs/${slug}.pdf`);
-  //       if (!res.ok) throw new Error('PDF not found');
-  //       const blob = await res.blob();
-  //       setFileData(blob);
-  //     } catch (err) {
-  //       console.error('Failed to load PDF:', err);
-  //       setError(true);
-  //     }
-  //   };
-  
-  //   loadPdf();
-  // }, [slug]);
-
-
   useEffect(() => {
     if (typeof slug !== 'string') return;
-  
+
+    let url: string;
+
     const loadPdf = async () => {
       try {
         const res = await fetch(`/cvs/${slug}.pdf`);
         if (!res.ok) throw new Error('PDF not found');
         const blob = await res.blob();
-        const url = URL.createObjectURL(blob);
-        setFileUrl(url);
+        url = URL.createObjectURL(blob);
+        setPdfPreviewUrl(url);
       } catch (err) {
         console.error('Failed to load PDF:', err);
         setError(true);
       }
     };
-  
+
     loadPdf();
-  
+
     return () => {
-      // cleanup to avoid memory leaks
-      if (fileUrl) URL.revokeObjectURL(fileUrl);
+      if (url) URL.revokeObjectURL(url);
     };
   }, [slug]);
 
@@ -164,11 +151,15 @@ export default function ResumeExamplePage() {
       <p className="text-gray-600 mb-6">{job[`description_${language}`]}</p>
 
         <div className="rounded overflow-hidden shadow mb-6">
-        {/* {fileData && !error ? (
+
+        {pdfPreviewUrl && !error ? (
           <Document
-            file={fileData}
+            file={pdfPreviewUrl}
             onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-            onLoadError={() => setError(true)}
+            onLoadError={(e) => {
+              console.error('PDF render error:', e);
+              setError(true);
+            }}
             className="border rounded"
           >
             {Array.from({ length: numPages }, (_, i) => (
@@ -179,25 +170,7 @@ export default function ResumeExamplePage() {
                 renderAnnotationLayer={false}
               />
             ))}
-          </Document> */}
-
-
-{fileUrl && !error ? (
-  <Document
-    file={fileUrl}
-    onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-    onLoadError={() => setError(true)}
-    className="border rounded"
-  >
-    {Array.from({ length: numPages }, (_, i) => (
-      <Page
-        key={`page_${i + 1}`}
-        pageNumber={i + 1}
-        width={900}
-        renderAnnotationLayer={false}
-      />
-    ))}
-  </Document>
+          </Document>
         )  : error ? (
             <div className="text-red-600 text-center py-8">
               {language === 'ar'
