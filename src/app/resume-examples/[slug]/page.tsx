@@ -2,131 +2,6 @@
 
 'use client';
 
-// import { notFound } from 'next/navigation';
-// import { useLanguage } from '@/hooks/use-language';
-// import Image from 'next/image';
-// import Link from 'next/link';
-
-// export default function ResumeExamplePage({ params }: { params: { slug: string } }) {
-
-//     const resumeExamples = [
-//         {
-//             slug: 'software-engineer',
-//             title_en: 'Software Engineer',
-//             title_ar: 'مهندس برمجيات',
-//             description_en: 'A modern resume example tailored for developers across the stack.',
-//             description_ar: 'نموذج سيرة ذاتية حديثة تناسب جميع تخصصات البرمجة.',
-//             template_id: 'template_1',
-//           },
-//           {
-//             slug: 'accountant',
-//             title_en: 'Accountant',
-//             title_ar: 'محاسب',
-//             description_en: 'Professional layout showing finance and ERP experience.',
-//             description_ar: 'سيرة احترافية توضح خبراتك في المحاسبة والأنظمة.',
-//             template_id: 'template_2',
-//           },
-//           {
-//             slug: 'marketing-specialist',
-//             title_en: 'Marketing Specialist',
-//             title_ar: 'أخصائي تسويق',
-//             description_en: 'Highlights digital campaigns and performance-driven results.',
-//             description_ar: 'يعرض الحملات الرقمية والنتائج القائمة على الأداء.',
-//             template_id: 'template_3',
-//           },
-//           {
-//             slug: 'graphic-designer',
-//             title_en: 'Graphic Designer',
-//             title_ar: 'مصمم جرافيك',
-//             description_en: 'Creative CV layout featuring design tools and portfolio links.',
-//             description_ar: 'تصميم سيرة ذاتية إبداعية بأدوات التصميم وروابط الأعمال.',
-//             template_id: 'template_4',
-//           },
-//           {
-//             slug: 'project-manager',
-//             title_en: 'Project Manager',
-//             title_ar: 'مدير مشروع',
-//             description_en: 'Focus on delivery, leadership, and cross-functional collaboration.',
-//             description_ar: 'يركز على الإنجاز والقيادة والتعاون بين الفرق.',
-//             template_id: 'template_5',
-//           },
-//           {
-//             slug: 'customer-service-rep',
-//             title_en: 'Customer Service Rep',
-//             title_ar: 'موظف خدمة عملاء',
-//             description_en: 'Tailored for support, empathy, and conflict resolution.',
-//             description_ar: 'مصممة للدعم والتعاطف وحل المشكلات.',
-//             template_id: 'template_1',
-//           },
-//           {
-//             slug: 'data-analyst',
-//             title_en: 'Data Analyst',
-//             title_ar: 'محلل بيانات',
-//             description_en: 'Showcases dashboards, Excel, SQL, and insights.',
-//             description_ar: 'يعرض لوحات البيانات وExcel وSQL والتحليلات.',
-//             template_id: 'template_3',
-//           },
-//           {
-//             slug: 'hr-specialist',
-//             title_en: 'HR Specialist',
-//             title_ar: 'أخصائي موارد بشرية',
-//             description_en: 'Ideal for hiring, onboarding, and compliance.',
-//             description_ar: 'مثالي للتوظيف، التهيئة، والامتثال.',
-//             template_id: 'template_2',
-//           },
-//           {
-//             slug: 'teacher',
-//             title_en: 'Teacher',
-//             title_ar: 'معلم',
-//             description_en: 'Covers classroom leadership and curriculum design.',
-//             description_ar: 'يشمل القيادة الصفية وتصميم المناهج.',
-//             template_id: 'template_4',
-//           },
-//           {
-//             slug: 'nurse',
-//             title_en: 'Nurse',
-//             title_ar: 'ممرضة',
-//             description_en: 'Optimized for certifications, clinics, and patient care.',
-//             description_ar: 'مصممة للشهادات والخبرة السريرية ورعاية المرضى.',
-//             template_id: 'template_5',
-//           },
-//         ];
-    
-//   const { lang, t } = useLanguage();
-//   const job = resumeExamples.find((j) => j.slug === params.slug);
-//   if (!job) return notFound();
-
-//   return (
-//     <main className="max-w-3xl mx-auto px-4 py-10">
-//       <h1 className="text-3xl font-bold mb-4">{job[`title_${lang}`]}</h1>
-//       <p className="mb-6 text-gray-700">{job[`description_${lang}`]}</p>
-
-//       <div className="mb-6">
-//         <Image
-//           src={`/cvs/${job.slug}.png`} // Or embed PDF preview
-//           alt={`Resume example for ${job[`title_${lang}`]}`}
-//           width={800}
-//           height={1100}
-//           className="rounded shadow"
-//         />
-//       </div>
-
-//       <div className="flex gap-4">
-//         <a href={`/cvs/${job.slug}.pdf`} download className="btn btn-primary">
-//           {lang === 'ar' ? 'تحميل PDF' : 'Download PDF'}
-//         </a>
-//         <Link href={`/builder?template=${job.template_id}`}>
-//           <span className="btn btn-secondary">
-//             {lang === 'ar' ? 'خصص هذا النموذج' : 'Customize This CV'}
-//           </span>
-//         </Link>
-//       </div>
-//     </main>
-//   );
-// }
-
-
-// /app/resume-examples/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import { useLanguage } from '@/hooks/use-language';
 import Link from 'next/link';
@@ -288,7 +163,7 @@ export default function ResumeExamplePage({ params }: { params: { slug: string }
         </Link>
       </div>
     </main>
-  );
+  
   </div>
   )
 }

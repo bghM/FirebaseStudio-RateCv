@@ -98,14 +98,14 @@ export default function ResumeExamplesPage() {
         ];
     
     // const { lang, t } = useLanguage();
-    const { lang, direction } = useLanguage();
+    const { language, direction } = useLanguage();
     const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
     const [hasMore, setHasMore] = useState(true);
     const observerRef = useRef<HTMLDivElement | null>(null);
   
 
     // const sortedJobs = resumeExamples.sort((a, b) =>
-    //     a[`title_${lang}`].localeCompare(b[`title_${lang}`])
+    //     a[`title_${language}`].localeCompare(b[`title_${language}`])
     //   );
     
     useEffect(() => {
@@ -139,13 +139,13 @@ export default function ResumeExamplesPage() {
 // nurse.png
 
   return (
-    <div className={`min-h-screen bg-background ${direction === 'rtl' ? 'rtl text-right font-arabic' : 'ltr text-left'}`} lang={lang} dir={direction}>
+    <div className={`min-h-screen bg-background ${direction === 'rtl' ? 'rtl text-right font-arabic' : 'ltr text-left'}`} lang={language} dir={direction}>
 
     <Header ctaTitle="Resume Examples" ctaLink="/resume-examples" />
 
     <main className="max-w-5xl mx-auto px-4 py-10">
     <h1 className="text-3xl font-bold mb-6">
-      {lang === 'ar' ? 'نماذج سيرة ذاتية حسب المسمى الوظيفي' : 'Resume Examples by Job Title'}
+      {language === 'ar' ? 'نماذج سيرة ذاتية حسب المسمى الوظيفي' : 'Resume Examples by Job Title'}
     </h1>
 
 
@@ -156,12 +156,11 @@ export default function ResumeExamplesPage() {
             <Link href={`/resume-examples/${job.slug}`}>
               <div className="p-4 border rounded hover:bg-gray-50 text-center text-sm">
                 {/* dynamic for language ar/en */}
-                {/* {job[`title_${lang}`]} */}
-                {job.title_en}
+                {job[`title_${language}`]}
               </div>
               <Image
                 src={`/cvs/${job.slug}.png`}
-                alt={`Resume preview for ${job[`title_${lang}`]}`}
+                alt={`Resume preview for ${job[`title_${language}`]}`}
                 width={900}
                 height={1200}
                 loading="lazy"
@@ -174,7 +173,7 @@ export default function ResumeExamplesPage() {
 
       {hasMore && (
         <div ref={observerRef} className="text-center py-8 text-gray-500">
-          {lang === 'ar' ? 'تحميل المزيد...' : 'Loading more...'}
+          {language === 'ar' ? 'تحميل المزيد...' : 'Loading more...'}
         </div>
       )}
 
