@@ -10,7 +10,7 @@ export default function ResumeExampleCard({ job }: { job: any }) {
   return (
     <li>
       <Link href={`/resume-examples/${job.slug}`}>
-        <div className="p-4 border rounded hover:bg-gray-50 text-center text-sm">
+        <div className="bg-transparent hover:bg-primary/90 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
           {job[`title_${language}`]}
         </div>
         <Image
