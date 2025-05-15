@@ -12,18 +12,9 @@ import { useState, useEffect } from 'react';
 import { Header } from '@/components/layout/header';
 import workerSrc from 'pdfjs-dist/build/pdf.worker.entry';
 
-
-// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
-// if (typeof window !== 'undefined') {
-//   // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
-//   pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
-// }
 
-
-// export default function ResumeExamplePage({ params }: { params: { slug: string } }) {
 export default function ResumeExamplePage() {
-
   const resumeExamples = [
         {
             slug: 'software-engineer',
@@ -106,133 +97,61 @@ export default function ResumeExamplePage() {
             template_id: 'template_5',
           },
   ];
-  // const [numPages, setNumPages] = useState<number>(0);
-  // const handleLoadSuccess = ({ numPages }: { numPages: number }) => {
-  //   setNumPages(numPages);
-  // };
   const { language, direction } = useLanguage();
-
-
-  // const { slug } = useParams();
-  // if (typeof slug !== 'string') return notFound();
-
-  // const job = resumeExamples.find((j) => j.slug === slug);
-  // if (!job) return notFound();
-
-  // // if (Array.isArray(slug)) return notFound();
-
-
-
-
-  // const [error, setError] = useState(false);
-  // const handleLoadError = () => {
-  //   setError(true);
-  // };
-
-
-  // const [fileData, setFileData] = useState<Blob | null>(null);
-  // useEffect(() => {
-  //   const loadPdf = async () => {
-  //     try {
-  //       const response = await fetch(`/cvs/${job.slug}.pdf`);
-  //       if (!response.ok) throw new Error('PDF not found');
-  //       const blob = await response.blob();
-  //       setFileData(blob);
-  //     } catch (err) {
-  //       setError(true);
-  //       console.error('PDF load error:', err);
-  //     }
-  //   };
-  //   loadPdf();
-  // }, [job.slug]);
-
-
-
   const { slug } = useParams();
+  const [fileData, setFileData] = useState<Blob | null>(null);
   const [numPages, setNumPages] = useState<number>(0);
-  const [pdfBlob, setPdfBlob] = useState<Blob | null>(null);
   const [error, setError] = useState(false);
-
   const job = resumeExamples.find((j) => j.slug === slug);
   if (!job) return notFound();
 
-  const [fileData, setFileData] = useState<Blob | null>(null);
-
+  
   useEffect(() => {
     if (typeof slug !== 'string') return;
-
+  
     const loadPdf = async () => {
       try {
         const res = await fetch(`/cvs/${slug}.pdf`);
         if (!res.ok) throw new Error('PDF not found');
         const blob = await res.blob();
-        setPdfBlob(blob);
+        setFileData(blob);
       } catch (err) {
         console.error('Failed to load PDF:', err);
         setError(true);
       }
     };
-
+  
     loadPdf();
   }, [slug]);
 
   return (
     <div className={`min-h-screen bg-background ${direction === 'rtl' ? 'rtl text-right font-arabic' : 'ltr text-left'}`} lang={language} dir={direction}>
 
+{/* Header */}
     <Header ctaTitle="Resume Examples" ctaLink="/resume-examples" />
 
     <main className="max-w-4xl mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold mb-4">{job[`title_${language}`]}</h1>
       <p className="text-gray-600 mb-6">{job[`description_${language}`]}</p>
-      
-{/* 
-      <div className="rounded overflow-hidden shadow mb-6">
-        <Document
-            file={`/cvs/${job.slug}.pdf`}
-            // file={`/cvs/software-engineer.pdf`}
-            onLoadSuccess={handleLoadSuccess}
+
+        <div className="rounded overflow-hidden shadow mb-6">
+        {fileData && !error ? (
+          <Document
+            file={fileData}
+            onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+            onLoadError={() => setError(true)}
             className="border rounded"
-        >
-            {Array.from(new Array(numPages), (_, i) => (
-            <Page
+          >
+            {Array.from({ length: numPages }, (_, i) => (
+              <Page
                 key={`page_${i + 1}`}
                 pageNumber={i + 1}
                 width={900}
                 renderAnnotationLayer={false}
-            />
+              />
             ))}
-        </Document>
-
-        <Image
-          src={`/cvs/${job.slug}.png`}
-          alt={`Resume preview for ${job[`title_${language}`]}`}
-          width={900}
-          height={1200}
-          loading="lazy"
-          className="w-full h-auto object-contain mt-6"
-          />
-
-      </div> */}
-
-
-        <div className="rounded overflow-hidden shadow mb-6">
-        {fileData && !error ? (
-            <Document
-              file={fileData}
-              onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-              onLoadError={() => setError(true)}
-              className="border rounded"
-            >
-              {Array.from(new Array(numPages), (_, i) => (
-                <Page
-                  key={`page_${i + 1}`}
-                  pageNumber={i + 1}
-                  width={900}
-                  renderAnnotationLayer={false}
-                />
-              ))}
-            </Document>
-          ) : error ? (
+          </Document>
+        )  : error ? (
             <div className="text-red-600 text-center py-8">
               {language === 'ar'
                 ? 'فشل تحميل ملف PDF. يمكنك تحميله مباشرة.'
