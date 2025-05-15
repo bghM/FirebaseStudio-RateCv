@@ -210,7 +210,6 @@ export default function ResumeExamplePage() {
         </Link>
       </div>
 
-
       
     </main>
     
