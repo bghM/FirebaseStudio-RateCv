@@ -2,22 +2,15 @@
 
 'use client';
 
-// •	Fetching the PDF as a Blob
-// •	Creating an object URL
-// •	Passing it to react-pdf
-// •	Handling errors and cleanup correctly
-
-
 import { useParams, notFound } from 'next/navigation';
 import { useLanguage } from '@/hooks/use-language';
 import Link from 'next/link';
-import Image from 'next/image';
-import { Document, Page, pdfjs } from 'react-pdf';
+import { pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
-import { useState, useEffect } from 'react';
+import 'react-pdf/dist/esm/Page/TextLayer.css'; // 	With it, pdf file text is selectable, searchable, and copyable 
 import { Header } from '@/components/layout/header';
 import workerSrc from 'pdfjs-dist/build/pdf.worker.entry';
+import c from '@/components/ui/PDFPreview';
 
 pdfjs.GlobalWorkerOptions.workerSrc = workerSrc;
 
@@ -106,114 +99,92 @@ export default function ResumeExamplePage() {
   ];
   const { language, direction } = useLanguage();
   const { slug } = useParams();
-  const [pdfPreviewUrl, setPdfPreviewUrl] = useState<string | null>(null);
-  const [numPages, setNumPages] = useState<number>(0);
-  const [error, setError] = useState(false);
-
   const job = resumeExamples.find((j) => j.slug === slug);
   if (!job) return notFound();
-
-  useEffect(() => {
-    if (typeof slug !== 'string') return;
-
-    let url: string;
-
-    const loadPdf = async () => {
-      try {
-        const res = await fetch(`/cvs/${slug}.pdf`);
-        if (!res.ok) throw new Error('PDF not found');
-        const blob = await res.blob();
-        url = URL.createObjectURL(blob);
-        setPdfPreviewUrl(url);
-      } catch (err) {
-        console.error('Failed to load PDF:', err);
-        setError(true);
-      }
-    };
-
-    loadPdf();
-
-    return () => {
-      if (url) URL.revokeObjectURL(url);
-    };
-  }, [slug]);
-
-
-
 
   return (
     <div className={`min-h-screen bg-background ${direction === 'rtl' ? 'rtl text-right font-arabic' : 'ltr text-left'}`} lang={language} dir={direction}>
 
-{/* Header */}
+    {/* Header */}
     <Header ctaTitle="Resume Examples" ctaLink="/resume-examples" />
 
     <main className="max-w-4xl mx-auto px-4 py-10">
       <h1 className="text-3xl font-bold mb-4">{job[`title_${language}`]}</h1>
       <p className="text-gray-600 mb-6">{job[`description_${language}`]}</p>
 
-        <div className="rounded overflow-hidden shadow mb-6">
 
-        {pdfPreviewUrl && !error ? (
-          <Document
-            file={pdfPreviewUrl}
-            onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-            onLoadError={(e) => {
-              console.error('PDF render error:', e);
-              setError(true);
-            }}
-            className="border rounded"
-          >
-            {Array.from({ length: numPages }, (_, i) => (
-              <Page
-                key={`page_${i + 1}`}
-                pageNumber={i + 1}
-                width={900}
-                renderAnnotationLayer={false}
-              />
-            ))}
-          </Document>
-        )  : error ? (
-            <div className="text-red-600 text-center py-8">
-              {language === 'ar'
-                ? 'فشل تحميل ملف PDF. يمكنك تحميله مباشرة.'
-                : 'Failed to load PDF. You can download it below.'}
-            </div>
-          ) : (
-            <div className="text-gray-500 text-center py-8">
-              {language === 'ar' ? 'جارٍ تحميل المعاينة...' : 'Loading preview...'}
-            </div>
-          )}
-
-          <Image
-            src={`/cvs/${job.slug}.png`}
-            alt={`Resume preview for ${job[`title_${language}`]}`}
-            width={900}
-            height={1200}
-            loading="lazy"
-            className="w-full h-auto object-contain mt-6"
-          />
-        </div>
-
-
-      <div className="flex flex-wrap gap-4">
-        <a
-          href={`/cvs/${job.slug}.pdf`}
-          download
-          className="bg-primary text-white px-4 py-2 rounded"
-        >
-          {language === 'ar' ? 'تحميل PDF' : 'Download PDF'}
-        </a>
-        <Link
-          href={`/builder?template=${job.template_id}`}
-          className="bg-secondary text-white px-4 py-2 rounded"
-        >
-          {language === 'ar' ? 'خصص هذا النموذج' : 'Customize This CV'}
-        </Link>
-      </div>
+      {/* PDF Preview Component */}
+      <PDFPreview slug={job.slug} templateId={job.template_id}/> 
 
       
     </main>
     
     </div>
-    )
+  )
 }
+
+
+// -------------------------------------------------
+// ---------------Page Summary ---------------------
+// -------------------------------------------------
+// 🧠 Page Purpose
+// 	•	Displays a full resume example page based on a dynamic slug (e.g., /resume-examples/software-engineer)
+// 	•	Supports both Arabic and English with proper RTL/LTR layout switching
+
+// ⸻
+
+// 📦 Core Features
+// 	•	Dynamic route handling using useParams() from Next.js App Router
+// 	•	Multilingual resume data (title + description) via resumeExamples[]
+// 	•	Language and direction (LTR/RTL) switching via useLanguage()
+
+// ⸻
+
+// 📄 PDF Preview
+// 	•	Fetches the matching PDF file from /public/cvs/[slug].pdf
+// 	•	Converts it to a Blob object URL using URL.createObjectURL(blob)
+// 	•	Displays the PDF using <Document /> and <Page /> from react-pdf
+// 	•	Shows all pages in a vertical stack
+// 	•	Adds TextLayer.css to make the PDF content selectable/searchable
+
+// ⸻
+
+// 🛑 Error Handling
+// 	•	Shows a red error message if PDF load fails
+// 	•	Shows a loading message until PDF is ready
+// 	•	Cleans up object URL when component unmounts (memory-safe)
+
+// ⸻
+
+// 🖼️ Fallback & UX
+// 	•	Displays a PNG preview below the PDF as a fallback image (/cvs/[slug].png)
+// 	•	Provides two action buttons:
+// 	•	Download PDF
+// 	•	Customize This CV (links to /builder?template=...)
+
+// ⸻
+
+// 🧩 Tech Stack Used
+// 	•	Next.js App Router (useParams, notFound)
+// 	•	React state/hooks (useState, useEffect)
+// 	•	react-pdf viewer with pdfjs-dist worker
+// 	•	Tailwind CSS classes
+// 	•	RTL language support
+
+// ⸻
+
+// 📦 Modular Components Created
+// 	1.	<ResumeExample />
+// 	•	Accepts all resume data (slug, title_en, title_ar, etc.)
+// 	•	Handles layout, multilingual text, and buttons
+// 	•	Uses <PDFPreview /> internally
+// 	•	Includes PNG fallback preview and RTL support
+// 	2.	<PDFPreview />
+// 	•	Accepts a slug and loads the PDF from /cvs/[slug].pdf
+// 	•	Shows all pages using react-pdf
+// 	•	Handles loading, errors, and cleanup of object URLs
+// 	•	Fully supports searchable/selectable text via TextLayer.css
+
+
+
+
