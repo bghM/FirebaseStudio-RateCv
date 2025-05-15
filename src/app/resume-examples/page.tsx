@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { useLanguage } from '@/hooks/use-language';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { Header } from '@/components/layout/header';
+
 
 // Add PDF + PNG files under /public/cvs/
 
@@ -95,7 +97,8 @@ export default function ResumeExamplesPage() {
           },
         ];
     
-    const { lang, t } = useLanguage();
+    // const { lang, t } = useLanguage();
+    const { lang, direction } = useLanguage();
     const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
     const [hasMore, setHasMore] = useState(true);
     const observerRef = useRef<HTMLDivElement | null>(null);
@@ -136,6 +139,10 @@ export default function ResumeExamplesPage() {
 // nurse.png
 
   return (
+    <div className={`min-h-screen bg-background ${direction === 'rtl' ? 'rtl text-right font-arabic' : 'ltr text-left'}`} lang={lang} dir={direction}>
+
+    <Header ctaTitle="Resume Examples" ctaLink="/resume-examples" />
+
     <main className="max-w-5xl mx-auto px-4 py-10">
     <h1 className="text-3xl font-bold mb-6">
       {lang === 'ar' ? 'نماذج سيرة ذاتية حسب المسمى الوظيفي' : 'Resume Examples by Job Title'}
@@ -173,5 +180,7 @@ export default function ResumeExamplesPage() {
 
 
     </main>
+
+    </div>
   );
 } 
