@@ -97,7 +97,6 @@ export default function ResumeExamplesPage() {
           },
         ];
     
-    // const { lang, t } = useLanguage();
     const { language, direction } = useLanguage();
     const [visibleCount, setVisibleCount] = useState(BATCH_SIZE);
     const [hasMore, setHasMore] = useState(true);
