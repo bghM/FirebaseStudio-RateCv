@@ -27,6 +27,7 @@ import EmailOtpBody from '@/components/ui/NewEmails/EmailOtpBody';
 import EmailHeadName_Logo from '@/components/ui/NewEmails/EmailHeadName_Logo';
 import EmailFooter_Centered from '@/components/ui/NewEmails/EmailFooter_Centered';
 import EmailResetPasswordBody from '@/components/ui/NewEmails/EmailResetPasswordBody';
+import EmailSupportTicketBody from '@/components/ui/NewEmails/EmailSupportTicketBody';
 
 
 // ---------------------------------------------
@@ -102,7 +103,29 @@ import EmailResetPasswordBody from '@/components/ui/NewEmails/EmailResetPassword
 // }
 
 
-export default function ResetPasswordEmail() {
+// export default function ResetPasswordEmail() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#F4F4F4] text-gray-900 font-sans text-center"
+//     >
+//       {/* Header */}
+//       <EmailHeadName_Logo />
+
+//       {/* Body */}
+//       <EmailResetPasswordBody
+//         name="عبدالرحمن"
+//         resetUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
+//       />
+
+//       {/* Footer */}
+//       <EmailFooter_Centered />
+//     </div>
+//   );
+// }
+
+
+export default function SupportTicketEmail() {
   return (
     <div
       dir="rtl"
@@ -112,9 +135,13 @@ export default function ResetPasswordEmail() {
       <EmailHeadName_Logo />
 
       {/* Body */}
-      <EmailResetPasswordBody
+      <EmailSupportTicketBody
         name="عبدالرحمن"
-        resetUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
+        ticketNumber="4525352"
+        ticketType="استفسار"
+        ticketDate="22/05/2025"
+        ticketStatus="مفتوحة"
+        message="مرحباً، حاولت استخدام القالب ولكن القالب صعب الاستخدام والتطبيق ولا استطيع أن اكتب عنواني"
       />
 
       {/* Footer */}
@@ -122,6 +149,8 @@ export default function ResetPasswordEmail() {
     </div>
   );
 }
+
+
 
 
 
