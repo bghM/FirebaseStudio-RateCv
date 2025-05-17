@@ -100,6 +100,7 @@ export function Header({ ctaTitle, ctaLink, ctaOnClick }: HeaderProps) {
               <li><Link href="/cvs" className="text-muted-foreground hover:text-primary transition-colors">CV Template</Link></li>
               <li><Link href="/cv" className="text-muted-foreground hover:text-primary transition-colors">CV Example</Link></li>
               <li><Link href="/resume-examples" className="text-muted-foreground hover:text-primary transition-colors">Resume Example</Link></li>
+              <li><Link href="/emails" className="text-muted-foreground hover:text-primary transition-colors">Emails</Link></li>
 
             </ul>
           </nav>
