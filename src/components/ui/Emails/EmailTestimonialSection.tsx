@@ -1,4 +1,4 @@
-import { UserInfoCard } from '../UserInfoCard';
+import { UserInfoCard } from './UserInfoCard';
 
 export default function EmailTestimonialSection() {
   return (

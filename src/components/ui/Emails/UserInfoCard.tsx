@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-export function UserInfoCard() {
+export default function UserInfoCard() {
   return (
     <div className="flex flex-row-reverse items-center justify-end gap-3 w-full">
 

@@ -17,6 +17,7 @@ import EmailTopHeaderBar from '@/components/ui/Emails/EmailTopHeaderBar';
 import EmailLogo_Name from '@/components/ui/Emails/EmailLogo_Name';
 import EmailMainTitle from '@/components/ui/Emails/EmailMainTitle';
 import EmailSecondaryTitle from '@/components/ui/Emails/EmailSecondaryTitle';
+import UserInfoCard from '@/components/ui/Emails/UserInfoCard';
 
 
 
@@ -596,76 +597,223 @@ import EmailSecondaryTitle from '@/components/ui/Emails/EmailSecondaryTitle';
 // }
 
 
+// export default function WelcomeEmail() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right rounded-b-xl"
+//     >
+//       {/* Logo */}
+//       <div className="mb-6 flex justify-start">
+//         <EmailLogo_Name />
+//       </div>
 
-export default function WelcomeEmail() {
-  return (
-    <div
-      dir="rtl"
-      className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right rounded-b-xl"
-    >
-      {/* Logo */}
-      <div className="mb-6 flex justify-start">
-        <EmailLogo_Name />
-      </div>
+//       {/* Gradient Header */}
+//       <EmailTopHeaderBar />
 
-      {/* Gradient Header */}
-      <EmailTopHeaderBar />
+//       {/* Content Block */}
+//       <div className="bg-white rounded-b-xl p-6 space-y-4">
+//         {/* Main Title */}
+//         <EmailMainTitle>مرحبًا في رحلتك لإنشاء السيرة الذاتية المثلى! ✨</EmailMainTitle>
 
-      {/* Content Block */}
-      <div className="bg-white rounded-b-xl p-6 space-y-4">
-        {/* Main Title */}
-        <EmailMainTitle>مرحبًا في رحلتك لإنشاء السيرة الذاتية المثلى! ✨</EmailMainTitle>
+//         {/* Greeting Message */}
+//         <p>مرحبًا [اسم العميل]،</p>
+//         <p>
+//           نحن متحمسون لانضمامك إلينا! شكرًا لتسجيلك معنا والاقتراب خطوة نحو إنشاء سيرة ذاتية مميزة 🎉
+//         </p>
 
-        {/* Greeting Message */}
-        <p>مرحبًا [اسم العميل]،</p>
-        <p>
-          نحن متحمسون لانضمامك إلينا! شكرًا لتسجيلك معنا والاقتراب خطوة نحو إنشاء سيرة ذاتية مميزة 🎉
-        </p>
+//         {/* Section Title */}
+//         <h2 className="text-lg font-bold mt-6 text-[#121A26]">ابدأ مع سيرة</h2>
 
-        {/* Section Title */}
-        <h2 className="text-lg font-bold mt-6 text-[#121A26]">ابدأ مع سيرة</h2>
+//         {/* Checklist / Intro steps */}
+//         <div className="space-y-3 mb-6">
+//           {[
+//             '📄 ابدأ الآن وأنشئ سيرتك الذاتية الأولى',
+//             '🖥️ قم بتحميل تطبيق "سيرة" لتجربة سلسة',
+//             '🤝 شارك سيرتك الذاتية مع الأصدقاء، وأفراد التوظيف، وأصحاب العمل المحتملين!',
+//           ].map((text, i) => (
+//             <div
+//               key={i}
+//               className="flex items-center gap-2 border border-[#1A56DB] bg-[#F3F7FF] text-[#1F1F1F] py-[14px] px-[21px] rounded-md text-sm"
+//             >
+//               <span>{text}</span>
+//             </div>
+//           ))}
+//         </div>
 
-        {/* Checklist / Intro steps */}
-        <div className="space-y-3 mb-6">
-          {[
-            '📄 ابدأ الآن وأنشئ سيرتك الذاتية الأولى',
-            '🖥️ قم بتحميل تطبيق "سيرة" لتجربة سلسة',
-            '🤝 شارك سيرتك الذاتية مع الأصدقاء، وأفراد التوظيف، وأصحاب العمل المحتملين!',
-          ].map((text, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-2 border border-[#1A56DB] bg-[#F3F7FF] text-[#1F1F1F] py-[14px] px-[21px] rounded-md text-sm"
-            >
-              <span>{text}</span>
-            </div>
-          ))}
-        </div>
+//         {/* Buttons */}
+//         <div className="flex justify-center gap-3 flex-wrap mb-6">
+//           <EmailPrimaryButton className="w-fit px-6">
+//             أنشئ سيرتك الآن!
+//           </EmailPrimaryButton>
+//           <button
+//             className="bg-black text-white rounded-md px-6 py-2 text-sm font-medium"
+//           >
+//             حمل التطبيق
+//           </button>
+//         </div>
 
-        {/* Buttons */}
-        <div className="flex justify-center gap-3 flex-wrap mb-6">
-          <EmailPrimaryButton className="w-fit px-6">
-            أنشئ سيرتك الآن!
-          </EmailPrimaryButton>
-          <button
-            className="bg-black text-white rounded-md px-6 py-2 text-sm font-medium"
-          >
-            حمل التطبيق
-          </button>
-        </div>
+//         {/* Motivational Note */}
+//         <p className="text-sm leading-relaxed text-[#1F1F1F]">
+//           تذكر، السيرة الذاتية الرائعة ليست مجرد قائمة بالإنجازات؛ إنها انعكاس لرؤيتك، وطموحاتك، والعلامة الشخصية.
+//           لذا أطلق العنان لإبداعك ودع قصتك تتألق ✨
+//         </p>
+//         <p className="text-sm">نتمنى لك إنشاء ممتعًا!</p>
 
-        {/* Motivational Note */}
-        <p className="text-sm leading-relaxed text-[#1F1F1F]">
-          تذكر، السيرة الذاتية الرائعة ليست مجرد قائمة بالإنجازات؛ إنها انعكاس لرؤيتك، وطموحاتك، والعلامة الشخصية.
-          لذا أطلق العنان لإبداعك ودع قصتك تتألق ✨
-        </p>
-        <p className="text-sm">نتمنى لك إنشاء ممتعًا!</p>
+//         {/* Sign-off */}
+//         <p className="text-sm mt-2">مع تحيات،<br />فريق سيرة</p>
+//       </div>
 
-        {/* Sign-off */}
-        <p className="text-sm mt-2">مع تحيات،<br />فريق سيرة</p>
-      </div>
+//       {/* Footer */}
+//       <EmailFooter_Horizontal />
+//     </div>
+//   );
+// }
 
-      {/* Footer */}
-      <EmailFooter_Horizontal />
-    </div>
-  );
-}
+
+// export default function CustomerSupportReplyEmail() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right rounded-b-xl"
+//     >
+//       {/* Header logo */}
+//       <div className="mb-6 flex justify-start">
+//         <EmailLogo_Name />
+//       </div>
+
+//       {/* Top gradient bar */}
+//       <EmailTopHeaderBar />
+
+//       {/* Content */}
+//       <div className="bg-white rounded-b-xl p-6 space-y-4">
+//         {/* Main title */}
+//         <EmailMainTitle>
+//           أهلاً [اسم العميل] — حل المشكلة الخاصة بك
+//         </EmailMainTitle>
+
+//         {/* Sender Info (name + role + avatar + time) */}
+//         <UserInfoCard
+//           name="خالد العتيبي"
+//           title="رئيس خدمة عملاء سيرة"
+//           time="20:00 PM, 2/9/2024"
+//           image="/emails/support-avatar.jpg"
+//         />
+
+//         {/* Support message body */}
+//         <div className="bg-[#FAFAFA] border border-[#E6E6E6] p-4 rounded-md text-sm space-y-3 leading-relaxed">
+//           <p><strong>مرحبًا [اسم العميل]،</strong></p>
+//           <p>شكرًا لتواصلك معنا!</p>
+//           <p>
+//             نأسف حقًا لسماع أنك واجهت مشكلة مع قوالب السيرة الذاتية لدينا. نحن ندرك تمامًا مدى أهمية الحصول على تجربة سلسة، خاصة عند العمل على شيء مهم مثل سيرتك الذاتية.
+//           </p>
+//           <p>
+//             لقد راجعت الموضوع، وهما ما وجدت:
+//             <br />
+//             [تقديم معلومات محددة حول المشكلة وحلها.]
+//           </p>
+//           <p>
+//             إذا كانت لديك أي أسئلة أخرى، أو إذا كنت تحتاج إلى المساعدة في أي شيء آخر، فلا تتردد في إعلامنا. نحن هنا دائمًا لمساعدتك.
+//           </p>
+//           <p>
+//             أطيب التمنيات،<br />
+//             خالد العتيبي — رئيس خدمة عملاء سيرة
+//           </p>
+//         </div>
+//       </div>
+
+//       {/* Footer */}
+//       <EmailFooter_Horizontal />
+//     </div>
+//   );
+// }
+
+
+// export default function ResetPasswordEmailRedesign() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right rounded-b-xl"
+//     >
+//       {/* Logo */}
+//       <div className="mb-6 flex justify-start">
+//         <EmailLogo_Name />
+//       </div>
+
+//       {/* Header */}
+//       <EmailTopHeaderBar />
+
+//       {/* Content Block */}
+//       <div className="bg-white rounded-b-xl p-6 space-y-6 text-sm leading-relaxed">
+//         {/* Title */}
+//         <EmailMainTitle>هل طلبت تغيير كلمة المرور؟ 🔐</EmailMainTitle>
+
+//         {/* Paragraphs */}
+//         <p>
+//           مرحبًا [اسم العميل]،<br />
+//           تلقينا طلبًا لتغيير كلمة المرور لحسابك مع [اسم الشركة]. إذا كنت أنت من طلب ذلك، فقط اضغط على الزر أدناه لتعيين كلمة مرور جديدة.
+//         </p>
+
+//         {/* CTA button */}
+//         <div className="text-center">
+//           <EmailPrimaryButton className="w-fit px-6">
+//             إعادة تعيين كلمة المرور
+//           </EmailPrimaryButton>
+//         </div>
+
+//         {/* Additional note */}
+//         <p>
+//           إذا لم تكن قد طلبت هذا التغيير، لا داعي للقلق.
+//         </p>
+//         <p>
+//           كلمة المرور الخاصة بك لا تزال آمنة. تجاهل هذا البريد الإلكتروني، ولكن أخبرنا إذا كان هناك شيء غير معتاد.
+//         </p>
+
+//         {/* Signature */}
+//         <p className="text-sm mt-4">مع تحيات،<br />فريق سيرة</p>
+//       </div>
+
+//       {/* Footer */}
+//       <EmailFooter_Horizontal />
+//     </div>
+//   );
+// }
+
+
+// export default function PasswordChangedSuccessEmail() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right rounded-b-xl"
+//     >
+//       {/* Header logo */}
+//       <div className="mb-6 flex justify-start">
+//         <EmailLogo_Name />
+//       </div>
+
+//       {/* Gradient header */}
+//       <EmailTopHeaderBar />
+
+//       {/* Content */}
+//       <div className="bg-white rounded-b-xl p-6 space-y-4 text-sm leading-relaxed">
+//         {/* Main Title */}
+//         <EmailMainTitle>تم تغيير كلمة المرور بنجاح</EmailMainTitle>
+
+//         {/* Message Body */}
+//         <p>مرحبًا [اسم العميل]،</p>
+//         <p>
+//           تم تغيير كلمة المرور الخاصة بك بنجاح! يمكنك الآن تسجيل الدخول باستخدام بيانات الاعتماد الجديدة الخاصة بك.
+//         </p>
+//         <p>
+//           إذا لم يتم إجراء هذا التغيير من قبلك، يُرجى الاتصال بفريق الدعم لدينا في أسرع وقت ممكن وسنساعدك في ترتيب الأمور.
+//         </p>
+
+//         {/* Sign-off */}
+//         <p>مع تحيات،<br />فريق سيرة</p>
+//       </div>
+
+//       {/* Footer */}
+//       <EmailFooter_Horizontal />
+//     </div>
+//   );
+// }
