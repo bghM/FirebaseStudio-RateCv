@@ -21,10 +21,11 @@ import Link from "next/link";
 
 
 import EmailWelcomeBody from '@/components/ui/NewEmails/EmailWelcomeBody';
-import EmailFooter_Centered from '@/components/ui/NewEmails/EmailFooter_Centered';
 import EmailConfirmationBody from '@/components/ui/NewEmails/EmailConfirmationBody';
+import EmailLogo_Name from '@/components/ui/NewEmails/EmailLogo_Name';
+import EmailOtpBody from '@/components/ui/NewEmails/EmailOtpBody';
 import EmailHeadName_Logo from '@/components/ui/NewEmails/EmailHeadName_Logo';
-import EmailLogo_Name from '@/components/NewEmails/EmailLogo_Name';
+import EmailFooter_Centered from '@/components/ui/NewEmails/EmailFooter_Centered';
 
 
 // ---------------------------------------------
@@ -51,30 +52,51 @@ import EmailLogo_Name from '@/components/NewEmails/EmailLogo_Name';
 // }
 
 
-export default function ConfirmAccountEmail() {
+// export default function ConfirmAccountEmail() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#F4F4F4] text-gray-900 font-sans text-center min-h-screen"
+//     >
+//       {/* Header */}
+//         <EmailHeadName_Logo />
+
+//       {/* Body */}
+//       <main>
+//         <EmailConfirmationBody
+//           name="عبدالرحمن"
+//           confirmationUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
+//         />
+//       </main>
+
+//       {/* Footer */}
+//       <EmailFooter_Centered />
+//     </div>
+//   );
+// }
+
+
+export default function ConfirmOtpEmail() {
   return (
     <div
       dir="rtl"
-      className="bg-[#F4F4F4] text-gray-900 font-sans text-right min-h-screen"
+      className="bg-[#F4F4F4] text-gray-900 font-sans text-center"
     >
       {/* Header */}
-        <EmailHeadName_Logo />
+      <EmailHeadName_Logo />
 
       {/* Body */}
-      <main>
-        <EmailConfirmationBody
-          name="عبدالرحمن"
-          confirmationUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
-        />
-      </main>
+      <EmailOtpBody
+        name="عبدالرحمن"
+        otp="678400"
+        confirmationUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
+      />
 
       {/* Footer */}
       <EmailFooter_Centered />
     </div>
   );
 }
-
-
 
 
 
