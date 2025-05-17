@@ -1,4 +1,3 @@
-import EmailFooterLinks from './EmailFooterLinks'; 
 import EmailFooterSocialIcons from './EmailFooterSocialIcons'; 
 import EmailLogo_Name from './EmailLogo_Name'; 
 
@@ -12,8 +11,9 @@ export default function EmailFooter_Centered() {
       {/* Logo + Name */}
       <EmailLogo_Name />
 
-      {/* Links */}
-      <EmailFooterLinks />
+      <p>
+        تابعنا على مواقع التواصل الاجتماعي
+      </p>
 
       {/* Social Icons */}
       <EmailFooterSocialIcons />

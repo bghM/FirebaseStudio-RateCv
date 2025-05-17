@@ -1,55 +1,78 @@
 import Image from 'next/image';
 import Link from "next/link";
-import ChecklistGrid from '@/components/ui/Emails/ChecklistGrid';
-import EmailTestimonialSection from '@/components/ui/Emails/EmailTestimonialSection';
-import EmailPrimaryButton from '@/components/ui/Emails/EmailPrimaryButton';
-import EmailSecondaryButton from '@/components/ui/Emails/EmailSecondaryButton';
-import EmailImageCard from '@/components/ui/Emails/EmailImageCard';
-import EmailOrderDetailsCard from '@/components/ui/Emails/EmailOrderDetailsCard';
-import EmailTemplatePaymentDetails from '@/components/ui/Emails/EmailTemplatePaymentDetails';
-import EmailLineDivider from '@/components/ui/Emails/EmailLineDivider';
-import EmailPaymentCardDetails from '@/components/ui/Emails/EmailPaymentCardDetails';
-import EmailAppStoreCTA_Horizontal from '@/components/ui/Emails/EmailAppStoreCTA_Horizontal';
-import EmailAppStoreCTA_Vertical from '@/components/ui/Emails/EmailAppStoreCTA_Vertical';
+// import ChecklistGrid from '@/components/ui/Emails/ChecklistGrid';
+// import EmailTestimonialSection from '@/components/ui/Emails/EmailTestimonialSection';
+// import EmailPrimaryButton from '@/components/ui/Emails/EmailPrimaryButton';
+// import EmailSecondaryButton from '@/components/ui/Emails/EmailSecondaryButton';
+// import EmailImageCard from '@/components/ui/Emails/EmailImageCard';
+// import EmailOrderDetailsCard from '@/components/ui/Emails/EmailOrderDetailsCard';
+// import EmailTemplatePaymentDetails from '@/components/ui/Emails/EmailTemplatePaymentDetails';
+// import EmailLineDivider from '@/components/ui/Emails/EmailLineDivider';
+// import EmailPaymentCardDetails from '@/components/ui/Emails/EmailPaymentCardDetails';
+// import EmailAppStoreCTA_Horizontal from '@/components/ui/Emails/EmailAppStoreCTA_Horizontal';
+// import EmailAppStoreCTA_Vertical from '@/components/ui/Emails/EmailAppStoreCTA_Vertical';
 // import EmailFooter_Centered from '@/components/ui/Emails/EmailFooter_Centered';
-import EmailFooter_Horizontal from '@/components/ui/Emails/EmailFooter_Horizontal';
-import EmailTopHeaderBar from '@/components/ui/Emails/EmailTopHeaderBar';
-import EmailLogo_Name from '@/components/ui/Emails/EmailLogo_Name';
-import EmailMainTitle from '@/components/ui/Emails/EmailMainTitle';
-import EmailSecondaryTitle from '@/components/ui/Emails/EmailSecondaryTitle';
-import UserInfoCard from '@/components/ui/Emails/UserInfoCard';
+// import EmailFooter_Horizontal from '@/components/ui/Emails/EmailFooter_Horizontal';
+// import EmailTopHeaderBar from '@/components/ui/Emails/EmailTopHeaderBar';
+// import EmailLogo_Name from '@/components/ui/Emails/EmailLogo_Name';
+// import EmailMainTitle from '@/components/ui/Emails/EmailMainTitle';
+// import EmailSecondaryTitle from '@/components/ui/Emails/EmailSecondaryTitle';
+// import UserInfoCard from '@/components/ui/Emails/UserInfoCard';
 
 
-import EmailHeadName_Logo from '@/components/ui/NewEmails/EmailHeadName_Logo';
 import EmailWelcomeBody from '@/components/ui/NewEmails/EmailWelcomeBody';
 import EmailFooter_Centered from '@/components/ui/NewEmails/EmailFooter_Centered';
-
+import EmailConfirmationBody from '@/components/ui/NewEmails/EmailConfirmationBody';
+import EmailHeadName_Logo from '@/components/ui/NewEmails/EmailHeadName_Logo';
+import EmailLogo_Name from '@/components/NewEmails/EmailLogo_Name';
 
 
 // ---------------------------------------------
 // --------- New Email Designs -----------------
 // ---------------------------------------------
 
-export default function WelcomeNewUserEmail() {
+// export default function WelcomeNewUserEmail() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#F4F4F4] text-gray-900 font-sans text-center"
+//     >
+//       {/* Top banner */}
+//       <EmailHeadName_Logo />
+
+//       {/* Email body */}
+//       <EmailWelcomeBody name="عبدالرحمن" ctaLink="https://seirah.com/create" />
+
+//       {/* Footer */}
+//       <EmailFooter_Centered />
+
+//     </div>
+//   );
+// }
+
+
+export default function ConfirmAccountEmail() {
   return (
     <div
       dir="rtl"
-      className="bg-[#F4F4F4] text-gray-900 font-sans text-center"
+      className="bg-[#F4F4F4] text-gray-900 font-sans text-right min-h-screen"
     >
-      {/* Top banner */}
-      <EmailHeadName_Logo />
+      {/* Header */}
+        <EmailHeadName_Logo />
 
-      {/* Email body */}
-      <EmailWelcomeBody name="عبدالرحمن" ctaLink="https://seirah.com/create" />
+      {/* Body */}
+      <main>
+        <EmailConfirmationBody
+          name="عبدالرحمن"
+          confirmationUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
+        />
+      </main>
 
       {/* Footer */}
       <EmailFooter_Centered />
-
     </div>
   );
 }
-
-
 
 
 

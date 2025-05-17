@@ -5,8 +5,6 @@ export default function EmailHeadName_Logo() {
     return (
         <div className="bg-[#4b68ff] py-6 px-4 text-white flex justify-center">
            <div className="flex items-center gap-2 text-xl font-bold">
-
-            {/* <div className="text-lg font-bold flex justify-center items-center gap-1"> */}
             <Image
             src="/emails/seirah-icon.svg"
             alt="bow icon"
@@ -17,8 +15,8 @@ export default function EmailHeadName_Logo() {
             <span>سيرة</span>
             <span className="text-[#fede00]">•</span>
             
+           </div>
         </div>
-      </div>
 
 )}
 
