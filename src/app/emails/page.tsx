@@ -16,6 +16,7 @@ import EmailFooter_Horizontal from '@/components/ui/Emails/EmailFooter_Horizonta
 import EmailTopHeaderBar from '@/components/ui/Emails/EmailTopHeaderBar';
 import EmailLogo_Name from '@/components/ui/Emails/EmailLogo_Name';
 import EmailMainTitle from '@/components/ui/Emails/EmailMainTitle';
+import EmailSecondaryTitle from '@/components/ui/Emails/EmailSecondaryTitle';
 
 
 
@@ -48,15 +49,8 @@ import EmailMainTitle from '@/components/ui/Emails/EmailMainTitle';
 
 
 //         {/* Secondary Title Section */}  
-//       <div className="w-full px-4 py-2 text-right font-light">
-//         <h2 className="py-1 font-medium text-lg mb-2"
-//         style={{
-//             fontFamily: 'Inter, sans-serif',
-//             fontSize: 16,
-//             lineHeight: '150%',
-//             color: '#121A26',
-//           }}>مثال العنوان الفرعي</h2>
-//       </div>
+//      <EmailSecondaryTitle>مثال العنوان الفرعي  </EmailSecondaryTitle>
+
 
 //         {/* Body Section */}
 //         <div className="w-full px-4 py-2 text-right font-light text-gray-500"
@@ -285,7 +279,6 @@ import EmailMainTitle from '@/components/ui/Emails/EmailMainTitle';
 // }
 
 
-
 // export default function EmailNewTemplateNotification() {
 //   return (
 //     <div
@@ -365,4 +358,314 @@ import EmailMainTitle from '@/components/ui/Emails/EmailMainTitle';
 // }
 
 
+// export default function EmailLimitedOffer() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right rounded-b-xl"
+//     >
+//       {/* Header */}
+//       <div className="mb-6 flex justify-start">
+//         <EmailLogo_Name />
+//       </div>
+//       <EmailTopHeaderBar />
 
+//       {/* Content */}
+//       <div className="bg-white rounded-b-xl p-6 space-y-4">
+//         {/* Main Title */}
+//         <EmailMainTitle>
+//           عرض محدود: اكتشف قوالب السيرة الذاتية! 🚀
+//         </EmailMainTitle>
+
+//         {/* Subtitle */}
+//         <EmailSecondaryTitle> أخبار مثيرة! 15٪ خصم حصري على جميع القوالب </EmailSecondaryTitle>
+
+
+//         {/* Message */}
+//         <p>مرحبًا [اسم العميل]،</p>
+//         <p>
+//           لفترة محدودة، استمتع بخصم حصري قدره 15٪ على قوالبنا الجديدة. لا تفوت هذه الفرصة لتجديد سيرتك الذاتية بتصميم حديث ومؤثر! 💼
+//         </p>
+
+//         {/* CTA Button */}
+//         <div className="text-center mt-6">
+//           <EmailPrimaryButton className="w-fit px-6">
+//             استكشف العرض الآن!
+//           </EmailPrimaryButton>
+//         </div>
+
+//         {/* Warning Text */}
+//         <p className="text-sm mt-4">لا تفوت الفرصة؛ هذا العرض متاح لفترة محدودة فقط.</p>
+
+//         {/* Sign-off */}
+//         <p className="text-sm mt-2">مع تحيات،<br />فريق سيرة</p>
+//       </div>
+
+//       {/* Footer */}
+//       <EmailFooter_Horizontal />
+//     </div>
+//   );
+// }
+
+
+// export default function AnnualOfferEmail() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right rounded-b-xl"
+//     >
+//       {/* Header */}
+//       <div className="mb-6 flex justify-start">
+//         <EmailLogo_Name />
+//       </div>
+//       <EmailTopHeaderBar />
+
+//       {/* Content */}
+//       <div className="bg-white rounded-b-xl p-6 space-y-4">
+//         {/* Main Title */}
+//         <EmailMainTitle>
+//           عرض محدود على باقة الاشتراك السنوي! 🚀
+//         </EmailMainTitle>
+
+//         {/* Secondary Title */}
+//         <EmailSecondaryTitle>
+//           أخبار مثيرة! 15٪ خصم حصري على جميع القوالب
+//         </EmailSecondaryTitle>
+
+//         {/* Paragraphs */}
+//         <p>مرحبًا [اسم العميل]،</p>
+//         <p>
+//           لفترة محدودة فقط، نقدم خصمًا لا يقاوم على باقتنا السنوية. صدقنا؛ سترغب حقًا في الاستفادة من هذا العرض!
+//         </p>
+
+//         {/* Features List */}
+//         <h2 className="font-bold text-[#121A26] mt-6">إليك ما ستحصل عليه:</h2>
+
+//         <div className="space-y-3 mb-6">
+//           {[
+//             'يمكنك إنشاء حتى 5 سير ذاتية لحسابك',
+//             'استخدام كل القوالب المدفوعة الحالية والمستقبلية مجانًا',
+//             'طباعة السيرة PDF حتى لو لم تُكمل سيرتك 60%',
+//             'إمكانية تغيير رابط سيرتك لاسم سهل وقصير لسهولة حفظه ومشاركته',
+//             'قريبًا: يمكنك إضافة 5 رغبات وظيفية لزيادة فرصك في التوظيف',
+//             'قريبًا: إنشاء أقسام مخصصة لسيرتك مثل المؤتمرات والعضويات والأعمال التطوعية وغيرها',
+//           ].map((text, i) => (
+//             <div
+//               key={i}
+//               className="flex items-center gap-2 border border-[#1A56DB] bg-[#F3F7FF] text-[#1F1F1F] py-[14px] px-[21px] rounded-md text-sm"
+//             >
+//               <span className="text-green-600">✅</span>
+//               <span>{text}</span>
+//             </div>
+//           ))}
+//         </div>
+
+//         {/* CTA Button */}
+//         <div className="text-center">
+//           <EmailPrimaryButton className="w-fit px-6">
+//             استكشف العرض الآن!
+//           </EmailPrimaryButton>
+//         </div>
+
+//         {/* Ending Text */}
+//         <p className="text-sm mt-4">لا تفوت الفرصة؛ هذا العرض متاح لفترة محدودة فقط.</p>
+//         <p className="text-sm mt-2">مع تحيات،<br />فريق سيرة</p>
+//       </div>
+
+//       {/* Footer */}
+//       <EmailFooter_Horizontal />
+//     </div>
+//   );
+// }
+
+
+// export default function ResumeCompletionReminderEmail() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right rounded-b-xl"
+//     >
+//       {/* Logo */}
+//       <div className="mb-6 flex justify-start">
+//         <EmailLogo_Name />
+//       </div>
+
+//       {/* Header bar */}
+//       <EmailTopHeaderBar />
+
+//       {/* Content */}
+//       <div className="bg-white rounded-b-xl p-6 space-y-4">
+//         {/* Main Title */}
+//         <EmailMainTitle>
+//           سيرتك الذاتية على وشك الاكتمال! ✨
+//         </EmailMainTitle>
+
+//         {/* Message */}
+//         <p>مرحبًا [اسم العميل]،</p>
+//         <p>
+//           لاحظنا أنك قد أحرزت تقدمًا رائعًا في كتابة سيرتك الذاتية باستخدام قوالبنا، لكنك لم تكملها بالكامل بعد.
+//           ندعوك لإنهاء هذه المهمة! 🏁
+//         </p>
+//         <p>
+//           تذكر، كل قسم في سيرتك الذاتية مهم. قم بملء الفراغات وتأكد من تقديم أفضل نسخة عن نفسك للموظفين المحتملين.
+//         </p>
+
+//         {/* CTA Button */}
+//         <div className="text-center mt-6">
+//           <EmailPrimaryButton className="w-fit px-6">
+//             أكمل سيرتك
+//           </EmailPrimaryButton>
+//         </div>
+
+//         {/* Help message */}
+//         <p className="text-sm mt-4">
+//           إذا كان لديك أي أسئلة أو تحتاج إلى المساعدة، فلا تتردد في الاتصال بنا.
+//           نحن هنا من أجلك!
+//         </p>
+
+//         {/* Sign-off */}
+//         <p className="text-sm mt-2">مع تحيات،<br />فريق سيرة</p>
+//       </div>
+
+//       {/* Footer */}
+//       <EmailFooter_Horizontal />
+//     </div>
+//   );
+// }
+
+
+// export default function TemplatePurchaseConfirmationEmail() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right rounded-b-xl"
+//     >
+//       {/* Logo */}
+//       <div className="mb-6 flex justify-start">
+//         <EmailLogo_Name />
+//       </div>
+
+//       {/* Header */}
+//       <EmailTopHeaderBar />
+
+//       {/* Content */}
+//       <div className="bg-white rounded-b-xl p-6 space-y-4">
+//         {/* Title */}
+//         <EmailMainTitle>شكرًا لاختيارك قوالب السيرة الذاتية لدينا! 🧾</EmailMainTitle>
+
+//         {/* Welcome Message */}
+//         <p>مرحبًا [اسم العميل]،</p>
+//         <p>أولاً وقبل كل شيء، شكرًا لاختيارك سيرة! نحن متحمسون للغاية لوجودك معنا.</p>
+//         <p>إليك تفاصيل الشراء الخاصة بك:</p>
+
+//         {/* Order Details */}
+//         <EmailOrderDetailsCard />
+
+//         <EmailLineDivider />
+
+//         {/* Template + Pricing */}
+//         <EmailTemplatePaymentDetails />
+
+//         <EmailLineDivider />
+
+//         {/* Payment Method */}
+//         <EmailPaymentCardDetails />
+
+//         {/* CTA Button */}
+//         <div className="text-center mt-4">
+//           <EmailPrimaryButton className="w-fit px-6">أكمل سيرتك</EmailPrimaryButton>
+//         </div>
+
+//         {/* Help Message */}
+//         <p className="text-sm mt-4">
+//           إذا كانت لديك أي أسئلة أو تحتاج إلى أي مساعدة، لا تتردد في التواصل مع فريق الدعم الودود لدينا على
+//           <a href="mailto:info@seirah.com" className="text-blue-600 font-medium mx-1">
+//             info@seirah.com
+//           </a>
+//           — نحن هنا من أجلك!
+//         </p>
+
+//         {/* Sign off */}
+//         <p className="text-sm mt-2">مع تحيات،<br />فريق سيرة</p>
+//       </div>
+
+//       {/* Footer */}
+//       <EmailFooter_Horizontal />
+//     </div>
+//   );
+// }
+
+
+
+export default function WelcomeEmail() {
+  return (
+    <div
+      dir="rtl"
+      className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right rounded-b-xl"
+    >
+      {/* Logo */}
+      <div className="mb-6 flex justify-start">
+        <EmailLogo_Name />
+      </div>
+
+      {/* Gradient Header */}
+      <EmailTopHeaderBar />
+
+      {/* Content Block */}
+      <div className="bg-white rounded-b-xl p-6 space-y-4">
+        {/* Main Title */}
+        <EmailMainTitle>مرحبًا في رحلتك لإنشاء السيرة الذاتية المثلى! ✨</EmailMainTitle>
+
+        {/* Greeting Message */}
+        <p>مرحبًا [اسم العميل]،</p>
+        <p>
+          نحن متحمسون لانضمامك إلينا! شكرًا لتسجيلك معنا والاقتراب خطوة نحو إنشاء سيرة ذاتية مميزة 🎉
+        </p>
+
+        {/* Section Title */}
+        <h2 className="text-lg font-bold mt-6 text-[#121A26]">ابدأ مع سيرة</h2>
+
+        {/* Checklist / Intro steps */}
+        <div className="space-y-3 mb-6">
+          {[
+            '📄 ابدأ الآن وأنشئ سيرتك الذاتية الأولى',
+            '🖥️ قم بتحميل تطبيق "سيرة" لتجربة سلسة',
+            '🤝 شارك سيرتك الذاتية مع الأصدقاء، وأفراد التوظيف، وأصحاب العمل المحتملين!',
+          ].map((text, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-2 border border-[#1A56DB] bg-[#F3F7FF] text-[#1F1F1F] py-[14px] px-[21px] rounded-md text-sm"
+            >
+              <span>{text}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Buttons */}
+        <div className="flex justify-center gap-3 flex-wrap mb-6">
+          <EmailPrimaryButton className="w-fit px-6">
+            أنشئ سيرتك الآن!
+          </EmailPrimaryButton>
+          <button
+            className="bg-black text-white rounded-md px-6 py-2 text-sm font-medium"
+          >
+            حمل التطبيق
+          </button>
+        </div>
+
+        {/* Motivational Note */}
+        <p className="text-sm leading-relaxed text-[#1F1F1F]">
+          تذكر، السيرة الذاتية الرائعة ليست مجرد قائمة بالإنجازات؛ إنها انعكاس لرؤيتك، وطموحاتك، والعلامة الشخصية.
+          لذا أطلق العنان لإبداعك ودع قصتك تتألق ✨
+        </p>
+        <p className="text-sm">نتمنى لك إنشاء ممتعًا!</p>
+
+        {/* Sign-off */}
+        <p className="text-sm mt-2">مع تحيات،<br />فريق سيرة</p>
+      </div>
+
+      {/* Footer */}
+      <EmailFooter_Horizontal />
+    </div>
+  );
+}
