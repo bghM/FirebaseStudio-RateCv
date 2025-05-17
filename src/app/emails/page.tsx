@@ -35,132 +35,37 @@ import EmailPurchaseSummaryBody from '@/components/ui/NewEmails/EmailPurchaseSum
 // --------- New Email Designs -----------------
 // ---------------------------------------------
 
-// --------- التسجيل الجديد -----------------
-// export default function WelcomeNewUserEmail() {
-//   return (
-//     <div
-//       dir="rtl"
-//       className="bg-[#F4F4F4] text-gray-900 font-sans text-center"
-//     >
-//       {/* Top banner */}
-//       <EmailHeadName_Logo />
 
-//       {/* Email body */}
-//       <EmailWelcomeBody name="عبدالرحمن" ctaLink="https://seirah.com/create" />
-
-//       {/* Footer */}
-//       <EmailFooter_Centered />
-
-//     </div>
-//   );
-// }
-
-
-// --------- التوثيق للإيميل -----------------
-// export default function ConfirmAccountEmail() {
-//   return (
-//     <div
-//       dir="rtl"
-//       className="bg-[#F4F4F4] text-gray-900 font-sans text-center min-h-screen"
-//     >
-//       {/* Header */}
-//         <EmailHeadName_Logo />
-
-//       {/* Body */}
-//       <main>
-//         <EmailConfirmationBody
-//           name="عبدالرحمن"
-//           confirmationUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
-//         />
-//       </main>
-
-//       {/* Footer */}
-//       <EmailFooter_Centered />
-//     </div>
-//   );
-// }
-
-// export default function ConfirmOtpEmail() {
-//   return (
-//     <div
-//       dir="rtl"
-//       className="bg-[#F4F4F4] text-gray-900 font-sans text-center min-h-screen"
-//     >
-//       {/* Header */}
-//       <EmailHeadName_Logo />
-
-//       {/* Body */}
-//       <main>
-//         <EmailOtpBody
-//           name="عبدالرحمن"
-//           otp="678400"
-//           confirmationUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
-//         />
-//       </main>
-
-//       {/* Footer */}
-//       <EmailFooter_Centered />
-//     </div>
-//   );
-// }
-
-
-// --------- إعادة كلمة المرور ---------------
-// export default function ResetPasswordEmail() {
-//   return (
-//     <div
-//       dir="rtl"
-//       className="bg-[#F4F4F4] text-gray-900 font-sans text-center"
-//     >
-//       {/* Header */}
-//       <EmailHeadName_Logo />
-
-//       {/* Body */}
-//       <EmailResetPasswordBody
-//         name="عبدالرحمن"
-//         resetUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
-//       />
-
-//       {/* Footer */}
-//       <EmailFooter_Centered />
-//     </div>
-//   );
-// }
-
-
-// --------- تذكرة جديدة ---------------------
-// export default function SupportTicketEmail() {
-//   return (
-//     <div
-//       dir="rtl"
-//       className="bg-[#F4F4F4] text-gray-900 font-sans text-center"
-//     >
-//       {/* Header */}
-//       <EmailHeadName_Logo />
-
-//       {/* Body */}
-//       <EmailSupportTicketBody
-//         name="عبدالرحمن"
-//         ticketNumber="4525352"
-//         ticketType="استفسار"
-//         ticketDate="22/05/2025"
-//         ticketStatus="مفتوحة"
-//         message="مرحباً، حاولت استخدام القالب ولكن القالب صعب الاستخدام والتطبيق ولا استطيع أن اكتب عنواني"
-//       />
-
-//       {/* Footer */}
-//       <EmailFooter_Centered />
-//     </div>
-//   );
-// }
-
-
-export default function TicketReplyNotificationEmail() {
+export default function EmailTemplate() {
   return (
     <div dir="rtl" className="bg-[#F4F4F4] text-gray-900 font-sans text-center">
       {/* Header */}
       <EmailHeadName_Logo />
 
+{/* --------- التسجيل الجديد ----------------- */}
+      {/* <EmailWelcomeBody name="عبدالرحمن" ctaLink="https://seirah.com/create" /> */}
+
+
+{/* --------- التوثيق للإيميل ----------------- */}
+      {/* <EmailConfirmationBody
+        name="عبدالرحمن"
+        confirmationUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
+      /> */}
+
+
+{/* --------- OTP التوثيق للإيميل ----------------- */}
+      {/* <EmailOtpBody
+        name="عبدالرحمن"
+        otp="678400"
+        confirmationUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
+      /> */}
+
+
+{/* --------- إعادة كلمة المرور --------------- */}
+      {/* <EmailResetPasswordBody
+        name="عبدالرحمن"
+        resetUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
+      /> */}
 
 
 {/* --------- تذكرة جديدة --------------------- */}
@@ -207,8 +112,6 @@ export default function TicketReplyNotificationEmail() {
         cardBrand="mastercard"
         isSubscription={false}
       /> */}
-
-
 
 
       {/* Footer */}
