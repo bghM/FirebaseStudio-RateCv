@@ -11,7 +11,7 @@ export default function EmailLogo_Name() {
           className="w-10 h-10"
         />
         <span>سيرة</span>
-        <span className="text-yellow-500">•</span>
+        <span className="text-[#fede00]">•</span>
         
       </div>
 

@@ -28,12 +28,14 @@ import EmailHeadName_Logo from '@/components/ui/NewEmails/EmailHeadName_Logo';
 import EmailFooter_Centered from '@/components/ui/NewEmails/EmailFooter_Centered';
 import EmailResetPasswordBody from '@/components/ui/NewEmails/EmailResetPasswordBody';
 import EmailSupportTicketBody from '@/components/ui/NewEmails/EmailSupportTicketBody';
-
+import EmailTicketReplyNotificationBody from '@/components/ui/NewEmails/EmailTicketReplyNotificationBody';
+import EmailPurchaseSummaryBody from '@/components/ui/NewEmails/EmailPurchaseSummaryBody';
 
 // ---------------------------------------------
 // --------- New Email Designs -----------------
 // ---------------------------------------------
 
+// --------- التسجيل الجديد -----------------
 // export default function WelcomeNewUserEmail() {
 //   return (
 //     <div
@@ -54,6 +56,7 @@ import EmailSupportTicketBody from '@/components/ui/NewEmails/EmailSupportTicket
 // }
 
 
+// --------- التوثيق للإيميل -----------------
 // export default function ConfirmAccountEmail() {
 //   return (
 //     <div
@@ -76,7 +79,6 @@ import EmailSupportTicketBody from '@/components/ui/NewEmails/EmailSupportTicket
 //     </div>
 //   );
 // }
-
 
 // export default function ConfirmOtpEmail() {
 //   return (
@@ -103,6 +105,7 @@ import EmailSupportTicketBody from '@/components/ui/NewEmails/EmailSupportTicket
 // }
 
 
+// --------- إعادة كلمة المرور ---------------
 // export default function ResetPasswordEmail() {
 //   return (
 //     <div
@@ -125,30 +128,96 @@ import EmailSupportTicketBody from '@/components/ui/NewEmails/EmailSupportTicket
 // }
 
 
-export default function SupportTicketEmail() {
+// --------- تذكرة جديدة ---------------------
+// export default function SupportTicketEmail() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#F4F4F4] text-gray-900 font-sans text-center"
+//     >
+//       {/* Header */}
+//       <EmailHeadName_Logo />
+
+//       {/* Body */}
+//       <EmailSupportTicketBody
+//         name="عبدالرحمن"
+//         ticketNumber="4525352"
+//         ticketType="استفسار"
+//         ticketDate="22/05/2025"
+//         ticketStatus="مفتوحة"
+//         message="مرحباً، حاولت استخدام القالب ولكن القالب صعب الاستخدام والتطبيق ولا استطيع أن اكتب عنواني"
+//       />
+
+//       {/* Footer */}
+//       <EmailFooter_Centered />
+//     </div>
+//   );
+// }
+
+
+export default function TicketReplyNotificationEmail() {
   return (
-    <div
-      dir="rtl"
-      className="bg-[#F4F4F4] text-gray-900 font-sans text-center"
-    >
+    <div dir="rtl" className="bg-[#F4F4F4] text-gray-900 font-sans text-center">
       {/* Header */}
       <EmailHeadName_Logo />
 
-      {/* Body */}
-      <EmailSupportTicketBody
+
+
+{/* --------- تذكرة جديدة --------------------- */}
+      {/* <EmailSupportTicketBody
         name="عبدالرحمن"
         ticketNumber="4525352"
         ticketType="استفسار"
         ticketDate="22/05/2025"
         ticketStatus="مفتوحة"
         message="مرحباً، حاولت استخدام القالب ولكن القالب صعب الاستخدام والتطبيق ولا استطيع أن اكتب عنواني"
-      />
+      /> */}
+
+
+ {/* --------- تم الرد/الاغلاق --------------------- */}
+      {/* <EmailTicketReplyNotificationBody
+        name="عبدالرحمن"
+        ticketNumber="4525352"
+        ticketType="استفسار"
+        lastUpdated="23/05/2025"
+        ticketStatus="مفتوحة"
+        ticketStatusColor="green"
+        ticketUrl="https://seirah.com/support/tickets/4525352"
+        headingText="مرحباً"
+        introText="حابين نعلمك إننا أغلقنا تذكرتك، نأمل إن مشكلتك انحلت وكل الأمور تمام."
+        buttonIntro="تابع تذكرتك السابقة أو افتح تذكرة جديدة من هنا:"
+        buttonText="عرض التذكرة"
+        finalNote="إذا احتجت أي مساعدة إضافية أو رجعت لك نفس المشكلة، لا تتردد تفتح تذكرة جديدة في أي وقت."
+      /> */}
+
+ {/* --------- تأكيد شراء قالب/اشتراك--------------------- */}
+      {/* <EmailPurchaseSummaryBody
+        name="عبدالرحمن"
+        orderNumber="3230"
+        orderStatus="مؤكد"
+        orderDate="22/05/2025"
+        product={{
+          name: 'اشتراك باقة برايم السنوية',
+          price: '230 ر.س',
+          thumbnail: '/emails/template_thumbnail.png', // optional if you ever want to override default
+        }}
+        discountAmount="0 ر.س"
+        totalAmount="230 ر.س"
+        cardDetails="9420"
+        cardBrand="mastercard"
+        isSubscription={false}
+      /> */}
+
+
+
 
       {/* Footer */}
       <EmailFooter_Centered />
     </div>
   );
 }
+
+
 
 
 
