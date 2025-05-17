@@ -15,6 +15,7 @@ import EmailFooter_Centered from '@/components/ui/Emails/EmailFooter_Centered';
 import EmailFooter_Horizontal from '@/components/ui/Emails/EmailFooter_Horizontal';
 import EmailTopHeaderBar from '@/components/ui/Emails/EmailTopHeaderBar';
 import EmailLogo_Name from '@/components/ui/Emails/EmailLogo_Name';
+import EmailMainTitle from '@/components/ui/Emails/EmailMainTitle';
 
 
 
@@ -43,20 +44,8 @@ import EmailLogo_Name from '@/components/ui/Emails/EmailLogo_Name';
 
 
 //       {/* Main Title Section */}
-//       <div
-//       className="w-full px-4 py-2 text-right" > 
-//       <h1
-//         className="py-1 font-bold text-2xl	mb-2"
-//         style={{
-//           fontFamily: 'Inter, sans-serif',
-//           fontSize: 24,
-//           lineHeight: '140%',
-//           color: '#121A26',
-//         }}
-//       >
-//         مثال العنوان الرئيسي
-//       </h1>
-//       </div>
+//      <EmailMainTitle>مثال العنوان الرئيسي </EmailMainTitle>
+
 
 //         {/* Secondary Title Section */}  
 //       <div className="w-full px-4 py-2 text-right font-light">
@@ -231,62 +220,149 @@ import EmailLogo_Name from '@/components/ui/Emails/EmailLogo_Name';
 // }
 
 
-export default function OtpEmailTemplate() {
-  return (
-    <div className="bg-white p-4">
-      <div dir="rtl" 
-      className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right">     
+
+
+
+
+// export default function OtpEmailTemplate() {
+//   return (
+//     <div className="bg-white p-4">
+//       <div dir="rtl" 
+//       className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right">     
         
         
-        {/* Top Logo */}
-        <div className="mb-8 flex justify-start">
-          <EmailLogo_Name />
-        </div>
+//         {/* Top Logo */}
+//         <div className="mb-8 flex justify-start">
+//           <EmailLogo_Name />
+//         </div>
 
-        {/* Gradient Header */}
-        <EmailTopHeaderBar />
+//         {/* Gradient Header */}
+//         <EmailTopHeaderBar />
 
-        {/* Email Content Block */}
-        <div className="bg-white p-6 mt-[-10px] space-y-4 text-right">
-          {/* Title */}
-          <h1 className="font-bold text-xl text-[#1F1F1F]">
-            كلمة المرور المؤقتة الخاصة بك (OTP) لسيرة
-          </h1>
+//         {/* Email Content Block */}
+//         <div className="bg-white p-6 mt-[-10px] space-y-4 text-right">
+//           {/* Title */}
+//           <h1 className="font-bold text-xl text-[#1F1F1F]">
+//             كلمة المرور المؤقتة الخاصة بك (OTP) لسيرة
+//           </h1>
 
-          {/* Intro Text */}
-          <p>مرحبًا [اسم العميل]،</p>
-          <p>
-            شكرًا لك على التسجيل في سيرة! نحن متحمسون لوجودك معنا.
-          </p>
-          <p>
-            لإتمام عملية التسجيل وضمان أمان حسابك، يُرجى إدخال كلمة المرور المؤقتة (OTP) الموجودة أدناه:
-          </p>
-        </div>
+//           {/* Intro Text */}
+//           <p>مرحبًا [اسم العميل]،</p>
+//           <p>
+//             شكرًا لك على التسجيل في سيرة! نحن متحمسون لوجودك معنا.
+//           </p>
+//           <p>
+//             لإتمام عملية التسجيل وضمان أمان حسابك، يُرجى إدخال كلمة المرور المؤقتة (OTP) الموجودة أدناه:
+//           </p>
+//         </div>
 
 
           
-          {/* OTP Code */}
-        <div className="bg-white p-6 mt-[-10px] space-y-4 text-center">
+//           {/* OTP Code */}
+//         <div className="bg-white p-6 mt-[-10px] space-y-4 text-center">
 
-        <div className="text-2xl font-bold tracking-[4px]">2390</div>
+//         <div className="text-2xl font-bold tracking-[4px]">2390</div>
 
-          {/* Copy Button */}
-          <EmailPrimaryButton className="mx-auto w-fit px-6">انسخ كلمة المرور</EmailPrimaryButton>
+//           {/* Copy Button */}
+//           <EmailPrimaryButton className="mx-auto w-fit px-6">انسخ كلمة المرور</EmailPrimaryButton>
 
-        </div>
+//         </div>
 
-          {/* Validity Notice */}
-        <div className="bg-white rounded-b-xl p-6 mt-[-10px] space-y-4 text-right">
+//           {/* Validity Notice */}
+//         <div className="bg-white rounded-b-xl p-6 mt-[-10px] space-y-4 text-right">
 
-          <p>كلمة المرور المؤقتة هذه صالحة لمدة <strong>60</strong> دقيقة.</p>
+//           <p>كلمة المرور المؤقتة هذه صالحة لمدة <strong>60</strong> دقيقة.</p>
 
-          {/* Signoff */}
-          <p className="mt-2">مع تحيات،<br />فريق سيرة</p>
-        </div>
+//           {/* Signoff */}
+//           <p className="mt-2">مع تحيات،<br />فريق سيرة</p>
+//         </div>
 
-        {/* Footer */}
-        <EmailFooter_Horizontal />
-      </div>
-    </div>
-  )
-}
+//         {/* Footer */}
+//         <EmailFooter_Horizontal />
+//       </div>
+//     </div>
+//   )
+// }
+
+
+
+// export default function EmailNewTemplateNotification() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#FBFAFC] text-gray-900 font-sans px-4 md:px-8 py-8 max-w-2xl mx-auto text-right rounded-b-xl"
+//     >
+//       {/* Header */}
+//       <div className="mb-6 flex justify-start">
+//         <EmailLogo_Name />
+//       </div>
+
+//       <EmailTopHeaderBar />
+
+//       {/* Card preview image */}
+//       <div className="bg-white p-6 pt-8 rounded-b-xl">
+//       <img
+//         src="/emails/new-template-preview.png"
+//         alt="معاينة السيرة الذاتية الجديدة"
+//         className="w-full h-[220px] object-cover rounded-xl mb-6"
+//         style={{
+//           transform: 'rotate(+4.35deg)',
+//         }}
+//       />
+
+//         {/* Title */}
+//         <EmailMainTitle>  قوالب سيرة ذاتية جديدة خصيصًا لك! </EmailMainTitle>
+
+
+//         {/* Intro */}
+//         <p className="mb-2">مرحبًا [اسم العميل]،</p>
+//         <p className="mb-2">
+//           نحن متحمسون لمشاركتك قوالب السيرة الذاتية التي أعدت حديثًا!
+//         </p>
+//         <p className="mb-4">
+//           سواء كنت تطمح إلى التميز في سوق العمل المتنافس أو ترغب فقط في تجديد سيرتك الذاتية، نعتقد أن تصاميمنا الجديدة ستكون الخيار المثالي لك.
+//         </p>
+
+//         {/* Divider */}
+//         <EmailLineDivider />
+
+//         {/* Section: What’s New */}
+//         <h2 className="text-lg font-bold mb-4">✨ ما الجديد؟</h2>
+//         <div className="space-y-3 mb-6">
+//           {[
+//             'تصميمات عصرية وأنيقة',
+//             'قراءة أسهل وأوضح',
+//             'متوافقة مع مختلف الصناعات',
+//           ].map((text, i) => (
+//             <div
+//               key={i}
+//               className="flex items-center gap-2 border border-[#1A56DB] bg-[#F3F7FF] text-[#1F1F1F] py-[14px] px-[21px] rounded-md text-sm"
+//             >
+//               <span className="text-green-600">✅</span>
+//               <span>{text}</span>
+//             </div>
+//           ))}
+//         </div>
+
+//         {/* Highlight Text */}
+//         <p className="text-sm mb-6">لا تفوت فرصة إبداء انطباع دائم.</p>
+
+//         {/* CTA Button */}
+//         <div className="text-center">
+//           <EmailPrimaryButton className="w-fit px-6">
+//             استكشف القوالب الجديدة الآن!
+//           </EmailPrimaryButton>
+//         </div>
+
+//         {/* Sign off */}
+//         <p className="mt-6 text-sm">مع تحيات،<br />فريق سيرة</p>
+//       </div>
+
+//       {/* Footer */}
+//       <EmailFooter_Horizontal />
+//     </div>
+//   );
+// }
+
+
+
