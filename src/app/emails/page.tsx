@@ -11,7 +11,7 @@ import EmailLineDivider from '@/components/ui/Emails/EmailLineDivider';
 import EmailPaymentCardDetails from '@/components/ui/Emails/EmailPaymentCardDetails';
 import EmailAppStoreCTA_Horizontal from '@/components/ui/Emails/EmailAppStoreCTA_Horizontal';
 import EmailAppStoreCTA_Vertical from '@/components/ui/Emails/EmailAppStoreCTA_Vertical';
-import EmailFooter_Centered from '@/components/ui/Emails/EmailFooter_Centered';
+// import EmailFooter_Centered from '@/components/ui/Emails/EmailFooter_Centered';
 import EmailFooter_Horizontal from '@/components/ui/Emails/EmailFooter_Horizontal';
 import EmailTopHeaderBar from '@/components/ui/Emails/EmailTopHeaderBar';
 import EmailLogo_Name from '@/components/ui/Emails/EmailLogo_Name';
@@ -20,6 +20,47 @@ import EmailSecondaryTitle from '@/components/ui/Emails/EmailSecondaryTitle';
 import UserInfoCard from '@/components/ui/Emails/UserInfoCard';
 
 
+import EmailHeadName_Logo from '@/components/ui/NewEmails/EmailHeadName_Logo';
+import EmailWelcomeBody from '@/components/ui/NewEmails/EmailWelcomeBody';
+import EmailFooter_Centered from '@/components/ui/NewEmails/EmailFooter_Centered';
+
+
+
+// ---------------------------------------------
+// --------- New Email Designs -----------------
+// ---------------------------------------------
+
+export default function WelcomeNewUserEmail() {
+  return (
+    <div
+      dir="rtl"
+      className="bg-[#F4F4F4] text-gray-900 font-sans text-center"
+    >
+      {/* Top banner */}
+      <EmailHeadName_Logo />
+
+      {/* Email body */}
+      <EmailWelcomeBody name="عبدالرحمن" ctaLink="https://seirah.com/create" />
+
+      {/* Footer */}
+      <EmailFooter_Centered />
+
+    </div>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+// ---------------------------------------------
+// --------- Old Email Designs -----------------
+// ---------------------------------------------
 
 
 // export default function SampleMail() {
@@ -817,3 +858,5 @@ import UserInfoCard from '@/components/ui/Emails/UserInfoCard';
 //     </div>
 //   );
 // }
+
+
