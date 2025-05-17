@@ -26,6 +26,7 @@ import EmailLogo_Name from '@/components/ui/NewEmails/EmailLogo_Name';
 import EmailOtpBody from '@/components/ui/NewEmails/EmailOtpBody';
 import EmailHeadName_Logo from '@/components/ui/NewEmails/EmailHeadName_Logo';
 import EmailFooter_Centered from '@/components/ui/NewEmails/EmailFooter_Centered';
+import EmailResetPasswordBody from '@/components/ui/NewEmails/EmailResetPasswordBody';
 
 
 // ---------------------------------------------
@@ -76,7 +77,32 @@ import EmailFooter_Centered from '@/components/ui/NewEmails/EmailFooter_Centered
 // }
 
 
-export default function ConfirmOtpEmail() {
+// export default function ConfirmOtpEmail() {
+//   return (
+//     <div
+//       dir="rtl"
+//       className="bg-[#F4F4F4] text-gray-900 font-sans text-center min-h-screen"
+//     >
+//       {/* Header */}
+//       <EmailHeadName_Logo />
+
+//       {/* Body */}
+//       <main>
+//         <EmailOtpBody
+//           name="عبدالرحمن"
+//           otp="678400"
+//           confirmationUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
+//         />
+//       </main>
+
+//       {/* Footer */}
+//       <EmailFooter_Centered />
+//     </div>
+//   );
+// }
+
+
+export default function ResetPasswordEmail() {
   return (
     <div
       dir="rtl"
@@ -86,10 +112,9 @@ export default function ConfirmOtpEmail() {
       <EmailHeadName_Logo />
 
       {/* Body */}
-      <EmailOtpBody
+      <EmailResetPasswordBody
         name="عبدالرحمن"
-        otp="678400"
-        confirmationUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
+        resetUrl="https://oktob.io/verifyuser/khaled9478?93812kh9023888530-249/klsfj902100214192489785535gdg"
       />
 
       {/* Footer */}
